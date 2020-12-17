@@ -4,4 +4,10 @@ class StaticPagesController < ApplicationController
 
   def support
   end
+  
+  def about
+  end
+  
+  def blog
+  end
 end
