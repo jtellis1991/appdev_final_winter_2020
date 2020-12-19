@@ -1,11 +1,11 @@
-class RegistrationsController < Devise::RegistrationsController
+# class Students:RegistrationsController < Devise::RegistrationsController
   # prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   # prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy, :show]
 
-  # GET /resource/sign_up
-  def new
-    super
-  end
+  # # GET /resource/sign_up
+  # def new
+  #   super
+  # end
 
   # # POST /resource
   # def create
