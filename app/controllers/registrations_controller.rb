@@ -36,5 +36,5 @@
   #     after_sign_in_path_for(student)
   #   end
 
-end                                    
+# end                                    
 
