@@ -8,15 +8,13 @@ Rails.application.routes.draw do
   
   # Routes for the Student model
   
-  get 'students/new'
-  resources :students
-  
   devise_for :students
   devise_scope :student do
     get '/signup',    to: 'devise/registrations#new'
     get '/edit',      to: 'devise/registrations#edit'
     get '/login',     to: 'devise/sessions#new'
   end
-
-  
+    
+  get 'students/new'
+  resources :students
 end
