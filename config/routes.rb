@@ -7,11 +7,14 @@ Rails.application.routes.draw do
   get 'blog',      to: 'static_pages#blog'
   
   # Routes for the Student model
-  devise_for :students, controllers: { registrations: "registrations" }
+  devise_for :students, controllers: { registrations: "registrations", 
+                                       sessions: "sessions"}
   devise_scope :student do 
-    get 'signup',     to: 'devise/registrations#new'
-    get 'edit',       to: 'devise/registrations#edit'
-    get 'login',      to: 'devise/sessions#new'
+    get       'signup',     to: 'devise/registrations#new'
+    get       'login',      to: 'devise/sessions#new'
+    post      'login',      to: 'devise/sessions#create'
+    delete    'logout',     to: 'devise/sessions#destroy'
+    get       'edit',       to: 'devise/registrations#edit'
   end
     
   resources :students
