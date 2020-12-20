@@ -7,4 +7,7 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
   
+  test "should get show" do
+  end
+  
 end
