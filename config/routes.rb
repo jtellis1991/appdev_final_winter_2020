@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'support',   to: 'static_pages#support'
   get 'about',     to: 'static_pages#about'
-  get 'blog',      to: 'static_pages#blog'
+  get 'news',      to: 'static_pages#news'
   
   # Routes for the Student model
   devise_for :students, controllers: { registrations: "registrations", 
@@ -14,9 +14,10 @@ Rails.application.routes.draw do
     get       'login',      to: 'devise/sessions#new'
     post      'login',      to: 'devise/sessions#create'
     delete    'logout',     to: 'devise/sessions#destroy'
-    get       'edit',       to: 'devise/registrations#edit'
+    get       'settings',    to: 'devise/registrations#edit'
   end
     
   resources :students
-    get 'student/dashboard',   to: 'students#show'
+    get 'dashboard',   to: 'students#show'
+    get 'preferences',    to: 'students#edit'
 end

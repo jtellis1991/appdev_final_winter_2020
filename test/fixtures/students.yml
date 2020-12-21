@@ -1,1 +1,5 @@
-#
+josh:
+  id: 1
+  email: josh@example.com
+  encrypted_password: <%= Student.new.send(:password_digest, 'password') %>
+  confirmed_at: <% Time.now %>

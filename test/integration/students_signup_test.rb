@@ -1,6 +1,8 @@
 require "test_helper"
 
 class StudentsSignupTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
 
   test "invalid signup information" do
     get signup_path

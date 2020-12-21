@@ -1,16 +1,12 @@
 class StudentsController < ApplicationController
+  # before_action 
 
   def show
-    @student = Student.find(params[:id])
+    @student = current_student
   end
   
-  # def create
-  #   @student = Student.new(params[:student])
-  #   if @student.save
-  #     #Handle a successful save
-  #   else
-  #     render 'new'
-  #   end 
-  # end
+  def edit
+    @student = current_student
+  end
   
 end
