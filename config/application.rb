@@ -1,7 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
-require "app/middleware/customware"
+require "lib/cloudflare_proxy"
 
 
 # Require the gems listed in Gemfile, including any gems
