@@ -1,5 +1,5 @@
 <% provide(:title, "Confirmation") %>
-<h1>Resend confirmation instructions</h1>
+<h1>Resend account confirmation instructions</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -15,7 +15,7 @@
             value: (resource.pending_reconfirmation? ? 
             resource.unconfirmed_email : resource.email) %>
     
-        <%= f.submit "Resend confirmation instructions", 
+        <%= f.submit "Resend account confirmation instructions", 
                       class: "btn btn-primary" %>
     <% end %>
     
