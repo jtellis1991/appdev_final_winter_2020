@@ -1,6 +1,6 @@
 class UnlockedController < Devise::UnlocksController
-  
    prepend_before_action :require_no_authentication
+   skip_before_action :verify_authenticity_token
   
     # GET /resource/unlock/new
     def new
