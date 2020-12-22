@@ -1,4 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+  skip_before_action :verify_authenticity_token, only: [:new, :create, :cancel]
+  
   
 # POST /resource
   def create
