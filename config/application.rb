@@ -1,7 +1,6 @@
 require_relative "boot"
 
 require "rails/all"
-require "lib/cloudflare_proxy"
 
 
 # Require the gems listed in Gemfile, including any gems
@@ -21,6 +20,5 @@ module SATApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     
-    config.middleware.use CloudflareProxy
   end
 end
