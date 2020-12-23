@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  # before_action 
+  before_action :authenticate_student!
 
   def show
     @student = current_student
