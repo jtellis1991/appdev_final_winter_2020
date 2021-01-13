@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
  
+  # Routes for the questions model 
+  resources :questions
+  # GET	        /questions	          questions#index	    display a list of all questions
+  # GET	        /questions/new	      questions#new	      return an HTML form for creating a new question
+  # POST	      /questions	          questions#create	  create a new question
+  # GET	        /questions/:id	      questions#show	    display a specific question
+  # GET	        /questions/:id/edit	  questions#edit	    return an HTML form for editing a question
+  # PATCH/PUT	  /questions/:id	      questions#update  	update a specific question
+  # DELETE	    /questions/:id	      questions#destroy 	delete a specific question
+  
+  #Paths:
+  # questions_path           returns /questions
+  # new_question_path        returns /questions/new
+  # edit_question_path(:id)  returns /questions/:id/edit (for instance, edit_question_path(10) returns /questions/10/edit)
+  # question_path(:id)       returns /questions/:id (for instance, question_path(10) returns /questions/10)
+  
+  resources :assessments
+  resources :responses
+  
+  
   #Routes for Static HTML pages
   root 'static_pages#home'
   get 'support',   to: 'static_pages#support'

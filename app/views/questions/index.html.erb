@@ -1,0 +1,19 @@
+<h1>All SAT Questions</h1>
+
+<% questions.each do |question| %>
+  <div id="<%= dom_id(question) %>">
+    
+    <p><%= question.prompt %></p>
+    
+    <%
+    choices = {A: question.A, B: question.B, C: question.C, D: question.D}
+    choices.each do |key, value|
+    %>
+      <div class = "custom-control custom-radio" >
+        <%= key  %>) <%= value %>
+      </div>
+    <% end %>
+    <br>
+    
+  </div>
+<% end %>  

@@ -1,0 +1,37 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id                 :integer          not null, primary key
+#  A                  :string
+#  B                  :string
+#  C                  :string
+#  D                  :string
+#  answer_explanation :text
+#  answer_value       :string
+#  prompt             :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  question_id        :string
+#
+
+one:
+  prompt: What is the first letter of the alphabet?
+  question_id: 0000.00.1.01
+  A: A
+  B: B
+  C: C
+  D: D
+  answer_value: A
+  answer_explanation: A is the first letter of the aplphabet. Please.
+  
+
+two:
+  prompt: What is the second letter of the alphabet?
+  question_id: 0000.00.1.02
+  A: A
+  B: B
+  C: C
+  D: D
+  answer_value: B
+  answer_explanation: B is the second letter of the aplphabet. Real toughie.

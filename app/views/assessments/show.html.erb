@@ -1,0 +1,20 @@
+<p><%= @question.prompt %></p>
+
+<%= form_with model: response, url: responses_path, method: :post, local: true,
+    scope: :response do |form| %>
+
+  <%
+  choices = {A: @question.A, B: @question.B, C: @question.C, D: @question.D}
+  choices.each do |key, value|
+  %>
+  
+    
+    <div class = "custom-control custom-radio" >
+      <%= form.check_box key %>
+      <%= form.label key, "#{key} ) #{value}" %>
+    </div>
+  <% end %>
+
+  <% form.submit "Submit Answer", class: "btn btn-primary" %>
+<% end %>
+

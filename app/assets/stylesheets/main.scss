@@ -8,6 +8,7 @@
 
 $gray-medium-light: #eaeaea;
 $dark-blue: #155592;
+$button-blue: #337ab7;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -22,7 +23,8 @@ $dark-blue: #155592;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 80px;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 section {
@@ -45,6 +47,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  font-family: 'Raleway', sans-serif;
 }
 
 h1 {
@@ -70,13 +73,34 @@ p {
 
 /* header */
 
+#bs-example-navbar-collapse-1 {
+  background-color: white;
+  // border: 2px rgba(70, 70, 70, .05) solid;
+  // margin-top: 9px;
+}
+
+#container-header {
+  height: 70px;
+  background-color: white;
+  border-bottom: 2px rgba(70, 70, 70, .2) solid;
+}
+
+.icon-bar {
+  color: black;
+  border-color: black;
+  background-color: black;
+}
+
+.navbar-toggle {
+  margin: 8px 8px;
+}
+
 #logo {
-  float: left;
-  margin-right: 10px;
+  // float: left;
+  // margin-right: 10px;
   font-size: 1.7em;
-  color: #155592;
-  letter-spacing: -1px;
-  padding-top: 9px;
+  color: $button-blue;
+  // padding-top: 9px;
   font-weight: bold;
   &:hover {
     color: #777;
@@ -84,13 +108,37 @@ p {
   }
 }
 
-#logo-symbol {
-  color: #155592;
-  &:hover {
-    color: #777;
-    text-decoration: none;
+
+.logo-block {
+  // margin: 0;
+  display: inline-block;
+  text-align: center;
+    &:hover {
+      color: #777;
+      text-decoration: none;
+      #logo-symbol {
+        color: #777;
+        text-decoration: none;
+    }
   }
 }
+
+.logo-tag {
+  display: block;
+  margin-top: -12px;
+}
+
+.nav-block {
+  float: right;
+  @include box_sizing;
+  padding: 10px 15px 10px 15px;
+  align-items: center;
+  height: 70px;
+  font-size: 1.2em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
 
 /* footer */
 
@@ -146,6 +194,13 @@ footer {
   @include box_sizing;
 }
 
+/********************THIS IS SECTION FOR STATIC PAGES***********************/
+
+
+.tagline {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 24px;
+}
 
 
 /********************THIS IS SECTION FOR DASHBOARD***********************/
