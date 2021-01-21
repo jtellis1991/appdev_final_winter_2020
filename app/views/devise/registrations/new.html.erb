@@ -20,8 +20,11 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, 
                 autocomplete: "new-password", class: 'form-control'  %>
-    
-        <%= f.submit "Sign up", class: "btn btn-primary" %>
+                
+        <br>        
+       <div class="button-center">
+          <%= f.submit "Sign up", class: "btn btn-primary btn-lg half-button" %>
+        </div>  
     <% end %>
     <br />
     <%= render "devise/shared/links" %>

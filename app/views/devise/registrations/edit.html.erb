@@ -1,10 +1,10 @@
 <% provide(:title, 'Settings') %>
 <h1>Settings</h1>
 
-<h2><i>Leave fields blank if you don't want to change them</i></h2>
+<h2>Leave fields blank if you don't want to change them</h2>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3 container">
     
     <% if resource.unconfirmed_email %>
      <h2 class="unconfirmed_email alert alert-danger">
@@ -24,7 +24,7 @@
     
         <%= f.label :password, "Enter new password" %>
         <% if @minimum_password_length %>
-          <em><%= @minimum_password_length %> characters minimum</em>
+          (<%= @minimum_password_length %> characters minimum)
         <% end %>
         
         <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
@@ -36,15 +36,23 @@
         <%= f.label :current_password, "Authorize changes with current password" %> 
         <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
     
-        <%= f.submit "Update", class: "btn btn-primary" %>
+    <br>
+    <div class="button-center">
+        <%= f.submit "Update", class: "btn btn-lg btn-primary half-button" %>
+    </div>
     <% end %>
     
     <br>
     <br>
     
-    <p>Unhappy? <%= button_to "Cancel Account", registration_path(resource_name), 
-                data: { confirm: "Are you sure?" }, method: :delete,
-                class: "btn btn-secondary"%></p>
+    
+    <p>Unhappy? 
+      <div class="button-center">
+        <%= button_to "Cancel Account", registration_path(resource_name), 
+                  data: { confirm: "Are you sure?" }, method: :delete,
+                  class: "btn btn-secondary "%>
+     </div>
+    </p>
     
     <!--<%= link_to "Back", :back %>-->
 
