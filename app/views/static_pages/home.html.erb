@@ -1,15 +1,30 @@
-<div class="center jumbotron centered">
-    <h1>Welcome to SATsucceed</h1>
-
-
-      <!--<a href="/signup">-->
-    <i class="fas fa-graduation-cap fa-9x" id="logo-jumbotron"></i>
-      <!--</a>-->
-    
-    <h2 class="tagline">
-        Get the training you need to succeed on the SAT
-    </h2>
-
-      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+<div class="row justify-content-center">
+  <div class="card col-9 p-4 bg-light border-light mb-3">
+      <h1 class="text-center">Welcome to SATsucceed</h1>
+  
+      
+      <% if student_signed_in? %>  
+        <a class="text-center" href="/dashboard">
+          <div class="text-info">
+            <i class="fas fa-graduation-cap fa-9x"></i>
+          </div>
+        </a>
+      <% else %>
+        <a class="text-center" href="/signup">
+          <div class="text-info">
+            <i class="fas fa-graduation-cap fa-9x"></i>
+          </div>
+        </a>
+      <% end %> 
+      
+      <h2 class="text-center mt-2">
+          Get the training you need to succeed on the SAT
+      </h2>
+  
+      <!--<div class="col-md-6">-->
+        <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary 
+        col-lg-4 offset-lg-4 mt-4 col-md-6 offset-md-3" %>
+      <!--</div>-->
+      
+  </div>
 </div>
-
