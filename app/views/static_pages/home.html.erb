@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="card col-9 p-4 bg-light border-light mb-3">
-      <h1 class="text-center">Welcome to SATsucceed</h1>
+      <h1 class="text-center display-2 fw-bold">Welcome to SATsucceed</h1>
   
       
       <% if student_signed_in? %>  
@@ -17,14 +17,12 @@
         </a>
       <% end %> 
       
-      <h2 class="text-center mt-2">
+      <h2 class="text-center mt-2 fs-4 fw-light">
           Get the training you need to succeed on the SAT
       </h2>
   
-      <!--<div class="col-md-6">-->
-        <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary 
+        <%= link_to "Sign up now!", login_path, class: "btn btn-lg btn-primary 
         col-lg-4 offset-lg-4 mt-4 col-md-6 offset-md-3" %>
-      <!--</div>-->
       
   </div>
 </div>
