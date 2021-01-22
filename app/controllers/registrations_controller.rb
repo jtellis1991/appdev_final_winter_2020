@@ -23,7 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
       set_minimum_password_length
       # respond_with resource
       flash[:alert] = resource.errors.full_messages.to_sentence
-      redirect_to signup_path
+      redirect_to login_path
     end
   end
 
@@ -32,7 +32,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
       
       def after_inactive_sign_up_path_for(resource)
-        signup_path
+        login_path
       end
   
 end

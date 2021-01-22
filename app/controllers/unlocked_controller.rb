@@ -15,7 +15,9 @@ class UnlockedController < Devise::UnlocksController
       if successfully_sent?(resource)
         respond_with({}, location: after_sending_unlock_instructions_path_for(resource))
       else
-        respond_with(resource)
+        # respond_with(resource)
+      flash[:alert] = resource.errors.full_messages.to_sentence
+      redirect_to reset_path
       end
     end
   
@@ -36,7 +38,7 @@ class UnlockedController < Devise::UnlocksController
         # The path used after sending unlock password instructions
         def after_sending_unlock_instructions_path_for(resource)
           # new_session_path(resource) if is_navigational_format?
-          login_path
+          reset_path
         end
     
         # The path used after unlocking the resource

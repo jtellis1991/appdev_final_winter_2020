@@ -11,7 +11,7 @@ class PasswordsController < Devise::PasswordsController
     else
       # respond_with(resource)
       flash[:alert] = resource.errors.full_messages.to_sentence
-      redirect_to signup_path
+      redirect_to reset_path
     end
   end
   
@@ -21,7 +21,7 @@ class PasswordsController < Devise::PasswordsController
       # The path used after sending reset password instructions
     def after_sending_reset_password_instructions_path_for(resource_name)
       # new_session_path(resource_name) if is_navigational_format?
-      login_path
+      reset_path
     end
   
 end
