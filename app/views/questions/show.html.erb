@@ -1,10 +1,32 @@
-<p><%= question.prompt %></p>
+<% provide(:title, "Question Time!") %>
 
-<%
-choices = {A: question.A, B: question.B, C: question.C, D: question.D}
-choices.each do |key, value|
-%>
-  <div>
-    <%= key  %>) <%= value %>
+<div class="row">
+  <div class="col-lg-5 offset-lg-1 p-5 border-end border-light border-5 rounded ">
+    <h1 class="mb-3">Forgot Password?</h1>
+    
+    <p><%= question.prompt %></p>
+       
+
   </div>
-<% end %>
+
+
+  <div class="col-lg-5 p-5">
+   <h1 class="mb-3">Account Locked?</h1>
+
+    <%
+    choices = {A: question.A, B: question.B, C: question.C, D: question.D}
+    choices.each do |key, value|
+    %>
+      <div class="row">
+        <div>
+          <%= key  %>) 
+        </div>
+        <div>
+          <%= value %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+
+

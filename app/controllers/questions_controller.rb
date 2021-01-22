@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  
+  layout 'app'
   
   def index
     questions = Question.all

@@ -25,9 +25,9 @@
 
   <body>
     
-    <%= render 'layouts/header' %>
+    <%= render 'questions/header' %>
     
-    <div class="container pt-5">
+    <div class="container-fluid pt-5">
       
       
       <% if flash[:notice] %>
@@ -38,11 +38,11 @@
       
       <%= yield %>
       
-      <%# <%= render 'layouts/footer' %>
+      <%= render 'questions/footer' %>
       
-      <div class="card">  
-        <%= debug(params)  if Rails.env.development? %>
-      </div>
+      <!--<div class="card">  -->
+      <!--  <%= debug(params)  if Rails.env.development? %>-->
+      <!--</div>-->
     
     </div>
     
