@@ -1,30 +1,88 @@
 <% provide(:title, "Question Time!") %>
 
-<div class="row">
-  <div class="col-lg-5 offset-lg-1 p-5 border-end border-light border-5 rounded ">
-    <h1 class="mb-3">Forgot Password?</h1>
+<div class="row pt-5">
+  <div class="col-lg-6 p-5 border-end border-light border-5 rounded pt-0">
+    <!--<h1 class="mb-3 text-center">Question</h1>-->
     
-    <p><%= question.prompt %></p>
+    
+    <p class="fs-5 text-wrap style="width: 8rem;"">
+      <%= question.prompt %>
+    </p>
        
 
   </div>
 
 
-  <div class="col-lg-5 p-5">
-   <h1 class="mb-3">Account Locked?</h1>
+  <div class="col-lg-6 py-4 px-5 justify-content-center">
+   <!--<h1 class="mb-3 text-center fs-4">Answer Options</h1>-->
 
-    <%
-    choices = {A: question.A, B: question.B, C: question.C, D: question.D}
-    choices.each do |key, value|
-    %>
-      <div class="row">
-        <div>
-          <%= key  %>) 
+
+      <div class="row py-2 border-bottom border-top border-light border-5 rounded" >
+        <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
+          <picture class="col-1 badge rounded-circle bg-secondary fs-4 px-3">
+           <span class="align-text-top">A</span>
+          </picture>
+         <div class="col pb-1">
+           <span class="fs-3 text-dark border-0 ps-4">
+            <%= question.A %>
+          </span>
         </div>
-        <div>
-          <%= value %>
+        </button>
+      </div>
+        
+      <div class="row py-2 border-bottom border-light border-5 rounded" >
+        <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
+          <div class="col-1 badge rounded-circle bg-secondary fs-4 px-3 ">
+           <span class="align-text-top">B</span>
+          </div>
+         <div class="col pb-1">
+           <span class="fs-3 text-dark ps-4">
+            <%= question.B %>
+          </span>
         </div>
-    <% end %>
+        </button>
+      </div>
+      
+      <div class="row py-2 border-bottom border-light border-5 rounded" >
+        <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
+          <div class="col-1 badge rounded-circle bg-secondary fs-4 px-3 ">
+           <span class="align-text-top">C</span>
+          </div>
+         <div class="col pb-1">
+           <span class="fs-3 text-dark ps-4">
+            <%= question.C %>
+          </span>
+        </div>
+        </button>
+      </div>
+      
+            
+      <div class="row py-2 border-bottom border-light border-5 rounded" >
+        <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
+          <div class="col-1 badge rounded-circle bg-secondary fs-4 px-3">
+           <span class="align-text-top">D</span>
+          </div>
+         <div class="col pb-1">
+           <span class="fs-3 text-dark ps-4">
+            <%= question.D %>
+          </span>
+        </div>
+        </button>
+      </div>
+      
+      <div class="row py-2 border-bottom border-light border-5 rounded" >
+        <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
+          <div class="col-1 badge rounded-circle bg-secondary fs-4 px-3 ">
+           <span class="align-text-top">?</span>
+          </div>
+         <div class="col pb-1">
+           <span class="fs-3 text-dark ps-4">
+            I don't know
+          </span>
+        </div>
+        </button>
+      </div>
+ 
 
   </div>
 </div>

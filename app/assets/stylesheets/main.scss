@@ -34,10 +34,23 @@ header {
   font-family: 'Raleway', sans-serif;
 }
 
-.navbar-brand {
-  // transition: color .15s ease-in-out, background-color .15s ease-in-out,
-  // border-color .15s ease-in-out;
+.btn-outline-primary:focus {
+ background-color: #18f;
 }
+
+
+// .navbar-nav .nav-item:not(:last-child) {
+//   border-right: 1px solid silver;
+// }
+
+// @media (max-width: 768px) {
+//   .navbar-nav .nav-item:not(:last-child) {
+//     border-right: none;
+//   }
+// }
+
+
+
 
 // section {
 //   overflow: auto;

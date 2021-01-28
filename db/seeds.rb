@@ -3,7 +3,7 @@
 
   Question.create!(
   question_id: "0000.01.3.01 ",
-  prompt: "If x-1 / 3 = k and k = 3, what is the value of x?",
+  prompt: "If \\( \\displaystyle { x-1 \\over 3} = k\\), and \\(k=3\\), what is the value of \\(x\\)?",
   A: "2",
   B: "4",
   C: "9",
@@ -20,11 +20,11 @@
 
   Question.create!(
   question_id: "0000.01.3.02",
-  prompt: "For i = sqrt(-1), what is the sum (7 + 3i) + (-8 + 9i)?",
-  A: "-1 + 12i",
-  B: "-1 - 6i",
-  C: "15 + 12i",
-  D: "15 - 6i",
+  prompt: "For \\(i = \\sqrt{\\text{-}1}\\), what is the sum \\((7 + 3i) + (\\text{-}8 + 9i)\\)?",
+  A: "\\(\\text{-}1 + 12i\\)",
+  B: "\\(\\text{-}1 - 6i\\)",
+  C: "\\(15 + 12i\\)",
+  D: "\\(15 - 6i\\)",
   answer_value: "A",
   answer_explanation: 
       "To calculate (7 + 3i + (-8 + 9i)), add the real parts of each complex 
@@ -39,14 +39,14 @@
   Question.create!(
   question_id: "0000.01.3.03",
   prompt: 
-    "On Saturday afternoon, Armand sent <em>m</em> test messages each hour for 5
-    hours, and Tyrone sent <em>p</em> test messages each hour for 4 hours. Which
+    "On Saturday afternoon, Armand sent \\(m\\) text messages each hour for 5
+    hours, and Tyrone sent \\(p\\) text messages each hour for 4 hours. Which
     of the following represents the total number of messages sent by Armand and
-    Tryone on Saturday afternoon?",
-  A: "9<em>mp</em>",
-  B: "20<em>mp</em>",
-  C: "5<em>m</em> + 4<em>p</em>",
-  D: "4<em>m</em> + 5<em>p</em>",
+    Tyrone on Saturday afternoon?",
+  A: "\\(9mp\\)",
+  B: "\\(20mp\\)",
+  C: "\\(5m + 4p\\)",
+  D: "\\(4m + 5p\\)",
   answer_value: "C",
   answer_explanation: 
       "The total number of text messages sent by Armand can be found by
