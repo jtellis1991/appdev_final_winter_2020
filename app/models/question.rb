@@ -23,7 +23,8 @@ class Question < ApplicationRecord
   validates :prompt, uniqueness: true
   validate :choices_canot_be_duplicate
   
-  
+  # before_show :invalidate_cache
+
   private 
   
       def choices_canot_be_duplicate
@@ -46,4 +47,11 @@ class Question < ApplicationRecord
           errors.add(:C, "can't be the same as any other choice")
         end 
       end 
+      
+      # def invalidate_cache
+      #   Rails.cache.delete("/users/#{self.id}")
+      #   return true # recommended to return true, as Rails.cache.delete will return false if no cache is found and break the callback chain. 
+      # end
+  
+      
 end
