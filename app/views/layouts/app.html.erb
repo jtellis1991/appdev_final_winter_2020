@@ -30,11 +30,14 @@
 
   <body>
    
-        <%= render 'questions/header' %>
-        
-      <div class="container-fluid mx-0 me-0"> 
+   <div class="container-fluid d-flex min-vh-100 flex-column px-0">
+   
+      <%= render 'questions/header' %>
           
-          
+    
+      <!--<div class="container-fluid"> -->
+      
+
           <% if flash[:notice] %>
             <p class="alert alert-success"><%= notice %></p>
           <% elsif flash[:alert] %>  
@@ -43,15 +46,15 @@
           
           <%= yield %>
           
-          <%= render 'questions/footer' %>
-          
-        
           
           <!--<div class="card">  -->
           <!--  <%= debug(params)  if Rails.env.development? %>-->
           <!--</div>-->
-    </div>
+      <!--</div>-->
 
-    
+      <%= render 'questions/footer' %>
+      
+  </div>
+          
   </body>
 </html>

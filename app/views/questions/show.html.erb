@@ -1,11 +1,11 @@
 <% provide(:title, "Question Time!") %>
 
-<div class="row pt-5">
-  <div class="col-lg-6 p-5 border-end border-light border-5 rounded pt-0">
+<div class="row flex-fill gx-0 py-4">
+  <div class="col-lg-6 px-5 border-end border-light border-5 rounded">
     <!--<h1 class="mb-3 text-center">Question</h1>-->
     
     
-    <p class="fs-5 text-wrap style="width: 8rem;"">
+    <p class="fs-5">
       <%= question.prompt %>
     </p>
        
@@ -13,17 +13,18 @@
   </div>
 
 
-  <div class="col-lg-6 py-4 px-5 justify-content-center">
+  <div class="col-lg-6 px-5 justify-content-center">
    <!--<h1 class="mb-3 text-center fs-4">Answer Options</h1>-->
 
 
       <div class="row py-2 border-bottom border-top border-light border-5 rounded" >
         <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
-          <picture class="col-1 badge rounded-circle bg-secondary fs-4 px-3">
-           <span class="align-text-top">A</span>
-          </picture>
+            <div class="badge rounded-3 d-block bg-secondary fs-4" style="width: 50px">
+             <span class="align-text-top m-0">A</span>
+            </div>
+          
          <div class="col pb-1">
-           <span class="fs-3 text-dark border-0 ps-4">
+           <span class="fs-3 text-dark d-inline-block border-0 ps-4">
             <%= question.A %>
           </span>
         </div>
@@ -32,11 +33,11 @@
         
       <div class="row py-2 border-bottom border-light border-5 rounded" >
         <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
-          <div class="col-1 badge rounded-circle bg-secondary fs-4 px-3 ">
+          <div class="badge rounded-3 d-block bg-secondary fs-4" style="width: 50px">
            <span class="align-text-top">B</span>
           </div>
          <div class="col pb-1">
-           <span class="fs-3 text-dark ps-4">
+           <span class="fs-3 text-dark d-inline-block ps-4">
             <%= question.B %>
           </span>
         </div>
@@ -45,11 +46,11 @@
       
       <div class="row py-2 border-bottom border-light border-5 rounded" >
         <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
-          <div class="col-1 badge rounded-circle bg-secondary fs-4 px-3 ">
+          <div class="badge rounded-3 d-block bg-secondary fs-4" style="width: 50px">
            <span class="align-text-top">C</span>
           </div>
          <div class="col pb-1">
-           <span class="fs-3 text-dark ps-4">
+           <span class="fs-3 text-dark d-inline-block ps-4">
             <%= question.C %>
           </span>
         </div>
@@ -59,11 +60,11 @@
             
       <div class="row py-2 border-bottom border-light border-5 rounded" >
         <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
-          <div class="col-1 badge rounded-circle bg-secondary fs-4 px-3">
+          <div class="badge rounded-3 d-block bg-secondary fs-4 px-3" style="width: 50px">
            <span class="align-text-top">D</span>
           </div>
          <div class="col pb-1">
-           <span class="fs-3 text-dark ps-4">
+           <span class="fs-3 text-dark d-inline-block ps-4">
             <%= question.D %>
           </span>
         </div>
@@ -72,11 +73,11 @@
       
       <div class="row py-2 border-bottom border-light border-5 rounded" >
         <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
-          <div class="col-1 badge rounded-circle bg-secondary fs-4 px-3 ">
+          <div class="badge rounded-3 d-block bg-secondary fs-4 px-3" style="width: 50px">
            <span class="align-text-top">?</span>
           </div>
          <div class="col pb-1">
-           <span class="fs-3 text-dark ps-4">
+           <span class="fs-3 text-dark d-inline-block ps-4">
             I don't know
           </span>
         </div>
