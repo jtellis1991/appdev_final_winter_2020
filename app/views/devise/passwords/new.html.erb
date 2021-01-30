@@ -1,7 +1,7 @@
 <% provide(:title, "Password Reset") %>
 
-<div class="row">
-  <div class="col-lg-5 offset-lg-1 p-5 border-end border-light border-5 rounded ">
+<div class="row justify-content-center flex-fill gx-0 py-5">
+  <div class="col-lg-5 p-5 border-end border-light border-5 rounded ">
     <h1 class="mb-3">Forgot Password?</h1>
     
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -11,7 +11,7 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", 
         class: 'form-control mb-4', placeholder: "Email" %>
 
-    <div class="row mx-auto col-lg-9 ">
+    <div class="row mx-auto col-lg-8 ">
         <%= f.submit "Send Password Reset Email", class: "btn btn-primary mb-3" %>
     </div>
     <% end %>
@@ -36,7 +36,7 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email",
                           placeholder: "Email", class: 'form-control mb-4'  %>
 
-        <div class="row mx-auto col-lg-8 ">
+        <div class="row mx-auto col-lg-7 ">
         <%= f.submit "Send Unlock Email" , class: "btn btn-primary" %>
         </div>
     <% end %>
