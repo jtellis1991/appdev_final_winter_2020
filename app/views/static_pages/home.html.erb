@@ -1,28 +1,28 @@
-<div class="row justify-content-center">
-  <div class="card col-9 p-4 bg-light border-light mb-3">
-      <h1 class="text-center display-2 fw-bold">Welcome to SATsucceed</h1>
-  
-      
-      <% if student_signed_in? %>  
-        <a class="text-center" href="/dashboard">
-          <div class="link-info">
-            <i class="fas fa-graduation-cap fa-9x"></i>
-          </div>
-        </a>
-      <% else %>
-        <a class="text-center" href="/login">
-          <div class="link-info">
-            <i class="fas fa-graduation-cap fa-9x"></i>
-          </div>
-        </a>
-      <% end %> 
-      
-      <h2 class="text-center mt-2 fs-4 fw-light">
-          Get the training you need to succeed on the SAT
-      </h2>
-  
-        <%= link_to "Sign up now!", login_path, class: "btn btn-lg btn-primary 
-        col-lg-4 offset-lg-4 mt-4 col-md-6 offset-md-3" %>
-      
+<div class="row justify-content-center flex-fill gx-0 py-5">
+  <div class="card col-9 p-4 bg-light border-light mb-3 text-center pt-0 pb-5">
+     
+    <div class="card-body d-flex flex-column align-items-center justify-content-center pt-0 pb-5">
+        <h1 class="display-2 fw-bold">Welcome to SATsucceed</h1>
+          <% if student_signed_in? %>  
+          <a href="/dashboard">
+            <div class="link-info">
+              <i class="fas fa-graduation-cap fa-9x"></i>
+            </div>
+          </a>
+        <% else %>
+          <a href="/login">
+            <div class="link-info">
+              <i class="fas fa-graduation-cap fa-9x"></i>
+            </div>
+          </a>
+        <% end %> 
+        
+        <h2 class="mt-2 fs-4 fw-light">
+            Get the training you need to succeed on the SAT
+        </h2>
+    
+          <%= link_to "Sign up now!", login_path, class: "btn btn-lg btn-primary 
+          col-lg-4 mt-4 col-md-6 " %>
+    </div>
   </div>
 </div>
