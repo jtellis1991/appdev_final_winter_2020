@@ -20,9 +20,9 @@
 
   Question.create!(
   question_id: "0000.01.3.02",
-  prompt: "For \\(i = \\sqrt{\\text{-}1}\\), what is the sum \\((7 + 3i) + (\\text{-}8 + 9i)\\)?",
-  A: "\\(\\text{-}1 + 12i\\)",
-  B: "\\(\\text{-}1 - 6i\\)",
+  prompt: "For \\(i = \\sqrt{\\text{&ndash;}1}\\), what is the sum \\((7 + 3i) + (\\text{&ndash;}8 + 9i)\\)?",
+  A: "\\(\\text{&ndash;}1 + 12i\\)",
+  B: "\\(\\text{&ndash;}1 - 6i\\)",
   C: "\\(15 + 12i\\)",
   D: "\\(15 - 6i\\)",
   answer_value: "A",
@@ -69,3 +69,50 @@
       does not equal the total number of messages sent by Armand and Tyrone."
   )
 
+  Question.create!(
+  question_id: "0000.01.3.04",
+  prompt: "Kathy is a repair technician for a phone company. Each week, she receives a batch of phones that need repairs. The number of phones that she has left to fix at the end of each day can be estimated with the equation \\(P = 108 - 23d\\), where \\(P\\) is the number of phones left and \\(d\\) is the number of days she has worked that week. What is the meaning of the value \\(108\\) in this equation?",
+  A: "Kath will complete the repairs within \\(108\\) days.",
+  B: "Kathy starts each week with \\(108\\) phones to fix.",
+  C: "Kathy repairs phones at a rate of \\(108\\) per hour.",
+  D: "Kathy repairs pohnes at a rate of \\(108\\) per day.",
+  answer_value: "B",
+  answer_explanation: 
+      "blank"
+  )
+  
+    Question.create!(
+  question_id: "0000.01.3.05",
+  prompt: "\\[(x^2y - 3y^2 + 5xy^2) - (\\text{&ndash;}x^2y + 3xy^2 - 3y^2)\\] Which of the following is equivalent to the expression above?",
+  A: "\\(4x^2y^2\\)",
+  B: "\\(8xy^2 - 6y^2\\)",
+  C: "\\(2x^2y + 2xy^2\\)",
+  D: "\\(2x^2y + 8xy^2 - 6y^2\\)",
+  answer_value: "C",
+  answer_explanation: 
+      "blank"
+  )
+  
+      Question.create!(
+  question_id: "0000.01.3.06",
+  prompt: "\\[h = 3a + 28.6\\] A pediatrician uses the model above to estimate the height \\(h\\) of a boy, in inches, in terms of the boy's age \\(a\\) in years, between the ages of 2 and 5. Based on the model, what is the estimated increase, in inches, of a boy's height each year?",
+  A: "\\(3\\)",
+  B: "\\(5.7\\)",
+  C: "\\(9.5\\)",
+  D: "\\(14.3\)",
+  answer_value: "A",
+  answer_explanation: 
+      "blank"
+  )
+  
+        Question.create!(
+  question_id: "0000.01.3.06",
+  prompt: "\\[m = {( r \\over 1,200)(1+ r \\over 1,200)^N} \\over (1 + r \\over 1,200)^N -1 \\] A pediatrician uses the model above to estimate the height \\(h\\) of a boy, in inches, in terms of the boy's age \\(a\\) in years, between the ages of 2 and 5. Based on the model, what is the estimated increase, in inches, of a boy's height each year?",
+  A: "\\(3\\)",
+  B: "\\(5.7\\)",
+  C: "\\(9.5\\)",
+  D: "\\(14.3\)",
+  answer_value: "A",
+  answer_explanation: 
+      "blank"
+  )
