@@ -18,35 +18,35 @@ class Question < ApplicationRecord
   has_many :responses, dependent: :destroy, :inverse_of => :question
   accepts_nested_attributes_for :responses
   
-  validates :prompt, :answer_value, :answer_explanation, :A, :B, :C, :D, 
-  :question_id, presence: true
-  validates :prompt, uniqueness: true
-  validate :choices_canot_be_duplicate
+  # validates :prompt, :answer_value, :answer_explanation, :A, :B, :C, :D, 
+  # :question_id, presence: true
+  # validates :prompt, uniqueness: true
+  # validate :choices_canot_be_duplicate
   
   # before_show :invalidate_cache
 
-  private 
+  # private 
   
-      def choices_canot_be_duplicate
-        if self.A == self.B
-        errors.add(:A, "can't be the same as any other choice")
-        end 
-        if self.A == self.C
-          errors.add(:A, "can't be the same as any other choice")
-        end 
-        if self.A == self.D
-          errors.add(:A, "can't be the same as any other choice")
-        end 
-        if self.B == self.C
-          errors.add(:B, "can't be the same as any other choice")
-        end 
-        if self.B == self.D
-          errors.add(:B, "can't be the same as any other choice")
-        end 
-        if self.C == self.D
-          errors.add(:C, "can't be the same as any other choice")
-        end 
-      end 
+  #     def choices_canot_be_duplicate
+  #       if self.A == self.B
+  #       errors.add(:A, "can't be the same as any other choice")
+  #       end 
+  #       if self.A == self.C
+  #         errors.add(:A, "can't be the same as any other choice")
+  #       end 
+  #       if self.A == self.D
+  #         errors.add(:A, "can't be the same as any other choice")
+  #       end 
+  #       if self.B == self.C
+  #         errors.add(:B, "can't be the same as any other choice")
+  #       end 
+  #       if self.B == self.D
+  #         errors.add(:B, "can't be the same as any other choice")
+  #       end 
+  #       if self.C == self.D
+  #         errors.add(:C, "can't be the same as any other choice")
+  #       end 
+  #     end 
       
       # def invalidate_cache
       #   Rails.cache.delete("/users/#{self.id}")

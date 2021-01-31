@@ -106,7 +106,7 @@
   )
   
         Question.create!(
-  question_id: "0000.01.3.06",
+  question_id: "0000.01.3.07",
   prompt: "\\[m = {( r \\over 1,200)(1+ r \\over 1,200)^N} \\over (1 + r \\over 1,200)^N -1 \\] A pediatrician uses the model above to estimate the height \\(h\\) of a boy, in inches, in terms of the boy's age \\(a\\) in years, between the ages of 2 and 5. Based on the model, what is the estimated increase, in inches, of a boy's height each year?",
   A: "\\(3\\)",
   B: "\\(5.7\\)",
