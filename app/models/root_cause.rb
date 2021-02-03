@@ -1,0 +1,2 @@
+class RootCause < ApplicationRecord
+end

@@ -9,4 +9,6 @@
 #  updated_at        :datetime         not null
 #
 class Phrase < ApplicationRecord
+  belongs_to :question
+  
 end
