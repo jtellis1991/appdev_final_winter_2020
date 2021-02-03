@@ -8,6 +8,11 @@
 #  question_id :integer
 #  strategy_id :integer
 #
+# Foreign Keys
+#
+#  question_id  (question_id => questions.id)
+#  strategy_id  (strategy_id => strategies.id)
+#
 
 # This model initially had no columns defined. If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately

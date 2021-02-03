@@ -2,21 +2,15 @@
 #
 # Table name: categories
 #
-#  id               :integer          not null, primary key
-#  ancestry         :string
-#  name             :string
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  supercategory_id :integer
+#  id         :integer          not null, primary key
+#  ancestry   :string
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_categories_on_ancestry          (ancestry)
-#  index_categories_on_supercategory_id  (supercategory_id)
-#
-# Foreign Keys
-#
-#  supercategory_id  (supercategory_id => categories.id)
+#  index_categories_on_ancestry  (ancestry)
 #
 class Category < ApplicationRecord
   has_ancestry

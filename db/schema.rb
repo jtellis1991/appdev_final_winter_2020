@@ -14,23 +14,17 @@ ActiveRecord::Schema.define(version: 2021_02_03_185448) do
 
   create_table "answers", force: :cascade do |t|
     t.string "correct_answer"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "assessments", force: :cascade do |t|
+    t.integer "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.integer "supercategory_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
-    t.index ["supercategory_id"], name: "index_categories_on_supercategory_id"
   end
 
   create_table "choices", force: :cascade do |t|
@@ -68,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_185448) do
 
   create_table "options", force: :cascade do |t|
     t.string "value"
+    t.integer "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -75,25 +70,31 @@ ActiveRecord::Schema.define(version: 2021_02_03_185448) do
   create_table "phrases", force: :cascade do |t|
     t.text "text_to_translate"
     t.text "translated_text"
+    t.integer "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "questions", force: :cascade do |t|
+    t.text "body"
     t.text "prompt"
     t.string "official_id"
+    t.string "image"
+    t.integer "difficulty"
+    t.integer "test_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "difficulty"
-    t.text "body"
-    t.string "image"
   end
 
   create_table "responses", force: :cascade do |t|
-    t.string "text_submitted"
+    t.text "text_submitted"
+    t.integer "milliseconds_elapsed"
+    t.integer "user_id"
+    t.integer "question_id"
+    t.integer "test_attempt_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "milliseconds_elapsed"
   end
 
   create_table "root_causes", force: :cascade do |t|
@@ -109,7 +110,24 @@ ActiveRecord::Schema.define(version: 2021_02_03_185448) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", force: :cascade do |t|
+  create_table "test_attempts", force: :cascade do |t|
+    t.integer "score"
+    t.integer "user_id"
+    t.integer "test_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string "name"
+    t.string "testable_type"
+    t.integer "testable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["testable_type", "testable_id"], name: "index_tests_on_testable"
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -124,23 +142,24 @@ ActiveRecord::Schema.define(version: 2021_02_03_185448) do
     t.datetime "locked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_students_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "test_attempts", force: :cascade do |t|
-    t.integer "score"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "categories", "categories", column: "supercategory_id"
+  add_foreign_key "answers", "questions"
   add_foreign_key "choices", "options"
   add_foreign_key "choices", "responses"
+  add_foreign_key "implementations", "questions"
+  add_foreign_key "implementations", "strategies"
+  add_foreign_key "mistakes", "questions"
+  add_foreign_key "mistakes", "root_causes"
+  add_foreign_key "options", "questions"
+  add_foreign_key "phrases", "questions"
+  add_foreign_key "questions", "categories"
+  add_foreign_key "questions", "tests"
+  add_foreign_key "responses", "questions"
+  add_foreign_key "responses", "test_attempts"
+  add_foreign_key "responses", "users"
+  add_foreign_key "test_attempts", "tests"
+  add_foreign_key "test_attempts", "users"
 end

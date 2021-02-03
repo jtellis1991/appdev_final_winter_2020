@@ -9,6 +9,11 @@
 #  question_id      :integer
 #  root_cause_id    :integer
 #
+# Foreign Keys
+#
+#  question_id    (question_id => questions.id)
+#  root_cause_id  (root_cause_id => root_causes.id)
+#
 class Mistake < ApplicationRecord
   has_many :explanations, as: :explainable, dependent: :destroy
   belongs_to :root_cause

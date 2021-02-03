@@ -9,6 +9,11 @@
 #  question_id      :integer
 #  root_cause_id    :integer
 #
+# Foreign Keys
+#
+#  question_id    (question_id => questions.id)
+#  root_cause_id  (root_cause_id => root_causes.id)
+#
 require "test_helper"
 
 class MistakeTest < ActiveSupport::TestCase

@@ -6,6 +6,11 @@
 #  correct_answer :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  question_id    :integer
+#
+# Foreign Keys
+#
+#  question_id  (question_id => questions.id)
 #
 
 # This model initially had no columns defined. If you add columns to the

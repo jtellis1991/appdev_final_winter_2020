@@ -7,6 +7,11 @@
 #  translated_text   :text
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  question_id       :integer
+#
+# Foreign Keys
+#
+#  question_id  (question_id => questions.id)
 #
 class Phrase < ApplicationRecord
   belongs_to :question

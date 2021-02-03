@@ -8,6 +8,11 @@
 #  question_id :integer
 #  strategy_id :integer
 #
+# Foreign Keys
+#
+#  question_id  (question_id => questions.id)
+#  strategy_id  (strategy_id => strategies.id)
+#
 require "test_helper"
 
 class ImplementationTest < ActiveSupport::TestCase
