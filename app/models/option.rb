@@ -8,8 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Option < ApplicationRecord
+  has_many :choices
   belongs_to :question
-  
-  
   
 end

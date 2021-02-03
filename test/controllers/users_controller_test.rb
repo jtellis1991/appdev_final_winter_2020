@@ -1,11 +1,11 @@
 require "test_helper"
 
-class StudentsControllerTest < ActionDispatch::IntegrationTest
+class UsersControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   
   setup do
     get login_path
-    sign_in students(:josh)
+    sign_in users(:josh)
     post login_path
   end
   

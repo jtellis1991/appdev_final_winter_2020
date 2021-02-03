@@ -9,6 +9,8 @@
 #  updated_at           :datetime         not null
 #
 class Response < ApplicationRecord
+  has_many :choices
+  belongs_to :user
   belongs_to :test_attempt
   belongs_to :question
 

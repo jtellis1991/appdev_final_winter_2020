@@ -15,9 +15,11 @@ class Question < ApplicationRecord
   has_many :responses, dependent: :destroy
   has_many :options, dependent: :destroy
   has_many :phrases, dependent: :destroy
-  has_one  :test
-  
+  has_many :mistakes, dependent: :destroy
+  has_many :implementations, dependent: :destroy
+  has_one  :answer, dependent: :destroy
   belongs_to :test
+  belongs_to :category
   
   # validates :prompt, :body
   # validates :prompt, uniqueness: true

@@ -8,5 +8,8 @@ class CreateMistakes < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    
+    add_foreign_key :mistakes, :questions
+    add_foreign_key :mistakes, :root_causes
   end
 end

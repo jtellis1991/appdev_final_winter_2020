@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails',                      '6.1.0'
 gem 'mathjax-rails',              '2.6.1'
+gem 'ancestry'                    
 gem 'devise',                     '4.7.3'
 gem 'image_processing',           '1.9.3'
 gem 'mini_magick',                '4.9.5'

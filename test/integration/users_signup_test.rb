@@ -1,13 +1,13 @@
 require "test_helper"
 
-class StudentsSignupTest < ActionDispatch::IntegrationTest
+class UsersSignupTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
 
   test "invalid signup information" do
     get signup_path
-    assert_no_difference 'Student.count' do 
-      post students_path, params: { student: { email: "student@invalid",
+    assert_no_difference 'user.count' do 
+      post users_path, params: { user: { email: "user@invalid",
                                                password:              "foo",
                                                password_confirmation: "bar" } }
      end 
@@ -18,9 +18,9 @@ class StudentsSignupTest < ActionDispatch::IntegrationTest
   
   test "valid signup information" do
     get signup_path
-    assert_difference 'Student.count', 1 do
-      post students_path, params: { student: 
-                                      { email: "student@example.com",
+    assert_difference 'user.count', 1 do
+      post users_path, params: { user: 
+                                      { email: "user@example.com",
                                         password:              "password",
                                         password_confirmation: "password" } }
     end

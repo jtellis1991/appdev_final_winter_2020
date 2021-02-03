@@ -17,14 +17,5 @@ class ActiveSupport::TestCase
   include ApplicationHelper
   
   
-  # def log_in( student )
-  #   if integration_test?
-  #     #use warden helper
-  #     login_as(student, :scope => :student)
-  #   else #controller_test, model_test
-  #     #use devise helper
-  #     sign_in(student)
-  #   end 
-  # end 
   
 end

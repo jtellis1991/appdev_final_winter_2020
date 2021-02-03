@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   # edit_question_path(:id)  returns /questions/:id/edit (for instance, edit_question_path(10) returns /questions/10/edit)
   # question_path(:id)       returns /questions/:id (for instance, question_path(10) returns /questions/10)
   
-  resources :assessments
   resources :responses
   
   
@@ -26,15 +25,15 @@ Rails.application.routes.draw do
   get 'about',     to: 'static_pages#about'
   get 'news',      to: 'static_pages#news'
   
-  # Routes for the Student model
-  devise_for :students, controllers: { registrations:      "registrations", 
+  # Routes for the User model
+  devise_for :users, controllers: { registrations:      "registrations", 
                                        sessions:           "sessions",
                                        confirmations:      "confirmations",
                                        passwords:          "passwords",
                                       # unlocks:            "unlocks",
                                      }
   
-  devise_scope :student do 
+  devise_scope :user do 
     get       'signup',             to: 'devise/registrations#new',   as: :signup
     get       'settings',           to: 'devise/registrations#edit',  as: :settings
     get       'login',              to: 'devise/sessions#new',        as: :login
@@ -42,14 +41,14 @@ Rails.application.routes.draw do
     delete    'logout',             to: 'devise/sessions#destroy',    as: :logout
     get       'unlock_account',     to: 'unlocked#new',               as: :unlocked
     post      'unlock_account',     to: 'unlocked#create'
-    get       'students/unlocked',  to: 'unlocked#show',              as: :unlocking
+    get       'users/unlocked',     to: 'unlocked#show',              as: :unlocking
     get       'password_reset',     to: 'devise/passwords#new',       as: :reset
     get       'confirm',            to: 'devise/confirmations#new',   as: :confirm
   end
     
-  resources :students
-    get("/dashboard", { :controller => "students", :action => "show"})
-    get 'preferences',    to: 'students#edit'
+  resources :users
+    get("/dashboard", { :controller => "users", :action => "show"})
+    get 'preferences',    to: 'users#edit'
     
     
     

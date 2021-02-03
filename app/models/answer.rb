@@ -8,6 +8,7 @@
 #  updated_at     :datetime         not null
 #
 class Answer < ApplicationRecord
+  has_many :explanations, as: :explainable, dependent: :destroy
   belongs_to :question
   
   

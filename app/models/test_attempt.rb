@@ -8,4 +8,8 @@
 #  updated_at :datetime         not null
 #
 class TestAttempt < ApplicationRecord
+  has_many :responses
+  belongs_to :user
+  belongs_to :test
+  
 end

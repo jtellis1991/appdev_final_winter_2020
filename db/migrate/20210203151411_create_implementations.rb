@@ -7,5 +7,8 @@ class CreateImplementations < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    
+    add_foreign_key :implementations, :questions
+    add_foreign_key :implementations, :strategies
   end
 end
