@@ -10,33 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_235627) do
+ActiveRecord::Schema.define(version: 2021_02_03_031313) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string "correct_answer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "assessments", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.text "prompt"
-    t.string "question_id"
-    t.string "A"
-    t.string "B"
-    t.string "C"
-    t.string "D"
-    t.string "answer_value"
-    t.text "answer_explanation"
+  create_table "options", force: :cascade do |t|
+    t.string "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "responses", force: :cascade do |t|
-    t.string "question_id"
-    t.string "letter"
-    t.string "answer"
-    t.boolean "correct"
+  create_table "phrases", force: :cascade do |t|
+    t.text "text_to_translate"
+    t.text "translated_text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text "prompt"
+    t.string "official_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "difficulty"
+    t.text "body"
+    t.string "image"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.string "text_submitted"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "milliseconds_elapsed"
   end
 
   create_table "students", force: :cascade do |t|
@@ -56,6 +70,18 @@ ActiveRecord::Schema.define(version: 2020_12_24_235627) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
+  end
+
+  create_table "test_attempts", force: :cascade do |t|
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

@@ -51,7 +51,13 @@ Rails.application.routes.draw do
     get("/dashboard", { :controller => "students", :action => "show"})
     get 'preferences',    to: 'students#edit'
     
-    get("/tests/baseline", { :controller => "tests", :action => "show"})
+    
+    
+    
+    
+  #THIS SECTION IS FOR TEST CONTROLLER ROUTES 
+    get("/tests/:id", { :controller => "tests", :action => "show"})
+    get("/tests", {:controller => "tests", :action => "index"})
     
   
 end

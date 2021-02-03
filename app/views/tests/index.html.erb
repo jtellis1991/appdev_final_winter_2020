@@ -1,0 +1,17 @@
+<h1>Choose A Type of Test to Take</h1>
+
+<h2>SAT Tests</h2>
+
+
+
+<ul>
+  <% @tests.each do |test| %>
+  <li>
+    <a href ="/tests/<%= test.name %>">
+      Practice Test <%= test.name %>
+    </a>
+  </li>
+  
+  <% end %>
+</ul>
+

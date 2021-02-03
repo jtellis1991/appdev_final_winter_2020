@@ -2,17 +2,14 @@
 #
 # Table name: questions
 #
-#  id                 :integer          not null, primary key
-#  A                  :string
-#  B                  :string
-#  C                  :string
-#  D                  :string
-#  answer_explanation :text
-#  answer_value       :string
-#  prompt             :text
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  question_id        :string
+#  id          :integer          not null, primary key
+#  body        :text
+#  difficulty  :string
+#  image       :string
+#  prompt      :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  official_id :string
 #
 class Question < ApplicationRecord
   has_many :responses, dependent: :destroy, :inverse_of => :question
