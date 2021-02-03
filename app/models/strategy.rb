@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 class Strategy < ApplicationRecord
-  has_many :tests, as: :testable
+  has_one :test, as: :testable
   has_many :explanations, as: :explainable, dependent: :destroy
   has_many :implementations
   

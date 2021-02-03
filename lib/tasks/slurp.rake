@@ -26,16 +26,15 @@ namespace :slurp do
     
     csv.each do |row|
         t = Question.new
-        t.question_id = row["official_id"]
-        t.prompt = row["body"]
-        t.A = row["A"]
-        t.B = row["B"]
-        t.C = row["C"]
-        t.D = row["D"]
-        t.answer_value = "blank"
-        t.answer_explanation = "blankblank"
-        t.save
-        puts "#{t.question_id} saved"
+        t.official_id = row["official_id"]
+        t.prompt = row["prompt"]
+        t.body = row["body"]
+        t.image = row["image"]
+        t.difficulty = row["difficulty"]
+        t.test_id = 1
+        t.category_id = 1
+        t.save!
+        puts "#{t.official_id} saved"
     end
     
   end
