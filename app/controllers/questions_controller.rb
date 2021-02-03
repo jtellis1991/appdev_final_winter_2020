@@ -2,10 +2,9 @@ class QuestionsController < ApplicationController
   layout 'app'
   
   def index
-    questions = Question.all
-    respond_to do |format|
-      format.html { render :index, locals: { questions: questions } }
-    end 
+    @questions = Question.all
+    render( { :index =>  "questions/index.html.erb" })
+    
   end
 
   def show

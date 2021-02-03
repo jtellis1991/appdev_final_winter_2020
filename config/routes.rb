@@ -48,6 +48,10 @@ Rails.application.routes.draw do
   end
     
   resources :students
-    get 'dashboard',      to: 'students#show'
+    get("/dashboard", { :controller => "students", :action => "show"})
     get 'preferences',    to: 'students#edit'
+    
+    get("/tests/baseline", { :controller => "tests", :action => "show"})
+    
+  
 end
