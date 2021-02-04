@@ -7,11 +7,20 @@
 <ul>
   <% @tests.each do |test| %>
   <li>
-    <a href ="/tests/<%= test.name %>">
-      Practice Test <%= test.name %>
+    <a href ="/tests/<%= test.id %>">
+      Take Practice Test <%= test.name %>
     </a>
+    <br>
+    <a href ="/tests/<%= test.id %>/edit">
+      Edit Test 
   </li>
-  
   <% end %>
 </ul>
 
+
+<ul>
+    <li>
+    <a href ="/tests/new">
+      Create New Test
+    </a>
+</ul>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
   # Routes for the questions model 
-  resources :questions
+  resources :questions, :responses, :users, :tests, id: /[^\/]+/
   # GET	        /questions	          questions#index	    display a list of all questions
   # GET	        /questions/new	      questions#new	      return an HTML form for creating a new question
   # POST	      /questions	          questions#create	  create a new question
@@ -15,9 +15,6 @@ Rails.application.routes.draw do
   # new_question_path        returns /questions/new
   # edit_question_path(:id)  returns /questions/:id/edit (for instance, edit_question_path(10) returns /questions/10/edit)
   # question_path(:id)       returns /questions/:id (for instance, question_path(10) returns /questions/10)
-  
-  resources :responses
-  
   
   #Routes for Static HTML pages
   root 'static_pages#home'
@@ -46,17 +43,9 @@ Rails.application.routes.draw do
     get       'confirm',            to: 'devise/confirmations#new',   as: :confirm
   end
     
-  resources :users
+  #THIS SECTION IS FOR USER CONTROLLER ROUTES 
     get("/dashboard", { :controller => "users", :action => "show"})
     get 'preferences',    to: 'users#edit'
-    
-    
-    
-    
-    
-  #THIS SECTION IS FOR TEST CONTROLLER ROUTES 
-    get("/tests/:id", { :controller => "tests", :action => "show"})
-    get("/tests", {:controller => "tests", :action => "index"})
     
   
 end

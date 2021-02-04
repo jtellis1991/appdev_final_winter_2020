@@ -3,15 +3,21 @@ class QuestionsController < ApplicationController
   
   def index
     @questions = Question.all
-    render( { :index =>  "questions/index.html.erb" })
+    render( { :template =>  "questions/index.html.erb" })
     
   end
 
   def show
-    question = Question.find(params[:id])
-    respond_to do |format|
-      format.html { render :show, locals: { question: question } }
-    end 
+    @question = Question.find(params[:id])
+    
+    render( { :template =>  "questions/show.html.erb" })
+  end
+  
+  def edit
+    @question = Question.find(params[:id])
+    
+    render( { :template => "questions/edit.html.erb"})
+  
   end
   
 end
