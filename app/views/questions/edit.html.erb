@@ -7,13 +7,17 @@
      Edit Question: <%= @question.official_id %>
     </p>
     
+    <p>
+  <a href="/tests/<%= @test.id %>/edit">Return to Test <%= @test.name %></a>
+    </p>
+    
 
 <table class="table table-striped table-dark">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Official ID</th>
-      <th scope="col" class="text-nowrap">Category ID</th>
+      <th scope="col" class="text-nowrap">Category</th>
       <th scope="col">Body</th>
       <th scope="col">Prompt</th>
       <th scope="col">Difficulty</th>
@@ -25,7 +29,7 @@
     <tr>
       <th scope="row">1</th>
       <td><%= @question.official_id %></td>
-      <td><%= @question.category_id%></td>
+      <td><%= @question.category.name %></td>
       <td><%= @question.body%></td>
       <td><%= @question.prompt %></td>
       <td><%= @question.difficulty %></td>
@@ -35,7 +39,7 @@
     <tr>
       <th scope="row">1</th>
       <td><%= @question.official_id %></td>
-      <td><%= @question.category_id%></td>
+      <td><%= @question.category.name%></td>
       <td><%= @question.body%></td>
       <td><%= @question.prompt %></td>
       <td><%= @question.difficulty %></td>
@@ -44,6 +48,140 @@
     
   </tbody>
 </table>
+
+<p>Update Question</p> 
+
+    
+<% if @phrases.nil? %>
+  <table class="table table-striped table-dark">
+    <thead>
+    
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Untranslated</th>
+        <th scope="col" class="text-nowrap">Translated</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <th scope="row">1</th>
+        <td>Text to Tranlsate</td>
+        <td>Translated Text</td>
+     </tr>  
+     <tr>
+  <%= form_with model: @phrase, url: phrases_path, method: "post" do |form| %>
+  <%= form.label :text_to_translate, "Text to Translate", class: "visually-hidden" %>
+  <th scope="row">1</th>
+  <td><%= form.text_field :text_to_translate, autocomplete: "Text to Translate", class: "form-control" %></td>
+  <%= form.label :translated_text, "Translated Text", class: "visually-hidden"  %>
+  <td><%= form.text_field :translated_text, autocomplete: "Text to Translate", class: "form-control" %></td>
+     </tr>
+     
+  <label for="question id" class="visually-hidden">Question ID</label>   
+  <input type="text" value="<%= @question.id %>" name="question[id]" id="question id" class="visually-hidden">
+
+    </tbody>
+  </table>
+  
+  <%= form.submit "Create Phrase" %>
+<% end %>
+  
+ <% else %>
+  <% @phrases.each_with_index do |phrase, index| %>
+    
+  <table class="table table-striped table-dark">
+    <thead>
+    
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Text to Translate</th>
+        <th scope="col" class="text-nowrap">Tranlsated Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    <tr>
+      <th scope="row">1</th>
+        <td><%= phrase.text_to_translate %></td>
+        <td><%= phrase.translated_text %></td>
+    <tr>
+    <%= form_with model: phrase do |form| %>
+    <%= form.label :text_to_translate, "Text to Translate", class: "visually-hidden" %>
+      <th scope="row">1</th>
+      <td><%= form.text_field :text_to_translate, class: "form-control" %></td>
+    <%= form.label :translated_text, "Translated Text", class: "visually-hidden"  %>
+      <td><%= form.text_field :translated_text, class: "form-control" %></td>
+     </tr>
+     
+  <label for="question id" class="visually-hidden">Question ID</label>   
+  <input type="text" value="<%= @question.id %>" name="question[id]" id="question id" class="visually-hidden">
+
+  </tbody>
+</table>
+
+<div class="row justify-content-around mb-3">
+   <div class="col-1"><%= form.submit "Update Phrase", class: "btn btn-warning" %></div>
+   <div class="col-1 text-nowrap"><%= link_to "Destroy Phrase", phrase, :method => :delete, :class => "btn btn-danger" %></div>
+   
+<% end %>
+
+</div>
+
+ <% end %>
+    
+<p>Create New Phrase</p>    
+    
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Text to Translate</th>
+        <th scope="col" class="text-nowrap">Translated Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+     <tr>
+    <%= form_with model: @phrase, url: phrases_path, method: "post" do |form| %>
+    <%= form.label :text_to_translate, "Text to Translate", class: "visually-hidden" %>
+      <th scope="row">1</th>
+      <td><%= form.text_field :text_to_translate, autocomplete: "Text to Translate", class: "form-control" %></td>
+    <%= form.label :translated_text, "Translated Text", class: "visually-hidden"  %>
+      <td><%= form.text_field :translated_text, autocomplete: "Text to Translate", class: "form-control" %></td>
+     </tr>
+     
+  <label for="question id" class="visually-hidden">Question ID</label>   
+  <input type="text" value="<%= @question.id %>" name="question[id]" id="question id" class="visually-hidden">
+
+  </tbody>
+</table>
+
+   <%= form.submit "Create New Phrase", class: "btn btn-success" %>
+<% end %>
+  
+<% end %>
+  
+  
+<!--      <td><%= @question.body%></td>-->
+<!--      <td><%= @question.prompt %></td>-->
+<!--      <td><%= @question.difficulty %></td>-->
+<!--      <td><img src="<%= @question.image %>"></td>-->
+<!--    </tr>-->
+    
+<!--    <tr>-->
+<!--      <th scope="row">1</th>-->
+<!--      <td><%= @question.official_id %></td>-->
+<!--      <td><%= @question.category_id%></td>-->
+<!--      <td><%= @question.body%></td>-->
+<!--      <td><%= @question.prompt %></td>-->
+<!--      <td><%= @question.difficulty %></td>-->
+<!--      <td><img src="<%= @question.image %>"></td>-->
+<!--    </tr>-->
+    
+<!--  </tbody>-->
+<!--</table>-->
+
 
 </div>
 </div>

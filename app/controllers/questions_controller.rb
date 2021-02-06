@@ -15,6 +15,10 @@ class QuestionsController < ApplicationController
   
   def edit
     @question = Question.find(params[:id])
+    @test = @question.test
+    @options = @question.options
+    @answer = @question.answer
+    @phrases = @question.phrases
     
     render( { :template => "questions/edit.html.erb"})
   
