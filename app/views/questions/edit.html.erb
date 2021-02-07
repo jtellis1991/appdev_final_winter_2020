@@ -36,20 +36,35 @@
       <td><img src="<%= @question.image %>"></td>
     </tr>
     
-    <tr>
+    </tr>
       <th scope="row">1</th>
-      <td><%= @question.official_id %></td>
-      <td><%= @question.category.name%></td>
-      <td><%= @question.body%></td>
-      <td><%= @question.prompt %></td>
-      <td><%= @question.difficulty %></td>
-      <td><img src="<%= @question.image %>"></td>
+    <%= form_with model: @question do |form| %>
+    
+    <%= form.label :official_id, "Official ID", class: "visually-hidden" %>
+      <td><%= form.text_field :official_id, class: "form-control" %></td>
+      
+    <%= form.label :category_id, "Category ID", class: "visually-hidden"  %>
+      <td><%= form.text_field :category_id, class: "form-control" %></td>
+    
+    <%= form.label :body, "Body", class: "visually-hidden"  %>
+      <td><%= form.text_field :body, class: "form-control" %></td>  
+      
+    <%= form.label :prompt, "Prompt", class: "visually-hidden"  %>
+      <td><%= form.text_field :prompt, class: "form-control" %></td>  
+      
+    <%= form.label :difficulty, "Difficulty", class: "visually-hidden"  %>
+      <td><%= form.text_field :difficulty, class: "form-control" %></td> 
+      
+    <%= form.label :image, "Image", class: "visually-hidden"  %>
+      <td><%= form.text_field :image, class: "form-control" %></td>  
     </tr>
     
   </tbody>
 </table>
 
-<p>Update Question</p> 
+  <div class="col-1 mb-5"><%= form.submit "Update Question", class: "btn btn-warning" %></div>
+  
+  <% end %>
 
     
 <% if @phrases.nil? %>
@@ -130,7 +145,7 @@
 
  <% end %>
     
-<p>Create New Phrase</p>    
+<!--<p>Create New Phrase</p>    -->
     
 <table class="table table-striped table-dark">
     <thead>

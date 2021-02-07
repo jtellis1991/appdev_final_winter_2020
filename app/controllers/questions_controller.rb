@@ -24,4 +24,18 @@ class QuestionsController < ApplicationController
   
   end
   
+  def update
+    @question = Question.find(params[:id])
+    @question.official_id = params[:question][:official_id]
+    @question.category_id = params[:question][:category_id]
+    @question.body = params[:question][:body]
+    @question.prompt = params[:question][:prompt]
+    @question.difficulty = params[:question][:difficulty]
+    @question.image = params[:question][:image]
+    
+    @question.save
+    
+    redirect_to(edit_question_path(@question))
+  end
+  
 end
