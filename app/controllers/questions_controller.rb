@@ -67,4 +67,12 @@ class QuestionsController < ApplicationController
     end
   end
   
+  def destroy
+    @question = Question.find(params[:id])
+    @test = @question.test
+    @question.destroy
+    
+    redirect_to(edit_test_path(@test))
+  end
+  
 end

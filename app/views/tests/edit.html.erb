@@ -19,7 +19,11 @@
     <div class="my-3 col">
   <a href="/tests">Return to Tests</a>
     </div>
+    
+  <% if @test.id != 6 %>
    <div class="col text-nowrap"><%= link_to "Destroy Test", @test, :method => :delete, :class => "btn btn-danger" %></div>
+  <% else %>
+  <% end %>
 </div>
     
   </div>

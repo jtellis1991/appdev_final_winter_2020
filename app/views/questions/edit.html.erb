@@ -70,7 +70,7 @@
 
 <div class="row justify-content-between">
   <div class="col mb-5"><%= form.submit "Update Question", class: "btn btn-warning" %></div>
-  <% if @test.name = "Abandoned Questions" %>
+  <% if @test.id == 6 %>
   <div class="col"><%= link_to "Destroy Question", @question, :method => :delete, :class => "btn btn-danger" %></div>
   <% else %>
   <% end %>
