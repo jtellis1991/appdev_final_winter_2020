@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
   # Routes for the questions model 
-  resources :questions, :responses, :tests, :phrases, id: /[^\/]+/
+  resources :questions, :responses, :answers, :tests, :options, :phrases, id: /[^\/]+/
   # GET	        /questions	          questions#index	    display a list of all questions
   # GET	        /questions/new	      questions#new	      return an HTML form for creating a new question
   # POST	      /questions	          questions#create	  create a new question

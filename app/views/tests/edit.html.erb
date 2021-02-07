@@ -15,10 +15,12 @@
   <%= form.submit "Update Name" %>
 <% end %>
 
-<br>
-
-<form action="/tests/<%= @test.id %>" accept-charset="UTF-8" method="post">
-
+<div class="row justify-content-between">
+    <div class="my-3 col">
+  <a href="/tests">Return to Tests</a>
+    </div>
+   <div class="col text-nowrap"><%= link_to "Destroy Test", @test, :method => :delete, :class => "btn btn-danger" %></div>
+</div>
     
   </div>
     
@@ -46,12 +48,46 @@
       <td><%= question.body%></td>
       <td><%= question.prompt %></td>
       <td><%= question.difficulty %></td>
-      <td><img src="<%= question.image %>"></td>
+      <% if !question.image.nil? %>
+      <td><%= image_tag(question.image) %></td>
+      <% else %>
+      <td><%= question.image %></td>
+      <% end %>
     </tr>
   <% end %>
+    </tr>
+      <th scope="row">1</th>
+    <%= form_with url: questions_path, method: "post" do |form| %>
+    
+    <%= form.label :official_id, "Official ID", class: "visually-hidden" %>
+      <td><%= form.text_field :official_id, class: "form-control" %></td>
+      
+    <%= form.label :category_id, "Category ID", class: "visually-hidden"  %>
+      <td><%= form.text_field :category_id, class: "form-control" %></td>
+    
+    <%= form.label :body, "Body", class: "visually-hidden"  %>
+      <td><%= form.text_field :body, class: "form-control" %></td>  
+      
+    <%= form.label :prompt, "Prompt", class: "visually-hidden"  %>
+      <td><%= form.text_field :prompt, class: "form-control" %></td>  
+      
+    <%= form.label :difficulty, "Difficulty", class: "visually-hidden"  %>
+      <td><%= form.text_field :difficulty, class: "form-control" %></td> 
+      
+    <%= form.label :image, "Image", class: "visually-hidden"  %>
+      <td><%= form.text_field :image, class: "form-control" %></td>  
+    </tr>
+    
+  <label for="test id" class="visually-hidden">Question ID</label>   
+  <input type="text" value="<%= @test.id %>" name="test[id]" id="test id" class="visually-hidden">
+    
+    
   </tbody>
 </table>
 
+
+  <div class="col-1 mb-5"><%= form.submit "Create New Question", class: "btn btn-success" %></div>
+<% end %>
 
   </div>
 </div>
