@@ -17,10 +17,12 @@ class TestsController < ApplicationController
     
     if @test.questions.empty?
       @test.destroy
+      @tests = Test.all
+      render({:template => "/tests/index.html.erb"})
+    else
+    flash[:alert] = "Cannot delete test containing questions, move questions to other tests before deleting"
+    redirect_to(edit_test_path(@test))
     end
-
-    @tests = Test.all
-    render({:template => "/tests/index.html.erb"})
   end
  
  
@@ -36,6 +38,12 @@ class TestsController < ApplicationController
   def edit
     @test = Test.find(params[:id])
     @questions = @test.questions
+    
+    @list_of_tests = Test.all
+    @list_of_tests = @list_of_tests.map{ |test| [test.name, test.id]} 
+    
+    @list_of_categories = Category.all
+    @list_of_categories = @list_of_categories.map{ |category| [category.name, category.id]} 
     
     
     render({:template => "/tests/edit.html.erb"})
