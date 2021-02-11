@@ -15,6 +15,7 @@
 #
 class Option < ApplicationRecord
   has_many :choices
+  has_many :responses, through: :choices
   belongs_to :question
   
   validates :correct, :value, :presence => true

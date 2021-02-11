@@ -20,6 +20,7 @@
 #
 class Response < ApplicationRecord
   has_many :choices
+  has_many :options, through: :choices
   belongs_to :user
   belongs_to :test_attempt
   belongs_to :question

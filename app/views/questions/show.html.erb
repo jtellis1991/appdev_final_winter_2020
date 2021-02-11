@@ -15,7 +15,7 @@
   <div class="col-lg-6 px-5 justify-content-center">
    <!--<h1 class="mb-3 text-center fs-4">Answer Options</h1>-->
 
-<%= form_with url: responses_path, method: "post" do |form| %>
+  <%= form_with url: responses_path, method: "post", :id => "response form" do |form| %>
 
   <label for="test attempt id" class="visually-hidden">Question ID</label>   
   <input type="text" value="<%= @test_attempt.id %>" name="test_attempt[id]" 
@@ -29,45 +29,55 @@
   <input type="text" value="<%= @question.id %>" name="question[id]" 
          id="question id" class="visually-hidden">
          
-  <label for="options"class="visually-hidden">Option Select</label>
-  <select id="options" name="option" size="4" >
-
+  <label for="milliseconds" class="visually-hidden">Question ID</label>   
+  <input type="number" value=999999 name="milliseconds" 
+         id="milliseconds" class="visually-hidden">
+         
+<div class="btn-group-justified btn-group-toggle" data-toggle="buttons">
 
   <% @question.options.each_with_index do |option, letter| %>
 
       <div class="row py-2 border-top border-light border-5 rounded" >
-        <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
+        <label for="<%= @letters[letter]%>" type="button"
+        class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
             <div class="badge rounded-3 d-block bg-secondary fs-4" style="width: 50px">
              <span class="align-text-top m-0"><%= @letters[letter] %></span>
             </div>
           
          <div class="col pb-1">
-           <span class="fs-3 text-dark d-inline-block border-0 ps-4">
-            <%= option.value %>
-          </span>
-        </div>
-        </button>
+            <span class="fs-3 text-dark d-inline-block border-0 ps-4">
+              <input type="radio" id="<%= @letters[letter]%>" name="option"
+               value="<%=option.value%>" class="visually-hidden">
+              <%=option.value %>
+            </span>
+          </div>
+        </label>
       </div>
         
-<% end %>
+  <% end %>
 
- 
-      
       <div class="row py-2 border-bottom border-top border-light border-5 rounded" >
-        <button type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
+        <label for="?" type="button" class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
           <div class="badge rounded-3 d-block bg-secondary fs-4 px-3" style="width: 50px">
            <span class="align-text-top">?</span>
           </div>
          <div class="col pb-1">
            <span class="fs-3 text-dark d-inline-block ps-4">
+            <input type="radio" id="?" name="option" value="I don't know"
+            class="visually-hidden">
             I don't know
           </span>
         </div>
-        </button>
+        </label>
       </div>
  
+</div>
+  
+  <% end %>
+
+
 
   </div>
 </div>
 
-
+   
