@@ -3,6 +3,7 @@
 # Table name: responses
 #
 #  id                   :integer          not null, primary key
+#  correct              :boolean
 #  milliseconds_elapsed :integer
 #  text_submitted       :text
 #  created_at           :datetime         not null
@@ -22,6 +23,8 @@ class Response < ApplicationRecord
   belongs_to :user
   belongs_to :test_attempt
   belongs_to :question
+  
+  validates :correct, :milliseconds_elapsed, :presence => true
 
   
 end

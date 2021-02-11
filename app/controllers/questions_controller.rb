@@ -20,13 +20,24 @@ class QuestionsController < ApplicationController
   
   
   def index
-    @questions = Question.all
+    @test = Test.find(params[:test_id])
+    @questions = @test.questions
+    @user = current_user
+    @test_attempt = TestAttempt.where(:test_id => @test.id).where(:user_id => @user.id).last
+    if @test_attempt.responses.empty?
+      @num_responses = 0
+    else
+      @num_responses = @test_attempt.responses.count
+    end
     render( { :template =>  "questions/index.html.erb" })
-    
   end
 
   def show
+    @test = Test.find(params[:test_id])
     @question = Question.find(params[:id])
+    @letters = ('A'..'Z').to_a
+    @user = current_user
+    @test_attempt = TestAttempt.where(:test_id => @test.id).where(:user_id => @user.id).last
     
     render( { :template =>  "questions/show.html.erb" })
   end
@@ -35,7 +46,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @test = @question.test
     @options = @question.options
-    @answer = @question.answer
+    @answers = @question.answers
     @phrases = @question.phrases
     
     @list_of_tests = Test.all
@@ -43,6 +54,9 @@ class QuestionsController < ApplicationController
     
     @list_of_categories = Category.all
     @list_of_categories = @list_of_categories.map{ |category| [category.name, category.id]} 
+    
+    @list_of_styles = Style.all
+    @list_of_styles = @list_of_styles.map{ |style| [style.name, style.id]} 
     
     render( { :template => "questions/edit.html.erb"})
   
@@ -54,6 +68,7 @@ class QuestionsController < ApplicationController
     @question.test = Test.find(params[:question][:test])
     @question.official_id = params[:question][:official_id]
     @question.category_id = params[:question][:category_id]
+    @question.style_id = params[:question][:style_id]
     @question.body = params[:question][:body]
     @question.prompt = params[:question][:prompt]
     @question.difficulty = params[:question][:difficulty]

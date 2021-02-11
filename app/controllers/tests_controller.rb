@@ -45,6 +45,8 @@ class TestsController < ApplicationController
     @list_of_categories = Category.all
     @list_of_categories = @list_of_categories.map{ |category| [category.name, category.id]} 
     
+    @list_of_styles = Style.all
+    @list_of_styles = @list_of_styles.map{ |style| [style.name, style.id]} 
     
     render({:template => "/tests/edit.html.erb"})
   end

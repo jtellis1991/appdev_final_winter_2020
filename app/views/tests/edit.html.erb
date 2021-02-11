@@ -73,6 +73,7 @@
       <th scope="col">Test</th>
       <th scope="col">Official ID</th>
       <th scope="col" class="text-nowrap">Category</th>
+      <th scope="col" class="text-nowrap">Style</th>
       <th scope="col">Body</th>
       <th scope="col">Prompt</th>
       <th scope="col">Difficulty</th>
@@ -91,6 +92,9 @@
       
     <%= form.label :category_id, "Category ID", class: "visually-hidden"  %>
       <td><%= form.select :category_id, @list_of_categories %></td>
+      
+    <%= form.label :style_id, "Style ID", class: "visually-hidden"  %>
+      <td><%= form.select :style_id, @list_of_styles %></td>
     
     <%= form.label :body, "Body", class: "visually-hidden"  %>
       <td><%= form.text_field :body, class: "form-control" %></td>  
@@ -105,7 +109,7 @@
       <td><%= form.text_field :image, class: "form-control" %></td>  
     </tr>
     
-  <label for="test id" class="visually-hidden">Question ID</label>   
+  <label for="test id" class="visually-hidden">Test ID</label>   
   <input type="text" value="<%= @test.id %>" name="test[id]" id="test id" class="visually-hidden">
       
       

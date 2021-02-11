@@ -1,11 +1,44 @@
-<h1>Questions</h1>
+<div class="row flex-fill gx-0 py-4">
+  <div class="col-lg-12 px-5 border-light border-5 rounded text-center">
 
-<% @questions.each do |question| %>
-  <div id="<%= dom_id(question) %>">
-    
-    <p><%= question.body %></p>
+<h1>Math - No Calculator</h1>
+<h2>Actual SAT Test Section Simulation</h2>
+
+<p>
+You are about to take the initial assessment, which will determine your expected test score for the SAT Math No Calculator Section.
+</p>
+<p>
+This test has <span class="fw-bold"><%=@test.questions.count%></span> questions. You may exit the test at any time and resume from where you left off.
+</p>
+
+  
+  
+
+  <%= form_with url: test_attempts_path, method: "post" do |form| %>
+
+  <label for="test id" class="visually-hidden">Test ID</label>   
+  <input type="text" value="<%= @test.id %>" name="test[id]" id="test id" class="visually-hidden">
+
+  <label for="user id" class="visually-hidden">User ID</label>   
+  <input type="text" value="<%= @user.id %>" name="user[id]" id="user id" class="visually-hidden">
+
+  <div class="col-4 d-grid mx-auto text-center pt-1">
+  <% if @user.test_attempts.empty? %>
+   <%= form.submit "Begin Test", class: "btn btn-lg btn-primary" %>
+  <% else %>
+  <p>You have completed 
+    <span class="fw-bold">
+      <%=  @num_responses %> of <%= @test.questions.count %>
+    </span> 
+    questions.  
+  </p>
+  
+    <%= link_to "Continue Test", test_question_path(@test.id, @num_responses + 1), :class => "btn btn-lg btn-primary" %>
+  <% end %>
+   
+  </div>
+    <% end %>
+
 
   </div>
-<% end %>  
-
-
+</div>

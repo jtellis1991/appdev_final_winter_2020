@@ -3,6 +3,7 @@
 # Table name: responses
 #
 #  id                   :integer          not null, primary key
+#  correct              :boolean
 #  milliseconds_elapsed :integer
 #  text_submitted       :text
 #  created_at           :datetime         not null

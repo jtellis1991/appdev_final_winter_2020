@@ -18,6 +18,7 @@
       <th scope="col">Test</th>
       <th scope="col">Official ID</th>
       <th scope="col" class="text-nowrap">Category</th>
+      <th scope="col" class="text-nowrap">Style</th>
       <th scope="col">Body</th>
       <th scope="col">Prompt</th>
       <th scope="col">Difficulty</th>
@@ -30,6 +31,7 @@
       <th scope="row"><%= @question.test.name %></th>
       <td><%= @question.official_id %></td>
       <td class="text-nowrap" ><%= @question.category.name %></td>
+      <td class="text-nowrap" ><%= @question.style.name %></td>
       <td><%= @question.body%></td>
       <td><%= @question.prompt %></td>
       <td><%= @question.difficulty %></td>
@@ -51,6 +53,9 @@
       
     <%= form.label :category_id, "Category ID", class: "visually-hidden"  %>
       <td><%= form.select :category_id, @list_of_categories %></td>
+      
+    <%= form.label :style_id, "Style ID", class: "visually-hidden"  %>
+      <td><%= form.select :style_id, @list_of_styles %></td>
     
     <%= form.label :body, "Body", class: "visually-hidden"  %>
       <td><%= form.text_field :body, class: "form-control" %></td>  
@@ -88,18 +93,24 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Value</th>
+        <th scope="col">Correct</th>
       </tr>
     </thead>
     <tbody>
       
     <tr>
-      <th scope="row">1</th>
-        <td><%= option.value %></td>
+      <td scope="row">1</td>
+      <td><%= option.value %></td>
+      <td><%= option.correct %></td>
+    </tr>
     <tr>
     <%= form_with model: option do |form| %>
       <%= form.label :value, "Value", class: "visually-hidden" %>
       <th scope="row">1</th>
       <td><%= form.text_field :value, class: "form-control" %></td>
+      
+      <%= form.label :correct, "Style ID", class: "visually-hidden"  %>
+      <td><%= form.select :correct, [["true", true], ["false", false]] %></td>
     </tr>
      
       <label for="question id" class="visually-hidden">Question ID</label>   
@@ -123,6 +134,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Value</th>
+        <th scope="col">Correct</th>
       </tr>
     </thead>
     <tbody>
@@ -132,6 +144,9 @@
     <%= form.label :value, "Value", class: "visually-hidden" %>
       <th scope="row">1</th>
       <td><%= form.text_field :value, autocomplete: "Value", class: "form-control" %></td>
+      
+      <%= form.label :correct, "Style ID", class: "visually-hidden"  %>
+      <td><%= form.select :correct, [["true", true], ["false", false]] %></td>
      </tr>
      
   <label for="question id" class="visually-hidden">Question ID</label>   
@@ -147,7 +162,8 @@
 
 <!--############################# ANSWERS #######################################-->
 
-<% if !@answer.nil? %>   
+<% @answers.each_with_index do |answer, index| %>
+
   <table class="table table-striped table-dark">
     <thead>
     
@@ -160,9 +176,9 @@
       
     <tr>
       <th scope="row">1</th>
-        <td><%= @answer.correct_answer %></td>
+        <td><%= answer.correct_answer %></td>
     <tr>
-    <%= form_with model: @answer do |form| %>
+    <%= form_with model: answer do |form| %>
       <%= form.label :correct_answer, "Value", class: "visually-hidden" %>
       <th scope="row">1</th>
       <td><%= form.text_field :correct_answer, class: "form-control" %></td>
@@ -176,13 +192,14 @@
 
    <div class="row justify-content-around mb-3">
      <div class="col-1"><%= form.submit "Update Answer", class: "btn btn-warning" %></div>
-     <div class="col-1 text-nowrap"><%= link_to "Destroy Answer", @answer, :method => :delete, :class => "btn btn-danger" %></div>
+     <div class="col-1 text-nowrap"><%= link_to "Destroy Answer", answer, :method => :delete, :class => "btn btn-danger" %></div>
    
     <% end %>
 
   </div>
 
-<% else %>
+<% end %>
+
 
 <table class="table table-striped table-dark">
     <thead>
@@ -194,7 +211,7 @@
     <tbody>
       
      <tr>
-    <%= form_with model: @answer, url: answers_path, method: "post" do |form| %>
+    <%= form_with url: answers_path, method: "post" do |form| %>
     <%= form.label :correct_answer, "Correct Answer", class: "visually-hidden" %>
       <th scope="row">1</th>
       <td><%= form.text_field :correct_answer, autocomplete: "Correct Answer", class: "form-control" %></td>
@@ -207,7 +224,6 @@
 </table>
 
    <%= form.submit "Create Answer", class: "btn btn-success mb-5" %>
-<% end %>
 <% end %>
 
 <!--############################# PHRASES #######################################-->

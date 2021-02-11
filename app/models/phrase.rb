@@ -16,4 +16,6 @@
 class Phrase < ApplicationRecord
   belongs_to :question
   
+  validates :text_to_translate, :translated_text, :presence => true
+  
 end

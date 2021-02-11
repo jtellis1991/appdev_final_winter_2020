@@ -3,6 +3,7 @@
 # Table name: options
 #
 #  id          :integer          not null, primary key
+#  correct     :boolean
 #  value       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

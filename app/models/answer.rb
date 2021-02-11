@@ -13,8 +13,8 @@
 #  question_id  (question_id => questions.id)
 #
 class Answer < ApplicationRecord
-  has_many :explanations, as: :explainable, dependent: :destroy
   belongs_to :question
   
-  
+  validates :correct_answer, :presence => true
+
 end

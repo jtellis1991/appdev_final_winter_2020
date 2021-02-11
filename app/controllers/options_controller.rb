@@ -5,6 +5,7 @@ class OptionsController < ApplicationController
     @option = Option.new
     @option.value = params[:value]
     @option.question = @question
+    @option.correct = params[:correct]
     
     if !@option.nil?
       @option.save
@@ -17,6 +18,7 @@ class OptionsController < ApplicationController
     @question = Question.find(params[:question][:id])
     @option = Option.find(params[:id])
     @option.value = params[:option][:value]
+    @option.correct = params[:option][:correct]
     
     if !@option.nil?
       @option.save

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_185448) do
+ActiveRecord::Schema.define(version: 2021_02_11_002933) do
 
   create_table "answers", force: :cascade do |t|
     t.string "correct_answer"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_185448) do
     t.integer "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "correct"
   end
 
   create_table "phrases", force: :cascade do |t|
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_185448) do
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "style_id"
   end
 
   create_table "responses", force: :cascade do |t|
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_185448) do
     t.integer "test_attempt_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "correct"
   end
 
   create_table "root_causes", force: :cascade do |t|
@@ -106,6 +109,12 @@ ActiveRecord::Schema.define(version: 2021_02_03_185448) do
   create_table "strategies", force: :cascade do |t|
     t.string "name"
     t.string "symbol"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -156,6 +165,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_185448) do
   add_foreign_key "options", "questions"
   add_foreign_key "phrases", "questions"
   add_foreign_key "questions", "categories"
+  add_foreign_key "questions", "styles"
   add_foreign_key "questions", "tests"
   add_foreign_key "responses", "questions"
   add_foreign_key "responses", "test_attempts"

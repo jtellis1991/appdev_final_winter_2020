@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
  
+  
+  resources :tests do |test|
+      resources :questions, :name_prefix => "test_"
+  end
+  
   # Routes for the questions model 
-  resources :questions, :responses, :answers, :tests, :options, :phrases, id: /[^\/]+/
+  resources :responses, :questions, :answers, :options, :phrases, :test_attempts, id: /[^\/]+/
   # GET	        /questions	          questions#index	    display a list of all questions
   # GET	        /questions/new	      questions#new	      return an HTML form for creating a new question
   # POST	      /questions	          questions#create	  create a new question
@@ -9,7 +14,7 @@ Rails.application.routes.draw do
   # GET	        /questions/:id/edit	  questions#edit	    return an HTML form for editing a question
   # PATCH/PUT	  /questions/:id	      questions#update  	update a specific question
   # DELETE	    /questions/:id	      questions#destroy 	delete a specific question
-  
+ 
   #Paths:
   # questions_path           returns /questions
   # new_question_path        returns /questions/new

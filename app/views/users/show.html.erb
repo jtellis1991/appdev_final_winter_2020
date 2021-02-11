@@ -5,10 +5,15 @@
   <div class="col-6 text-center">
     <h1>Welcome to SATsucceed</h1>
     <p>Your training begins now</p>
-         <%= link_to "Begin Assessment", "/questions/1" , class: "btn btn-lg btn-warning 
+    
+    <% if @test_attempts.empty? %>
+         <%= link_to "Begin Assessment", test_questions_path(1) , class: "btn btn-lg btn-warning 
           col-8" %>
+    <% else %>
+         <%= link_to "Continue Assessment", test_questions_path(1) , class: "btn btn-lg btn-warning 
+          col-8" %>
+    <% end %>
+          
   </div>
 
-
-      
 </div>

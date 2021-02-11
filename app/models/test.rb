@@ -17,5 +17,8 @@ class Test < ApplicationRecord
   has_many :questions
   has_many :test_attempts
   belongs_to :testable, polymorphic: true, optional: true
+  
+  validates :name, :presence => true
+
 
 end

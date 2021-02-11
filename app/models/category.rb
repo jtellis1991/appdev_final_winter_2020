@@ -18,4 +18,6 @@ class Category < ApplicationRecord
   has_many :explanations, as: :explainable, dependent: :destroy
   has_many :questions
   
+  validates :name, :presence => true
+  
 end
