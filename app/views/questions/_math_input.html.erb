@@ -23,7 +23,7 @@
 
   <% end %>
   
-  <div class="text-center col-sm-7 mx-auto">
+  <div class="text-center col-10 col-sm-6 col-md-5 col-lg-7 col-xl-5 mx-auto">
     <div class="row border-2 border-end border-start border-top">
         <div class="col border border-3 border-3 px-0">
           <table class="rounded-2 border border-5 btn-light mx-auto my-1" style="height: 50px; width: 50px">
@@ -65,26 +65,35 @@
       
       <div class="row border-2 border-start border-end" >
         <div class="col border border-3 px-0">
-          <table class="rounded-circle border-0 mx-auto" style="height: 50px; width: 50px">
+          
+          <table class="rounded-circle border-0 mx-auto mt-1" style="height: 50px; width: 50px">
             <tbody>
               <tr>            
                 <td class="align-middle fs-2"></td>
               </tr>
             </tbody>
           </table>
-          <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+          
+          <label for="." type="button" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 50px; width: 50px">
+            <table class="rounded-circle border-0 justify-content-center" style="height: 50px; width: 50px">
             <tbody>
               <tr>  
                   <input type="radio" id="." name="first col"
                   value="." class="visually-hidden"> 
-                <td class="align-middle fs-2">.</td>
+                  <td class="align-middle fs-2">
+                  .
+                  </td>
               </tr>
             </tbody>
-          </table>
+            </table>
+          </label>
+          
         </div>
         
         <div class="col border border-3 px-0">
-          <table class="rounded-circle border-0 btn-secondary mx-auto" style="height: 50px; width: 50px">
+          
+          <label for="/" type="button" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 50px; width: 50px">
+          <table class="rounded-circle border-0 justify-content-center" style="height: 50px; width: 50px">
             <tbody>
               <tr>
                 <input type="radio" id="/" name="second col"
@@ -93,8 +102,10 @@
               </tr>
             </tbody>
           </table>
+          </label>
           
-          <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+          <label for="." type="button" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 50px; width: 50px">
+          <table class="rounded-circle border-0 justify-content-center" style="height: 50px; width: 50px">
             <tbody>
               <tr>     
                   <input type="radio" id="." name="second col"
@@ -103,10 +114,14 @@
               </tr>
             </tbody>
           </table>
+        </label>
+          
         </div>
         
         <div class="col border border-3 px-0">
-          <table class="rounded-circle border-0 btn-secondary mx-auto" style="height: 50px; width: 50px">
+          
+          <label for="/" type="button" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 50px; width: 50px">
+          <table class="rounded-circle border-0 justify-content-center" style="height: 50px; width: 50px">
             <tbody>
               <tr>  
                   <input type="radio" id="/" name="third col"
@@ -115,8 +130,10 @@
               </tr>
             </tbody>
           </table>
+          </label>
           
-          <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+          <label for="." type="button" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 50px; width: 50px">
+          <table class="rounded-circle border-0 justify-content-center" style="height: 50px; width: 50px">
             <tbody>
               <tr>            
                 <input type="radio" id="." name="thrid col"
@@ -125,18 +142,22 @@
               </tr>
             </tbody>
           </table>
+          </label>
+          
         </div>
         
         
         <div class="col border border-3 px-0">
-          <table class="rounded-circle border-0 mx-auto" style="height: 50px; width: 50px">
+          <table class="rounded-circle border-0 mx-auto mt-1" style="height: 50px; width: 50px">
             <tbody>
               <tr>            
                 <td class="align-middle fs-2"></td>
               </tr>
             </tbody>
           </table>
-          <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+          
+          <label for="." type="button" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 50px; width: 50px">
+          <table class="rounded-circle border-0 justify-content-center" style="height: 50px; width: 50px">
             <tbody>
               <tr>
                 <input type="radio" id="." name="fourth col"
@@ -145,6 +166,8 @@
               </tr>
             </tbody>
           </table>
+          </label>
+          
         </div>
         
       </div>
@@ -159,17 +182,21 @@
                 </tr>
               </tbody>
             </table>
+            
           <% (1..9).to_a.each do |num| %>
-            <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
-              <tbody>
-                <tr>            
-                  <input type="radio" id="<%= num %>" name="first col"
-                   value="<%= num %>" class="visually-hidden"> 
-                  <td class="align-middle fs-2"><%= num %></td>
-                </tr>
-              </tbody>
-            </table>
+            <label for="<%= num %>" type="button" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 50px; width: 50px">
+              <table class="rounded-circle border-0 justify-content-center" style="height: 50px; width: 50px">
+                <tbody>
+                  <tr>            
+                    <input type="radio" id="<%= num %>" name="first col"
+                     value="<%= num %>" class="visually-hidden"> 
+                    <td class="align-middle fs-2"><%= num %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </label>
           <% end %>
+          
         </div>
         
         <div class="col border border-3 px-0">
