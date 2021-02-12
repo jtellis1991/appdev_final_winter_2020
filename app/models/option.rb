@@ -18,6 +18,6 @@ class Option < ApplicationRecord
   has_many :responses, through: :choices
   belongs_to :question
   
-  validates :correct, :value, :presence => true
-  
+  validates :value, :presence => true
+  validates :correct, inclusion: { in: [ true, false ] }
 end

@@ -21,7 +21,7 @@ class OptionsController < ApplicationController
     @option.correct = params[:option][:correct]
     
     if !@option.nil?
-      @option.save
+      @option.save!
     end
     
     redirect_to(edit_question_path(@question))

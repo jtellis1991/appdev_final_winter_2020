@@ -38,6 +38,10 @@ class QuestionsController < ApplicationController
     @letters = ('A'..'Z').to_a
     @user = current_user
     @test_attempt = TestAttempt.where(:test_id => @test.id).where(:user_id => @user.id).last
+    @response = @test_attempt.responses.where(:question_id => @question.id).last
+    if @response.nil?
+    @response = Response.new
+    end
     
     render( { :template =>  "questions/show.html.erb" })
   end

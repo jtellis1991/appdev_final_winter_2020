@@ -25,7 +25,7 @@ class Response < ApplicationRecord
   belongs_to :test_attempt
   belongs_to :question
   
-  validates :correct, :milliseconds_elapsed, :presence => true
-
+  validates :milliseconds_elapsed, :presence => true
+  validates :correct, inclusion: { in: [ true, false ] }
   
 end

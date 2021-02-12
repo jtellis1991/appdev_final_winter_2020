@@ -1,0 +1,215 @@
+<div class="col-lg-6 px-5 justify-content-center">
+   <!--<h1 class="mb-3 text-center fs-4">Answer Options</h1>-->
+
+  <%= form_with model: @response, :id => "response form" do |form| %>
+
+  <label for="test attempt id" class="visually-hidden">Question ID</label>   
+  <input type="text" value="<%= @test_attempt.id %>" name="test_attempt[id]" 
+         id="test attempt id" class="visually-hidden">
+  
+  <label for="user id" class="visually-hidden">Question ID</label>   
+  <input type="text" value="<%= @user.id %>" name="user[id]" 
+         id="user id" class="visually-hidden">
+         
+  <label for="question id" class="visually-hidden">Question ID</label>   
+  <input type="text" value="<%= @question.id %>" name="question[id]" 
+         id="question id" class="visually-hidden">
+         
+  <label for="milliseconds" class="visually-hidden">Question ID</label>   
+  <input type="number" value=999999 name="milliseconds" 
+         id="milliseconds" class="visually-hidden">
+         
+  
+
+  <% end %>
+  
+  <div class="text-center col-md-7 mx-auto">
+    <div class="row flex-nowrap border-2 border-end border-start border-top">
+        <div class="col border border-3 border-3 px-0">
+          <table class="rounded-2 border border-5 btn-light mx-auto my-1" style="height: 50px; width: 60px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-2">1</td>
+              </tr>
+            </tbody>
+          </table>          
+        </div>
+        <div class="col border border-3 border-3 px-0">
+          <table class="rounded-2 border border-5 btn-light mx-auto my-1" style="height: 50px; width: 60px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-2">2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col border border-3 border-3 px-0">
+         <table class="rounded-2 border border-5  btn-light mx-auto my-1" style="height: 50px; width: 60px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-2">3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col border border-3 border-3 px-0">
+          <table class="rounded-2 border border-5  btn-light mx-auto my-1" style="height: 50px; width: 60px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-2">4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="row border-2 border-start border-end" >
+        <div class="col border border-3 px-0">
+          <table class="rounded-circle border-0 mx-auto" style="height: 50px; width: 50px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-2"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+            <tbody>
+              <tr>  
+                  <input type="radio" id="." name="first col"
+                  value="." class="visually-hidden"> 
+                <td class="align-middle fs-2">.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="col border border-3 px-0">
+          <table class="rounded-circle border-0 btn-secondary mx-auto" style="height: 50px; width: 50px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-2">/</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+            <tbody>
+              <tr>     
+                  <input type="radio" id="." name="second col"
+                  value="." class="visually-hidden"> 
+                <td class="align-middle fs-2">.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="col border border-3 px-0">
+          <table class="rounded-circle border-0 btn-secondary mx-auto" style="height: 50px; width: 50px">
+            <tbody>
+              <tr>  
+                  <input type="radio" id="." name="third col"
+                  value="." class="visually-hidden"> 
+                <td class="align-middle fs-2">/</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-2">.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        
+        <div class="col border border-3 px-0">
+          <table class="rounded-circle border-0 mx-auto" style="height: 50px; width: 50px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-2"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-2">.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+      
+      <div class="row border-2 border-start border-end border-bottom" >
+        
+        <div class="col border border-3 px-0">
+            <table class="rounded-circle border-0 mt-1 mx-auto" style="height: 50px; width: 50px">
+              <tbody>
+                <tr>            
+                  <td class="align-middle fs-2"></td>
+                </tr>
+              </tbody>
+            </table>
+          <% (1..9).to_a.each do |num| %>
+            <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+              <tbody>
+                <tr>            
+                  <input type="radio" id="<%= num %>" name="first col"
+                   value="<%= num %>" class="visually-hidden"> 
+                  <td class="align-middle fs-2"><%= num %></td>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+        
+        <div class="col border border-3 px-0">
+          <% (0..9).to_a.each do |num| %>
+            <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+              <tbody>
+                <tr>
+                  <input type="radio" id="<%= num %>" name="second col"
+                         value="<%= num %>" class="visually-hidden">            
+                  <td class="align-middle fs-2"><%= num %></td>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+        
+        <div class="col border border-3 px-0">
+          <% (0..9).to_a.each do |num| %>
+            <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+              <tbody>
+                <tr>   
+                  <input type="radio" id="<%= num %>" name="third col"
+                  value="<%= num %>" class="visually-hidden"> 
+                  <td class="align-middle fs-2"><%= num %></td>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+
+        <div class="col border border-3 px-0">
+          <% (0..9).to_a.each do |num| %>
+            <table class="rounded-circle border-0 btn-secondary mt-1 mx-auto" style="height: 50px; width: 50px">
+              <tbody>
+                <tr>   
+                  <input type="radio" id="<%= num %>" name="fourth col"
+                  value="<%= num %>" class="visually-hidden"> 
+                  <td class="align-middle fs-2"><%= num %></td>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+  
+</div>
