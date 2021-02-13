@@ -3,16 +3,16 @@
 <div class="row flex-fill gx-0 py-4">
   <div class="col-lg-6 px-5 border-end border-light border-5 rounded">
     <!--<h1 class="mb-3 text-center">Question</h1>-->
-    
-    <div class="row mb-5">
-      <div class="col text-center">
-      <% if !@question.image.nil? %>
-      <%= image_tag(@question.image) %>
-      <% else %>
-      <% end %>   
+
+  <% if !@question.image.empty? %>    
+      <div class="row mb-5">
+        <div class="col text-center">
+        <%= image_tag(@question.image) %>
+        </div>
       </div>
-    </div>
-      
+    <% else %>
+  <% end %>  
+  
     <p class="fs-5">
       <%= @question.body %>
     </p>
