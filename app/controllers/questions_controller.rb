@@ -29,6 +29,16 @@ class QuestionsController < ApplicationController
     else
       @num_responses = @test_attempt.responses.count
     end
+    
+    @responses = @test_attempt.responses
+    unanswered = Array.new
+    @questions.each do |question|
+      if @test_attempt.responses.where(:question_id => question.id).first.nil?
+        unanswered.push(question.id)
+      end 
+    end 
+    @next_question = unanswered.at(0)
+    
     render( { :template =>  "questions/index.html.erb" })
   end
 

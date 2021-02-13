@@ -33,7 +33,7 @@ This test has <span class="fw-bold"><%=@test.questions.count%></span> questions.
     questions.  
   </p>
   
-    <%= link_to "Continue Test", test_question_path(@test.id, @num_responses + 1), :class => "btn btn-lg btn-primary" %>
+    <%= link_to "Continue Test", test_question_path(@test.id, @next_question), :class => "btn btn-lg btn-primary" %>
   <% end %>
    
   </div>

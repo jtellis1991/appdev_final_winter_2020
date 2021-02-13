@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_002933) do
+ActiveRecord::Schema.define(version: 2021_02_13_020320) do
 
   create_table "answers", force: :cascade do |t|
     t.string "correct_answer"
@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 2021_02_11_002933) do
   end
 
   create_table "responses", force: :cascade do |t|
-    t.text "text_submitted"
     t.integer "milliseconds_elapsed"
     t.integer "user_id"
     t.integer "question_id"
@@ -98,6 +97,10 @@ ActiveRecord::Schema.define(version: 2021_02_11_002933) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "correct"
+    t.string "first"
+    t.string "second"
+    t.string "third"
+    t.string "fourth"
   end
 
   create_table "root_causes", force: :cascade do |t|

@@ -4,8 +4,11 @@
 #
 #  id                   :integer          not null, primary key
 #  correct              :boolean
+#  first                :string
+#  fourth               :string
 #  milliseconds_elapsed :integer
-#  text_submitted       :text
+#  second               :string
+#  third                :string
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  question_id          :integer
