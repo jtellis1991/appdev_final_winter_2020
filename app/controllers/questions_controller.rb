@@ -52,6 +52,7 @@ class QuestionsController < ApplicationController
     if @response.nil?
     @response = Response.new
     end
+    @responses = @test_attempt.responses
     
     render( { :template =>  "questions/show.html.erb" })
   end
