@@ -15,10 +15,6 @@
   <input type="text" value="<%= @question.id %>" name="question[id]" 
          id="question id" class="visually-hidden">
          
-  <label for="milliseconds" class="visually-hidden">Question ID</label>   
-  <input type="number" value=999999 name="milliseconds" 
-         id="milliseconds" class="visually-hidden">
-         
 <div class="btn-group-justified btn-group-toggle" data-toggle="buttons">
 
   <% @question.options.each_with_index do |option, letter| %>
@@ -26,16 +22,16 @@
   <% if @response.options.first == option %>
   
         <div class="row py-2 border-top border-light border-5 rounded" >
+          <input type="radio" checked="checked" id="<%= @letters[letter]%>" name="option"
+          value="<%=option.value%>" class="btn-check d-none">
         <label for="<%= @letters[letter]%>" type="button"
-        class="btn btn-outline-primary border-0 text-start d-flex align-items-center active">
+        class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
             <div class="badge rounded-3 d-block bg-secondary fs-4" style="width: 50px">
              <span class="align-text-top m-0"><%= @letters[letter] %></span>
             </div>
           
          <div class="col pb-1">
             <span class="fs-4 text-dark d-inline-block border-0 ps-4">
-              <input type="radio" checked="checked" id="<%= @letters[letter]%>" name="option"
-               value="<%=option.value%>" class="visually-hidden">
               <%=option.value %>
             </span>
           </div>
@@ -46,6 +42,8 @@
   <% else %>
 
       <div class="row py-2 border-top border-light border-5 rounded" >
+        <input type="radio" id="<%= @letters[letter]%>" name="option"
+        value="<%=option.value%>" class="btn-check d-none">
         <label for="<%= @letters[letter]%>" type="button"
         class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
             <div class="badge rounded-3 d-block bg-secondary fs-4" style="width: 50px">
@@ -54,8 +52,6 @@
           
          <div class="col pb-1">
             <span class="fs-4 text-dark d-inline-block border-0 ps-4">
-              <input type="radio" id="<%= @letters[letter]%>" name="option"
-               value="<%=option.value%>" class="visually-hidden">
               <%=option.value %>
             </span>
           </div>
@@ -67,6 +63,8 @@
 
 
       <div class="row py-2 border-bottom border-top border-light border-5 rounded" >
+          <input type="radio" id="?" name="option" value="I don't know"
+        class="btn-check d-none">
         <label for="?" type="button" 
         class="btn btn-outline-primary border-0 text-start d-flex align-items-center">
           <div class="badge rounded-3 d-block bg-secondary fs-4 px-3" style="width: 50px">
@@ -74,8 +72,6 @@
           </div>
          <div class="col pb-1">
            <span class="fs-4 text-dark d-inline-block ps-4">
-            <input type="radio" id="?" name="option" value="I don't know"
-            class="visually-hidden">
             I don't know
           </span>
         </div>
