@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
- 
-  
   resources :tests do |test|
       resources :questions, :name_prefix => "test_"
   end
@@ -52,5 +50,4 @@ Rails.application.routes.draw do
     get("/dashboard", { :controller => "users", :action => "show"})
     get 'preferences',    to: 'users#edit'
     
-  
 end

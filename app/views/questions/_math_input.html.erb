@@ -15,10 +15,6 @@
   <input type="text" value="<%= @question.id %>" name="question[id]" 
          id="question id" class="visually-hidden">
          
-  <label for="milliseconds" class="visually-hidden">Question ID</label>   
-  <input type="number" value=999999 name="milliseconds" 
-         id="milliseconds" class="visually-hidden">
-         
   
   <div class="text-center col-8 col-sm-6 col-md-4 col-lg-7 col-xl-4 mx-auto flex-row">
    
@@ -27,10 +23,10 @@
       
       
         <div class="col border border-3 border-3 px-0">
-          <table class="rounded-2 border border-5 btn-light mx-auto my-1" style="height: 40px; width: 40px">
+          <table class="rounded-2 border border-5 btn-light mx-auto my-1" style="height: 50px; width: 40px">
             <tbody>
               <tr>            
-                <td class="align-middle fs-4">1</td>
+                <td class="align-middle fs-4" id="first input"><%= @response.first %></td>
               </tr>
             </tbody>
           </table>          
@@ -38,28 +34,28 @@
         
         
         <div class="col border border-3 border-3 px-0">
-          <table class="rounded-2 border border-5 btn-light mx-auto my-1" style="height: 40px; width: 40px">
+          <table class="rounded-2 border border-5 btn-light mx-auto my-1" style="height: 50px; width: 40px">
             <tbody>
               <tr>            
-                <td class="align-middle fs-4">2</td>
+                <td class="align-middle fs-4" id="second input"><%= @response.second %></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="col border border-3 border-3 px-0">
-         <table class="rounded-2 border border-5  btn-light mx-auto my-1" style="height: 40px; width: 40px">
+         <table class="rounded-2 border border-5  btn-light mx-auto my-1" style="height: 50px; width: 40px">
             <tbody>
               <tr>            
-                <td class="align-middle fs-4">3</td>
+                <td class="align-middle fs-4" id="third input"><%= @response.third %></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="col border border-3 border-3 px-0">
-          <table class="rounded-2 border border-5  btn-light mx-auto my-1" style="height: 40px; width: 40px">
+          <table class="rounded-2 border border-5  btn-light mx-auto my-1" style="height: 50px; width: 40px">
             <tbody>
               <tr>            
-                <td class="align-middle fs-4">4</td>
+                <td class="align-middle fs-4" id="fourth input"><%= @response.fourth %></td>
               </tr>
             </tbody>
           </table>
@@ -77,9 +73,17 @@
             </tbody>
           </table>
           
+      <% if @response.first == "." %>          
+        <input type="radio" id=". first col" name="first col" checked
+               value="." class="btn-check" onclick="updateDisplay()"> 
+          <label for=". first col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0 " 
+          style="height: 40px; width: 40px">
+      <% else %>
         <input type="radio" id=". first col" name="first col"
-               value="." class="btn-check"> 
-          <label for=". first col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+           value="." class="btn-check" onclick="updateDisplay()"> 
+          <label for=". first col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" 
+          style="height: 40px; width: 40px">
+     <% end %>
             <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
             <tbody>
               <tr>  
@@ -93,9 +97,15 @@
         
         <div class="col border border-3 px-0">
           
+      <% if @response.second == "/" %> 
+        <input type="radio" id="/ second col" name="second col" checked
+               value="/" class="btn-check" onclick="updateDisplay()">   
+          <label for="/ second col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0 " style="height: 40px; width: 40px">
+      <% else %>
         <input type="radio" id="/ second col" name="second col"
-               value="/" class="btn-check">   
+               value="/" class="btn-check" onclick="updateDisplay()">   
           <label for="/ second col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+      <% end %>
           <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
             <tbody>
               <tr>
@@ -105,9 +115,15 @@
           </table>
           </label>
           
+      <% if @response.second == "." %>   
+        <input type="radio" id=". second col" name="second col" checked
+               value="." class="btn-check" onclick="updateDisplay()"> 
+          <label for=". second col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0 " style="height: 40px; width: 40px">
+      <% else %>
         <input type="radio" id=". second col" name="second col"
-               value="." class="btn-check"> 
+               value="." class="btn-check" onclick="updateDisplay()"> 
           <label for=". second col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+      <% end %>
           <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
             <tbody>
               <tr>     
@@ -121,9 +137,15 @@
         
         <div class="col border border-3 px-0">
           
+      <% if @response.third == "/" %> 
+        <input type="radio" id="/ third col" name="third col" checked
+               value="/" class="btn-check" onclick="updateDisplay()">   
+          <label for="/ third col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0 " style="height: 40px; width: 40px">
+      <% else %>
         <input type="radio" id="/ third col" name="third col"
-               value="/" class="btn-check"> 
+               value="/" class="btn-check" onclick="updateDisplay()">   
           <label for="/ third col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+      <% end %>
           <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
             <tbody>
               <tr>  
@@ -133,9 +155,15 @@
           </table>
           </label>
           
+      <% if @response.third == "." %>   
+        <input type="radio" id=". third col" name="third col" checked
+               value="." class="btn-check" onclick="updateDisplay()"> 
+          <label for=". third col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0 " style="height: 40px; width: 40px">
+      <% else %>
         <input type="radio" id=". third col" name="third col"
-               value="." class="btn-check">  
+               value="." class="btn-check" onclick="updateDisplay()"> 
           <label for=". third col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+      <% end %>
           <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
             <tbody>
               <tr>            
@@ -158,10 +186,15 @@
             </tbody>
           </table>
           
+      <% if @response.fourth == "." %>   
+        <input type="radio" id=". fourth col" name="fourth col" checked
+               value="." class="btn-check" onclick="updateDisplay()"> 
+          <label for=". fourth col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0 " style="height: 40px; width: 40px">
+      <% else %>
         <input type="radio" id=". fourth col" name="fourth col"
-               value="." class="btn-check">   
-          <label for=". fourth col"
-          class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+               value="." class="btn-check" onclick="updateDisplay()"> 
+          <label for=". fourth col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+      <% end %>
           <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
             <tbody>
               <tr>
@@ -178,18 +211,36 @@
       <div class="row border-2 border-start border-end border-bottom" >
         
         <div class="col border border-3 px-0">
-            <table class="rounded-circle border-0 mt-1 mx-auto" style="height: 40px; width: 40px">
+          <input type="radio" id="blank first col" name="first col" value="" class="visually-hidden btn-check d-none" >
+          <label for="blank first col" class="visually-hidden rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px"></label>
+          <input type="radio" id="blank second col" name="second col" value="" class="visually-hidden btn-check d-none" >
+          <label for="blank second col" class="visually-hidden rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px"></label>
+          <input type="radio" id="blank third col" name="third col" value="" class="visually-hidden btn-check d-none" >
+          <label for="blank third col" class="visually-hidden rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px"></label>
+          <input type="radio" id="blank fourth col" name="fourth col" value="" class="visually-hidden btn-check d-none" >
+          <label for="blank fourth col" class="visually-hidden rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px"></label>
+
+          <input type="radio" id="eraser" value="" class="btn-check d-none" onclick="uncheckAll()">
+          <label for="eraser" class="active rounded-circle border-0 btn btn-warning pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+            <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
               <tbody>
                 <tr>            
-                  <td class="align-middle fs-4"></td>
+                  <td class="align-middle fs-5">AC</td>
                 </tr>
               </tbody>
             </table>
+          </label>
             
           <% (1..9).to_a.each do |num| %>
+        <% if @response.first == num.to_s %>  
+          <input type="radio" id="<%= num %> first col" name="first col" checked
+                 value="<%= num %>" class="btn-check" onclick="updateDisplay()">
+            <label for="<%= num %> first col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0 " style="height: 40px; width: 40px">
+        <% else %>
           <input type="radio" id="<%= num %> first col" name="first col"
-                 value="<%= num %>" class="btn-check">
+                value="<%= num %>" class="btn-check" onclick="updateDisplay()">
             <label for="<%= num %> first col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+        <% end %>      
               <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
                 <tbody>
                   <tr>            
@@ -204,9 +255,15 @@
         
         <div class="col border border-3 px-0">
           <% (0..9).to_a.each do |num| %>
+        <% if @response.second == num.to_s %>  
+          <input type="radio" id="<%= num %> second col" name="second col" checked
+                 value="<%= num %>" class="btn-check" onclick="updateDisplay()">
+            <label for="<%= num %> second col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0 " style="height: 40px; width: 40px">
+        <% else %>
           <input type="radio" id="<%= num %> second col" name="second col"
-                 value="<%= num %>" class="btn-check"> 
+                value="<%= num %>" class="btn-check" onclick="updateDisplay()">
             <label for="<%= num %> second col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+        <% end %>  
               <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
               <tbody>
                 <tr>
@@ -220,9 +277,15 @@
         
         <div class="col border border-3 px-0">
           <% (0..9).to_a.each do |num| %>
+        <% if @response.third == num.to_s %>  
+          <input type="radio" id="<%= num %> third col" name="third col" checked
+                 value="<%= num %>" class="btn-check" onclick="updateDisplay()">
+            <label for="<%= num %> third col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0 " style="height: 40px; width: 40px">
+        <% else %>
           <input type="radio" id="<%= num %> third col" name="third col"
-                 value="<%= num %>" class="btn-check"> 
+                value="<%= num %>" class="btn-check" onclick="updateDisplay()">
             <label for="<%= num %> third col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+        <% end %>  
               <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
               <tbody>
                 <tr>   
@@ -236,10 +299,16 @@
 
         <div class="col border border-3 px-0">
           <% (0..9).to_a.each do |num| %>
-          <input type="radio" id="<%= num %> fourth col" name="fourth col"
-                 value="<%= num %>" class="btn-check"> 
+        <% if @response.fourth == num.to_s %>  
+          <input type="radio" id="<%= num %> fourth col" name="fourth col" checked
+                 value="<%= num %>" class="btn-check" onclick="updateDisplay()">
             <label for="<%= num %> fourth col" 
-            class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+                   class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+        <% else %>
+          <input type="radio" id="<%= num %> fourth col" name="fourth col"
+                value="<%= num %>" class="btn-check" onclick="updateDisplay()">
+            <label for="<%= num %> fourth col" class="rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+        <% end %> 
               <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
               <tbody>
                 <tr>   
@@ -252,8 +321,50 @@
         </div>
       </div>
     </div>
+    
+  <script>
+    function updateDisplay() {
+      // find id of element that was clicked
+      clicked_element_id = event.target.id
+      // find value of element that was clicked
+      clicked_element_value = event.target.value
+    
+      // find element we want to update the HTML of
+      if (clicked_element_id.match(/first/) == "first") {
+        update_element = document.getElementById("first input");
+        update_element.innerHTML = clicked_element_value;
+      } else if (clicked_element_id.match(/second/) == "second") {
+        update_element = document.getElementById("second input");
+        update_element.innerHTML = clicked_element_value;
+      } else if (clicked_element_id.match(/third/) == "third") {
+        update_element = document.getElementById("third input");
+        update_element.innerHTML = clicked_element_value;
+      } else if (clicked_element_id.match(/fourth/) == "fourth") {
+        update_element = document.getElementById("fourth input");
+        update_element.innerHTML = clicked_element_value;
+      } else {
+      }
+    }
+    
+    function uncheckAll() {
+      col_one = document.getElementById("blank first col")
+      col_one.checked = true
+      col_two = document.getElementById("blank second col")
+      col_two.checked = true
+      col_three = document.getElementById("blank third col")
+      col_three.checked = true
+      col_four = document.getElementById("blank fourth col")
+      col_four.checked = true
+      
+      document.getElementById("first input").innerHTML = ""
+      document.getElementById("second input").innerHTML = ""
+      document.getElementById("third input").innerHTML = ""
+      document.getElementById("fourth input").innerHTML = ""
+    }
+    
+  </script>
  
-  </div>
+</div>
   
   <% end %>
   

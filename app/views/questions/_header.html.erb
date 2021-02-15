@@ -1,6 +1,4 @@
 
-<!--<header class="container">-->
-<!--  <div class="row justify-content-center">-->
     <nav class="navbar navbar-expand-md navbar-light bg-light bg-gradient shadow-sm col-12">
       <div class="container-fluid">
         <a class="navbar-brand p-0" href="/">
@@ -9,33 +7,110 @@
                   <span class="fs-4 fw-bold align-text-bottom" id="font-logo">SATsucceed</span>
             </div>
         </a>
-        <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
-        <!--  <span class="navbar-toggler-icon"></span>-->
-        <!--</button>-->
         <div class="justify-content-end">
           
-        <ul class="navbar-nav align-items-center"> 
+                <!--<li class="nav-item px-2">-->
+            <!--  <i class="far fa-clock fa-2x"></i>-->
+            <!--</li>-->
+            
+            <!--<i id="play" class="far fa-play-circle fa-2x link-success"></i>-->
+                       
+          
+      <ul class="navbar-nav align-items-center d-flex flex-row"> 
             
             <li class="nav-item px-2 h5 m-0">
               <p class="text-center m-0" id="stopwatch">
-                00:00:00
+                00:00
               </p>
             </li>
-          
+                      
             <li class="nav-item px-2">
-              <i class="far fa-clock fa-2x"></i>
+              <label for="timer control">
+                <input type="button" class="visually-hidden" name="timer control" 
+                       id='timer control' value="Stop" onclick="to_start()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <i id="pause" class="far fa-pause-circle fa-2x link-primary"></i>
+              </label>
             </li>
             
-            <li class="nav-item px-2">
-              <div class="link-dark">
-                <i class="far fa-pause-circle fa-2x"></i>
-              </div>
-            </li>
-          </ul>
+      </ul>
+          
+       <label for="milliseconds" class="visually-hidden">Question ID</label>   
+      <input type="number" value=999999 name="milliseconds" form="response form" id="milliseconds" class="visually-hidden">
+      
+    
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fs-2" id="staticBackdropLabel">Test Paused</h5>
+            <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+          </div>
+          <div class="modal-body flex-fill fs-4">
+            When you are ready to continue, click the play button to resume the test.
+          </div>
+          <div class="modal-footer">
+            <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+            <button type="button" class="btn link-success mx-auto" data-bs-dismiss="modal" onclick="to_start()" value="Start">
+            <i id="play" class="far fa-play-circle fa-4x"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+         
+
+  <script>
+    // function stopwatch() {
+      var m=0;
+      var s=0;
+      
+      tm = window.setInterval('disp()',1000);
+      
+      function to_start(){
+        switch(document.getElementById('timer control').value) {
+            case  'Stop':
+            window.clearInterval(tm); // stop the timer 
+            document.getElementById('timer control').value='Start';
+            break;
+            
+            case  'Start':
+            tm = window.setInterval('disp()',1000);
+            document.getElementById('timer control').value='Stop';
+            break;
+          }
+      }
+      
+      
+      function disp() {
+      // Format the output by adding 0 if it is single digit //
+        if(s < 10){var s1 ='0' + s;}
+        else{var s1 = s;}
+        if(m < 10){var m1 ='0' + m;}
+        else{var m1 = m;}
+  
+        // Display the output //
+        str =  m1 +':' + s1;
+        
+        // Set the params hash to the time elaspsed in milliseconds //
+        document.getElementById("milliseconds").value = Number(m1)*60000 + Number(s1)*1000
+        
+        document.getElementById('stopwatch').innerHTML = str;
+        // Calculate the stop watch // 
+        if (s<59) { 
+        s = s+1;
+        } else{
+        s = 0;
+        m = m + 1;
+        }// end if else s < 59
+        // end of calculation for next display
+      }
+      
+  </script>
+          
+          
           
         </div>
       </div>
     </nav>
-<!--  </div>-->
-<!--</header>  -->
   
