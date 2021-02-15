@@ -25,9 +25,9 @@
             </li>
                       
             <li class="nav-item px-2">
-              <label for="timer control">
-                <input type="button" class="visually-hidden" name="timer control" 
-                       id='timer control' value="Stop" onclick="to_start()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <label for="timer-control">
+                <input type="button" class="visually-hidden" name="timer-control" 
+                       id='timer-control' value="Stop" onclick="to_start()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <i id="pause" class="far fa-pause-circle fa-2x link-primary"></i>
               </label>
             </li>
@@ -65,18 +65,19 @@
       var m=0;
       var s=0;
       
+      disp();
       tm = window.setInterval('disp()',1000);
       
       function to_start(){
-        switch(document.getElementById('timer control').value) {
+        switch(document.getElementById('timer-control').value) {
             case  'Stop':
             window.clearInterval(tm); // stop the timer 
-            document.getElementById('timer control').value='Start';
+            document.getElementById('timer-control').value='Start';
             break;
             
             case  'Start':
             tm = window.setInterval('disp()',1000);
-            document.getElementById('timer control').value='Stop';
+            document.getElementById('timer-control').value='Stop';
             break;
           }
       }
