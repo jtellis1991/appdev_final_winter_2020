@@ -10,6 +10,7 @@ import "channels"
 import "@fortawesome/fontawesome-free/js/all";
 require("jquery")
 import "bootstrap"
+require("Mathjax/es5/tex-chtml.js")
 
 Rails.start()
 Turbolinks.start()
