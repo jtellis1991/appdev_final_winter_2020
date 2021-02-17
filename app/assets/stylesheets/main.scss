@@ -38,6 +38,9 @@ header {
  background-color: #18f;
 }
 
+.blurred {
+  filter: blur(4px);  
+}
 
 // .navbar-nav .nav-item:not(:last-child) {
 //   border-right: 1px solid silver;
