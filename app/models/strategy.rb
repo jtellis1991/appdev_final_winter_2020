@@ -12,5 +12,7 @@ class Strategy < ApplicationRecord
   has_one :test, as: :testable
   has_many :explanations, as: :explainable, dependent: :destroy
   has_many :implementations
-  
+  has_many :activations
+  has_many :users, through: :activations
+
 end

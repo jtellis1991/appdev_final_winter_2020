@@ -3,6 +3,7 @@ class CreateActivations < ActiveRecord::Migration[6.1]
     create_table :activations do |t|
       t.integer :user_id
       t.integer :strategy_id
+      t.boolean :active
       
       t.timestamps
     end

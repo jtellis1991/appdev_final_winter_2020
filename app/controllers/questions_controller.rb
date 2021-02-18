@@ -47,6 +47,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @letters = ('A'..'Z').to_a
     @user = current_user
+    @strategies = @user.strategies
     @test_attempt = TestAttempt.where(:test_id => @test.id).where(:user_id => @user.id).last
     @response = @test_attempt.responses.where(:question_id => @question.id).last
     if @response.nil?

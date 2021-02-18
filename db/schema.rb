@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_020320) do
+ActiveRecord::Schema.define(version: 2021_02_18_034121) do
+
+  create_table "activations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "strategy_id"
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "answers", force: :cascade do |t|
     t.string "correct_answer"
@@ -158,6 +166,8 @@ ActiveRecord::Schema.define(version: 2021_02_13_020320) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activations", "strategies"
+  add_foreign_key "activations", "users"
   add_foreign_key "answers", "questions"
   add_foreign_key "choices", "options"
   add_foreign_key "choices", "responses"
