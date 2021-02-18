@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar"
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar fixed-top"
       style="height: 100vh">
       <div class="position-sticky pt-3">
         
@@ -14,12 +14,6 @@
                 <p class="fs-5 fw-bold mb-0" id="font-logo">SATsucceed</p>
           </div>
         </a>
-          <!--<li class="nav-item align-top">-->
-          <!--  <a class="nav-link link-secondary" aria-current="page" href="#">-->
-          <!--    <i class="fas fa-home fa-2x" style="width: 50px"></i>-->
-          <!--    <span class="fs-5 align-text-bottom" id="font-logo">Home</span>-->
-          <!--  </a>-->
-          <!--</li>-->
       </ul>
           
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1
@@ -106,18 +100,34 @@
       </div>
     </nav>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 vh-100 overflow-none">
       
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div class="d-flex justify-content-between flex-wrap bg-white
+      flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom sticky-top">
       
-      <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" 
-      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <i class="fas fa-bars fa-2x"></i>
-      </button>
+      
+         <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link link-secondary" href="#">
+              <i class="fas fa-bars fa-3x" style="width: 50px"></i>              
+                      <!--<button class="btn btn-secondary py-2 my-2" type="button" data-bs-toggle="collapse" -->
+        <!--data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">-->
+        <!--  <i class="fas fa-bars fa-2x"></i>-->
+        <!--</button>-->
+              <span class="ms-2 fs-3 align-text-bottom" id="font-logo">
+                Dashboard | Home</span>
+            </a>
+          </li>
+        </ul>
+      
+        <!--<button class="btn btn-secondary py-2 my-2" type="button" data-bs-toggle="collapse" -->
+        <!--data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">-->
+        <!--  <i class="fas fa-bars fa-2x"></i>-->
+        <!--</button>-->
         
-        <h1 class="h2">Dashboard | Home </h1>
+        <!--  <h1 class="h2 align-text-top mb-0 fs-1">Dashboard | Home </h1>-->
         
-              <ul class="nav">
+      <ul class="nav">
         <li class="nav-item text-center">
             <a class="nav-link link-secondary p-0" href="#">
               <i class="fas fa-cog fa-2x" style="width: 50px"></i>
@@ -138,16 +148,6 @@
         </li>
       </ul>
         
-        <!--<div class="btn-toolbar mb-2 mb-md-0">-->
-        <!--  <div class="btn-group me-2">-->
-        <!--    <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>-->
-        <!--    <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
-        <!--  </div>-->
-        <!--  <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">-->
-        <!--    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>-->
-        <!--    This week-->
-        <!--  </button>-->
-        <!--</div>-->
       </div>
       
 <div class="overflow-auto">
