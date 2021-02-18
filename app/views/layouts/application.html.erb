@@ -32,8 +32,10 @@
     
    <div class="container-fluid d-flex min-vh-100 flex-column px-0 wrapper">
 
+  <% if request.path != "/dashboard" %>
     <%= render 'layouts/header' %>
-    
+  <% else %>
+  <% end %>
     <!--<div class="container-fluid pt-5">-->
       
       
