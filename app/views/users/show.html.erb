@@ -150,45 +150,50 @@
     
       <div class="card col-5">
         <div class="card-header display-6 fs-4">
-          Math No Calculator
+          All Strategies
         </div>
         <div class="card-body">
           <div class="row">
+          
           <ul class="nav flex-column align-items-start col-6">
-            
             <li class="nav-item text-center mb-3">
-              <a class="nav-link link-secondary p-0 ms-3" href="#">
+              <a class="nav-link link-info p-0 ms-3" href="#">
                 <i class="fas fa-bullseye fa-2x" style="width: 50px"></i>
-              <p class="fs-5 align-text-bottom mb-0" id="font-logo" style="width: 200px">On Target</p>           
-              </a>
+              <p class="fs-5 align-text-bottom mb-0" id="font-logo" style="width: 200px">On Target</p>    </a>
             </li>
             
             <li class="nav-item text-center">
               <a class="nav-link link-secondary p-0 ms-3" href="#">
                 <i class="fas fa-check-double fa-2x" style="width: 50px"></i>
-              <p class="fs-5 align-text-bottom mb-0" id="font-logo" style="width: 200px">Double Tap</p>           
-              </a>
+              <p class="fs-5 align-text-bottom mb-0" id="font-logo" style="width: 200px">Double Tap</p>   </a>
             </li>
             
             
           </ul>
           
       <div class="nav flex-column align-items-start col-6">
-            
+        
+          <%= form_with model: @user, :id => "strategies form" do |form| %>
               <div class="form-check form-switch mt-3" style="height: 60px">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                <input class="form-check-input" type="checkbox" name="On_Target" id="On_Target" checked>
+                <label class="form-check-label" for="On_Target"></label>
               </div>
             
              <div class="form-check form-switch mt-3" style="height: 60px">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                <input class="form-check-input" type="checkbox" name="Double_Tap" id="Double_Tap">
+                <label class="form-check-label" for="Double_Tap"></label>
               </div>
+          <% end %>
+      
       </div>
+          
+
           
           </div>
               <div class="col-6 mx-auto text-center mt-3">
-                  <a href="#" class="btn btn-primary btn-lg">Save Changes</a>
+                  <button class="btn btn-primary btn-lg" type="submit" form="strategies form">
+                    Save Changes
+                  </button>
               </div>
         </div>
       </div>
@@ -199,13 +204,22 @@
           <p class="d-inline-block display-6 fs-4 mb-0 pb-1 text-info fw-bold align-text-bottom">On Target</p>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Application: All Questions</h5>
-          <p class="card-text ps-5 mt-4">
+          <!--<h5 class="card-title">Application: All Questions</h5>-->
+          <p class="card-text ps-5 mt-2">
             <span class="fw-bold">On Target</span> will train you to focus on the question prompt before reading more about the question. Knowing what you are solving for will make it easier to find what really matters, and also helps ensure you solve for the right thing!
           </p>
           
           <p class="card-text ps-5 mt-4">
             When <span class="fw-bold">On Target</span>  is active, each question will present itself with the prompt highlighted in light blue and the body of the question blurred. Click the prompt to unblur the question after you read it. Sometimes, you might find the answer wihtout even needing to click!
+          </p>
+          
+          <p class="">
+          <span class="fw-bold">On Target</span> before clicking prompt:
+          <%= image_tag("strategies/OnTarget/ontarget_0.PNG", :class => "img-thumbnail mt-2") %>
+          </p>
+          <p>
+          <span class="fw-bold">On Target</span> after clicking prompt:
+          <%= image_tag("strategies/OnTarget/ontarget_1.PNG", :class => "img-thumbnail mt-2") %>
           </p>
         </div>
       </div>
