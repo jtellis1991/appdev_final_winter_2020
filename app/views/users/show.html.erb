@@ -144,13 +144,71 @@
       
 <div class="overflow-auto">
         
-  <div class="row justify-content-center flex-fill gx-0 py-5 ">
+  <div class="row justify-content-around flex-fill gx-0 py-5 pt-3">
     
     <% if !request.path.match("/dashboard/strategies").nil?  %>
     
+      <div class="card col-5">
+        <div class="card-header display-6 fs-4">
+          Math No Calculator
+        </div>
+        <div class="card-body">
+          <div class="row">
+          <ul class="nav flex-column align-items-start col-6">
+            
+            <li class="nav-item text-center mb-3">
+              <a class="nav-link link-secondary p-0 ms-3" href="#">
+                <i class="fas fa-bullseye fa-2x" style="width: 50px"></i>
+              <p class="fs-5 align-text-bottom mb-0" id="font-logo" style="width: 200px">On Target</p>           
+              </a>
+            </li>
+            
+            <li class="nav-item text-center">
+              <a class="nav-link link-secondary p-0 ms-3" href="#">
+                <i class="fas fa-check-double fa-2x" style="width: 50px"></i>
+              <p class="fs-5 align-text-bottom mb-0" id="font-logo" style="width: 200px">Double Tap</p>           
+              </a>
+            </li>
+            
+            
+          </ul>
+          
+      <div class="nav flex-column align-items-start col-6">
+            
+              <div class="form-check form-switch mt-3" style="height: 60px">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+              </div>
+            
+             <div class="form-check form-switch mt-3" style="height: 60px">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+              </div>
+      </div>
+          
+          </div>
+              <div class="col-6 mx-auto text-center mt-3">
+                  <a href="#" class="btn btn-primary btn-lg">Save Changes</a>
+              </div>
+        </div>
+      </div>
     
-    
-    
+      <div class="card col-6">
+        <div class="card-header">
+          <span class="text-info"><i class="fas fa-bullseye fa-2x" style="width: 50px"></i></span>
+          <p class="d-inline-block display-6 fs-4 mb-0 pb-1 text-info fw-bold align-text-bottom">On Target</p>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Application: All Questions</h5>
+          <p class="card-text ps-5 mt-4">
+            <span class="fw-bold">On Target</span> will train you to focus on the question prompt before reading more about the question. Knowing what you are solving for will make it easier to find what really matters, and also helps ensure you solve for the right thing!
+          </p>
+          
+          <p class="card-text ps-5 mt-4">
+            When <span class="fw-bold">On Target</span>  is active, each question will present itself with the prompt highlighted in light blue and the body of the question blurred. Click the prompt to unblur the question after you read it. Sometimes, you might find the answer wihtout even needing to click!
+          </p>
+        </div>
+      </div>
     
     
     
