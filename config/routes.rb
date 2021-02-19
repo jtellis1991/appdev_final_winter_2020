@@ -48,6 +48,8 @@ Rails.application.routes.draw do
     
   #THIS SECTION IS FOR USER CONTROLLER ROUTES 
     get("/dashboard", { :controller => "users", :action => "show"})
+    get("/dashboard/strategies", { :controller => "users", :action => "show"})
+    
     get 'preferences',    to: 'users#edit'
     
 end

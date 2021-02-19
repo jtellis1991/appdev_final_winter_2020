@@ -31,8 +31,8 @@
     
     
    <div class="container-fluid d-flex min-vh-100 flex-column px-0 wrapper">
-
-  <% if request.path != "/dashboard" %>
+  
+  <% if request.path.match("/dashboard")[0] != "/dashboard" %>
     <%= render 'layouts/header' %>
   <% else %>
   <% end %>
