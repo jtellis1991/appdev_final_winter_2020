@@ -1,0 +1,70 @@
+<% provide(:title, ' Account') %>
+
+
+<div class="row justify-content-center flex-fill gx-0 py-5">
+  <div class="col-lg-6 mx-auto p-5 border border-light border-5 rounded ">
+    <h1 class="mb-3">Account for <%= @user.email %></h1>
+    
+    <h2 class="fw-light fs-4 mb-3">Leave fields blank that you don't want to change </h2>
+
+        
+    <% if resource.unconfirmed_email %>
+     <h2 class="unconfirmed_email alert alert-danger">
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          Currently waiting for confirmation from: <%= resource.unconfirmed_email %>
+      <% end %>
+    </h2>
+    <% end %>
+    
+    <%= form_for(resource, as: resource_name, 
+                 url: registration_path(resource_name), 
+                 html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    
+        <%= f.label :email, "Enter new email", class: "fw-bold" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+        class: 'form-control mb-3 mt-1' %>
+    
+    
+        <div class="row">
+          <div class="col-auto m-0 pe-1">       
+          <%= f.label :password, "Enter new password", class: "fw-bold" %>
+          </div>
+          <% if @minimum_password_length %>
+            (<%= @minimum_password_length %> characters minimum)
+          <% end %>
+        </div>
+    
+        <%= f.password_field :password, autocomplete: "new-password", 
+        class: 'form-control mb-3 mt-1' %>
+
+    
+        <%= f.label :password_confirmation, "Confirm new password", class: "fw-bold" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",
+        class: 'form-control mb-3 mt-1' %>
+    
+        <%= f.label :current_password, "Authorize changes with current password", class: "fw-bold" %> 
+        <%= f.password_field :current_password, autocomplete: "current-password",
+        class: 'form-control mb-4 mt-1' %>
+    
+    <div class="row mx-auto col-lg-7 ">
+        <%= f.submit "Update Account", class: "btn btn-lg btn-primary half-button" %>
+    </div>
+    <% end %>
+    
+    <br>
+    <br>
+    
+    
+    <p class="mb-2">Unhappy? </p>
+      <div class="button-center">
+        <%= button_to "Cancel Account", registration_path(resource_name), 
+                  data: { confirm: "Are you sure?" }, method: :delete,
+                  class: "btn btn-secondary "%>
+     </div>
+    
+    
+    <!--<%= link_to "Back", :back %>-->
+
+  </div>
+</div>

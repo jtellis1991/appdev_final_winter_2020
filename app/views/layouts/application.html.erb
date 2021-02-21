@@ -34,16 +34,18 @@
   
   <% if request.path.match("/dashboard").nil? %>
     <%= render 'layouts/header' %>
-  <% else %>
-  <% end %>
-    <!--<div class="container-fluid pt-5">-->
-      
-      
+  
       <% if flash[:notice] %>
         <p class="alert alert-success"><%= notice %></p>
       <% elsif flash[:alert] %>  
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>  
+  <% else %>
+  <% end %>
+    <!--<div class="container-fluid pt-5">-->
+      
+      
+
       
       <%= yield %>
       

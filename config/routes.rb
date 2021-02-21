@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   # question_path(:id)       returns /questions/:id (for instance, question_path(10) returns /questions/10)
   
   #Routes for Static HTML pages
+  
   root 'static_pages#home'
+  # root to: 'users#show', as: 'dashboard'
   get 'support',   to: 'static_pages#support'
   get 'about',     to: 'static_pages#about'
   get 'news',      to: 'static_pages#news'
@@ -48,7 +50,8 @@ Rails.application.routes.draw do
     
   #THIS SECTION IS FOR USER CONTROLLER ROUTES 
     get("/dashboard", { :controller => "users", :action => "show"})
-    get("/dashboard/review/strategies", { :controller => "users", :action => "show"})
+    get("/dashboard/:id", { :controller => "users", :action => "show"})
+    get("/dashboard/:id/:id", { :controller => "users", :action => "show"})
     
     get 'preferences',    to: 'users#edit'
     

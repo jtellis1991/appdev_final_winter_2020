@@ -8,8 +8,17 @@
             <a>
                <i class="fas fa-bars fa-3x" style="width: 50px"></i>
             </a> 
-              <span class="ms-2 fs-3 align-text-bottom text-dark" id="font-logo">
-                Dashboard | Home</span>
+                <span class="ms-2 fs-3 align-text-bottom text-dark" id="font-logo">
+                  <% if request.path.match("/dashboard/").nil? %>
+                    Dashboard
+                  <% else %>
+                    <% s = request.path.gsub("/", " ").gsub("_", " ").split(" ") %>
+                      <% s.each_with_index do |string, index| %>
+                         <% s[index] = s[index].capitalize %>
+                      <% end %>
+                    <%= s.shift + " | " + s.join(" ") %>  
+                  <% end %>
+                </span>
              </span>
  
           </li>
@@ -17,19 +26,19 @@
       
       <ul class="nav">
         <li class="nav-item text-center">
-            <a class="nav-link link-secondary p-0" href="#">
+            <a class="nav-link link-secondary p-0" href="/dashboard/settings">
               <i class="fas fa-cog fa-2x" style="width: 50px"></i>
             <p class="fs-5 align-text-bottom mb-0" id="font-logo">Settings</p>           
             </a>
         </li>
         <li class="nav-item text-center">
-            <a class="nav-link link-secondary p-0 ms-3" href="#">
+            <a class="nav-link link-secondary p-0 ms-3" href="/dashboard/account">
               <i class="fas fa-user fa-2x" style="width: 50px"></i>
             <p class="fs-5 align-text-bottom mb-0" id="font-logo">Account</p>           
             </a>
         </li>
         <li class="nav-item text-center">
-            <a class="nav-link link-secondary p-0 ms-3" href="#">
+            <a class="nav-link link-secondary p-0 ms-3" href="/logout" rel="nofollow" data-method="delete">
               <i class="fas fa-power-off fa-2x" style="width: 50px"></i>
             <p class="fs-5 align-text-bottom mb-0" id="font-logo">Log Out</p>           
             </a>

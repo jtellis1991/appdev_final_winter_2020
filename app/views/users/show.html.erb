@@ -13,9 +13,56 @@
         
   <div class="row justify-content-around flex-fill gx-0 py-5 pt-3">
     
-    <% if !request.path.match("/dashboard/review/strategies").nil?  %>
+      <% if flash[:notice] %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% elsif flash[:alert] %>  
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>  
+    
+        
+    <% if !request.path.match("/dashboard/review/concepts").nil?  %>
+    
+      <%= render 'categories/review-concepts' %>
+      
+    <% elsif !request.path.match("/dashboard/review/strategies").nil?  %>
     
       <%= render 'strategies/review-strategies' %>
+      
+    <% elsif !request.path.match("/dashboard/review/results").nil?  %>    
+    
+      <%= render 'test_attempts/review-results' %>  
+      
+    <% elsif !request.path.match("/dashboard/train/concepts").nil?  %>    
+    
+      <%= render 'categories/train-concepts' %>
+    
+    <% elsif !request.path.match("/dashboard/train/strategies").nil?  %>    
+    
+      <%= render 'strategies/train-strategies' %>
+    
+    <% elsif !request.path.match("/dashboard/train/questions").nil?  %>    
+  
+      <%= render 'tests/train-questions' %>
+    
+    <% elsif !request.path.match("/dashboard/train/tests").nil?  %>    
+    
+      <%= render 'tests/train-tests' %>
+    
+    <% elsif !request.path.match("/dashboard/plan/study").nil?  %>    
+    
+      <%= render 'users/plan-study' %>
+    
+    <% elsif !request.path.match("/dashboard/plan/level_up").nil?  %>    
+    
+      <%= render 'users/plan-level_up' %>
+      
+    <% elsif !request.path.match("/dashboard/account").nil?  %>    
+    
+      <%= render 'devise/registrations/edit' %>  
+    
+    <% elsif !request.path.match("/dashboard/settings").nil?  %>    
+    
+      <%= render 'users/settings' %>  
     
     <% else %>
     

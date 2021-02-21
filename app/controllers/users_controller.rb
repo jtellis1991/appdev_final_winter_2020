@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    
     @test_attempts = @user.test_attempts
     @strategies = Strategy.all
     
