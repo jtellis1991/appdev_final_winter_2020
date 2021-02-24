@@ -77,6 +77,10 @@
   <% elsif @test_attempts.first.score.to_s.empty? && !request.path.match("/dashboard/account").nil?  %>
   
     <%= render 'devise/registrations/edit' %>  
+    
+  <% elsif @test_attempts.first.score.to_s.empty? && !request.path.match("/dashboard/review/strategies").nil?  %>
+  
+    <%= render 'strategies/review-strategies' %>
   
   <% else %>
    <!--if user has not completed the first test, all dashboard pages show same page-->

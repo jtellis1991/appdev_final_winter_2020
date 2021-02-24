@@ -15,7 +15,9 @@
             
             <!--<i id="play" class="far fa-play-circle fa-2x link-success"></i>-->
                        
-          
+<% if !request.path.gsub(/\d/, "number").match("/tests/number/questions/").nil? %>     
+<!--only show timer once test test has begun-->
+
       <ul class="navbar-nav align-items-center d-flex flex-row"> 
             
             <li class="nav-item px-2 h5 m-0">
@@ -109,6 +111,8 @@
       
   </script>
           
+<% else %>
+<% end %>
           
           
         </div>

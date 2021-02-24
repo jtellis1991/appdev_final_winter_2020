@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_034121) do
+ActiveRecord::Schema.define(version: 2021_02_24_162826) do
 
   create_table "activations", force: :cascade do |t|
     t.integer "user_id"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_034121) do
     t.integer "testable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "official_id"
     t.index ["testable_type", "testable_id"], name: "index_tests_on_testable"
   end
 

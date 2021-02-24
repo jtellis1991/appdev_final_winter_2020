@@ -1,4 +1,4 @@
-  <div class="col-lg-6 px-5 justify-content-center">
+  <div class="col-lg-6 px-5 justify-content-center fade-in">
    <!--<h1 class="mb-3 text-center fs-4">Answer Options</h1>-->
 
   <%= form_with model: @response, :id => "response form" do |form| %>
@@ -21,7 +21,7 @@
   
   <% if @response.options.first == option %>
   
-        <div class="row py-2 border-top border-light border-5 rounded" >
+        <div class="row py-2 border-top border-light border-5 rounded " >
           <input type="radio" checked="checked" id="<%= @letters[letter]%>" name="option"
           value="<%=option.value%>" class="btn-check d-none">
         <label for="<%= @letters[letter]%>" type="button"

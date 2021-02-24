@@ -4,9 +4,13 @@
 
   <%= render 'static_pages/header' %>
   
-<% else %>
+<% elsif !request.path.gsub(/\d/, "number").match("/tests/number/questions").nil? %>
+
 
   <%= render 'questions/header' %>
+  
+<% else %>  
+
 
 <% end %>
 
