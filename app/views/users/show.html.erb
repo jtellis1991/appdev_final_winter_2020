@@ -19,6 +19,10 @@
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>  
     
+   
+  <% if !@test_attempts.first.score.to_s.empty? %>
+   
+     <!--if user has completed the first test, open up the apps views-->
         
     <% if !request.path.match("/dashboard/review/concepts").nil?  %>
     
@@ -66,22 +70,20 @@
     
     <% else %>
     
-    <div class="col-6 text-center">
-      <h1>Welcome to SATsucceed</h1>
-      <p>Your training begins now</p>
+     <%= render 'test_attempts/review-results' %> 
+     
+   <% end %>  
     
-      <% if @test_attempts.empty? %>
-           <%= link_to "Begin Assessment", test_questions_path(1) , class: "btn btn-lg btn-warning 
-            col-8" %>
-      <% else %>
-           <%= link_to "Continue Assessment", test_questions_path(1) , class: "btn btn-lg btn-warning 
-            col-8" %>
-      <% end %>
-    
-    <% end %>  
-            
-    </div>
+  <% elsif @test_attempts.first.score.to_s.empty? && !request.path.match("/dashboard/account").nil?  %>
   
+    <%= render 'devise/registrations/edit' %>  
+  
+  <% else %>
+   <!--if user has not completed the first test, all dashboard pages show same page-->
+      <%= render 'tests/train-tests' %>
+      
+  <% end %>    
+    
   </div>
 
       <!--<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="878" height="370" style="display: block; width: 878px; height: 370px;"></canvas>-->

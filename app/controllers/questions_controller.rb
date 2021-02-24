@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  layout 'app'
+  # layout 'app'
   
   def create
     @question = Question.new

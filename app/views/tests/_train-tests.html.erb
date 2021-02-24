@@ -1,0 +1,13 @@
+    <div class="col-8 text-center mx-auto p-5 border border-light border-5 rounded ">
+      <h1>Welcome to SATsucceed</h1>
+      <p class="fs-4">Complete the evaluation test before your training can begin!</p>
+    
+      <% if @test_attempts.empty? %>
+           <%= link_to "Begin Assessment", test_questions_path(1) , class: "btn btn-lg btn-warning 
+            col-8" %>
+      <% else %>
+           <%= link_to "Continue Assessment", test_questions_path(1) , class: "btn btn-lg btn-warning 
+            col-8" %>
+      <% end %>
+            
+    </div>

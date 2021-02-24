@@ -10,7 +10,7 @@
                  html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
     
-        <!--<%= f.label :email %><br />-->
+        <%= f.label :email, class: "visually-hidden"  %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", 
             class: "form-control mb-4", placeholder: "Email",
             value: (resource.pending_reconfirmation? ? 

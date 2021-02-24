@@ -5,11 +5,11 @@
     <h1 class="mb-3">Log in</h1>
 
     <%= form_for(resource, as: resource_name, url: login_path) do |f| %>
-        <!--<%= f.label :email %>-->
+        <%= f.label :email, class: "visually-hidden"  %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", 
         class: 'form-control mb-3', placeholder: "Email"  %>
     
-        <!--<%= f.label :password %>-->
+        <%= f.label :password, class: "visually-hidden" %>
         <%= f.password_field :password, autocomplete: "current-password", 
         class: 'form-control mb-3', placeholder: "Password" %>
     
@@ -34,18 +34,18 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
     
-        <!--<%= f.label :email %>-->
+        <%= f.label :email, class: "visually-hidden"  %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", 
                       placeholder: "Email", class: 'form-control mb-3'  %>
     
-        <!--<%= f.label :password %>-->
+        <%= f.label :password, class: "visually-hidden"  %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
         <%= f.password_field :password, autocomplete: "new-password", 
                      placeholder: "Password", class: 'form-control mb-3'  %>
     
-        <!--<%= f.label :password_confirmation %>-->
+        <%= f.label :password_confirmation, class: "visually-hidden"  %>
         <%= f.password_field :password_confirmation, placeholder: "Confirm Password",
                 autocomplete: "new-password", class: 'form-control mb-4'  %>
                 

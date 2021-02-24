@@ -7,7 +7,7 @@
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
     
-        <!--<%= f.label :email %>-->
+        <%= f.label :email, class: "visually-hidden"  %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", 
         class: 'form-control mb-4', placeholder: "Email" %>
 
@@ -32,7 +32,7 @@
                  html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
     
-        <!--<%= f.label :email %>-->
+        <%= f.label :email, class: "visually-hidden"  %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email",
                           placeholder: "Email", class: 'form-control mb-4'  %>
 
