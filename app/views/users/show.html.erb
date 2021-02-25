@@ -81,6 +81,11 @@
   <% elsif @test_attempts.first.score.to_s.empty? && !request.path.match("/dashboard/review/strategies").nil?  %>
   
     <%= render 'strategies/review-strategies' %>
+    
+    
+  <% elsif @test_attempts.first.score.to_s.empty? && !request.path.match("/dashboard/review/results").nil?  %>
+  
+    <%= render 'test_attempts/review-results' %> 
   
   <% else %>
    <!--if user has not completed the first test, all dashboard pages show same page-->

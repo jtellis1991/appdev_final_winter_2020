@@ -15,7 +15,7 @@
 #
 class Option < ApplicationRecord
   has_many :choices
-  has_many :responses, through: :choices
+  has_many :responses, through: :choices, dependent: :destroy
   belongs_to :question
   
   validates :value, :presence => true
