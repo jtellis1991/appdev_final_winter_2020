@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    
     @test_attempts = @user.test_attempts
+    @tests = @test_attempts.map{ |test_attempt| test_attempt.test} 
     @strategies = Strategy.all
     
     render({:template => "/users/show.html.erb"})

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :tests do |test|
       resources :questions, :name_prefix => "test_"
+      resources :responses, :name_prefix => "test_"
   end
   
   # Routes for the questions model 

@@ -124,4 +124,18 @@ class ResponsesController < ApplicationController
   redirect_to(test_question_path(@test.id, @next_question.id))
   end
   
+  
+  def show
+  raise
+  @user = current_user
+  @test = Test.find(params[:test_id])
+  
+  
+  
+  end
+  
+  
+  
+  
+  
 end
