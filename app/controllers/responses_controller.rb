@@ -125,17 +125,42 @@ class ResponsesController < ApplicationController
   end
   
   
-  def show
-  raise
+  def index
+  # raise
   @user = current_user
   @test = Test.find(params[:test_id])
+  @questions = @test.questions
+  @test_attempt = TestAttempt.where(:user_id => @user.id ).where(:test_id => @test.id).first
+  @responses = @test_attempt.responses
   
-  
-  
+  render({:template => "/responses/index.html.erb"})
   end
   
+  def show
+  # raise
+  @user = current_user
+  @test = Test.find(params[:test_id])
+  @questions = @test.questions
+  @letters = ('A'..'Z').to_a
+  @test_attempt = TestAttempt.where(:user_id => @user.id ).where(:test_id => @test.id).first
+  @responses = @test_attempt.responses
+  @response = Response.find(params[:id])
+  @question = @response.question
+  @minutes = @response.milliseconds_elapsed / 60000
+  @seconds = @response.milliseconds_elapsed % 60000 / 1000
   
+  if @seconds < 10 && @minutes < 10
+    @clock = "0" + @minutes.to_s + ":0" + @seconds.to_s
+  elsif @minutes < 10
+    @clock = "0" + @minutes.to_s + ":" + @seconds.to_s
+  elsif @seconds < 10
+    @clock = @minutes.to_s + ":0" + @seconds.to_s
+  else
+    @clock = @minutes.to_s + ":" + @seconds.to_s
+  end
   
+  render({:template => "/responses/show.html.erb"})
+  end
   
   
 end

@@ -1,0 +1,40 @@
+<% provide(:title, "Question Time!") %>
+
+
+<div class="row flex-fill gx-0 py-4">
+  <div class="col-lg-6 px-5 border-end border-light border-5 rounded fade-in">
+    <!--<h1 class="mb-3 text-center">Question</h1>-->
+
+  <% if !@question.image.empty? %>    
+      <div class="row mb-5">
+        <div class="col text-center">
+        <%= image_tag(@question.image) %>
+        </div>
+      </div>
+    <% else %>
+  <% end %>  
+  
+  
+    <p class="fs-5">
+      <span><%= @question.body.gsub(@question.prompt, "") %></span>
+      <span><%= @question.prompt %></span>
+    </p>
+    
+
+  </div>
+
+  <% if @question.style.name == "math select one" %>
+  
+      <%= render 'questions/math_select_one' %>
+
+ <% else %>
+ 
+     <%= render 'questions/math_input' %>
+
+  <% end %>
+
+</div>
+   
+
+      <%= render 'responses/footer' %>
+      

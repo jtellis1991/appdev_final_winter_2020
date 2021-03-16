@@ -6,9 +6,12 @@
   
 <% elsif !request.path.gsub(/\d/, "number").match("/tests/number/questions").nil? %>
 
-
   <%= render 'questions/header' %>
-  
+
+<% elsif !request.path.gsub(/\d/, "number").match("/tests/number/responses").nil? %>
+
+  <%= render 'responses/header' %>
+
 <% else %>  
 
 

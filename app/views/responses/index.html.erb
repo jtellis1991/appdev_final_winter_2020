@@ -1,0 +1,29 @@
+<!--<div class="row flex-fill gx-0 py-4">-->
+    <div class="col-6 text-center mx-auto mt-5 p-5 border border-light border-5 rounded">
+  
+  <h1>Math - No Calculator</h1>
+  <h2>Performance Assessment Test</h2>
+  
+  <h2 class="mt-5">Questions Correct: <%= "10 out of 10"  %> </h2>
+  <h2 class="my-3">Raw Score: <%=@test_attempt.score.blank?  %> </h2>
+  <h2 class="mb-5">Scaled Score: <%=@test_attempt.score.blank?  %> </h2>
+  
+    
+  
+    <%= form_with url: test_attempts_path, method: "post" do |form| %>
+  
+    <label for="test id" class="visually-hidden">Test ID</label>   
+    <input type="text" value="<%= @test.id %>" name="test[id]" id="test id" class="visually-hidden">
+  
+    <label for="user id" class="visually-hidden">User ID</label>   
+    <input type="text" value="<%= @user.id %>" name="user[id]" id="user id" class="visually-hidden">
+  
+    <div class="col-8 d-grid mx-auto text-center pt-1">
+      <%= link_to "Review Test", test_response_path(@test.id, @responses.where(:question_id => @questions.first.id ).first), :class => "btn btn-lg btn-primary" %>
+    </div>
+    
+      <% end %>
+  
+  
+    </div>
+<!--</div>-->

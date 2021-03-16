@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid px-3">
+    <div class="d-flex flex-fill flex-row flex-wrap align-items-center justify-content-between">
+      
+        <div class="col">
+        <a class="navbar-brand p-0" href="\dashboard">
+          <i class="fas fa-sign-out-alt fa-2x link-secondary"></i>
+        </a>
+        </div>
+        
+      <div class="col d-flex justify-content-center align-items-center">
+        <% @test.questions.each_with_index do |question, index| %>
+        
+        <% if @test.questions[index].id == @question.id %>
+        <% @next_question = Question.find(@test.questions[index+1].id) %>
+        <div class="col px-0">
+          <ul class="pagination pagination-sm my-auto nav">
+            <li class="page-item active text-center" style="width: 40px"><a 
+            <% if @response.correct %>
+            class="page-link active bg-success text-light border-success border-5" 
+            <% else %>
+            class="page-link active bg-danger text-light border-danger border-5" 
+            <% end %>
+            href=<%= test_response_path(@test.id, @response.id) %>>
+            <%= index + 1 %></a></li>
+          </ul>
+        </div>
+        
+      <%elsif !@responses.where(:question_id => question.id).first.nil? && !@responses.where(:question_id => question.id).first.correct %>
+        
+        <div class="col px-0" >
+          <ul class="pagination pagination-sm my-auto nav" >
+            <li class="page-item text-center" style="width: 35px"><a class="page-link bg-danger text-light" 
+            href=<%= test_response_path(@test.id, @responses.where(:question_id => @test.questions[index].id).first.id ) %>>
+            <%= index + 1 %></a></li>
+          </ul>
+        </div>
+      
+       <%elsif !@responses.where(:question_id => question.id).first.nil? && @responses.where(:question_id => question.id).first.correct %>
+        
+        <div class="col px-0" >
+          <ul class="pagination pagination-sm my-auto nav" >
+            <li class="page-item text-center" style="width: 35px"><a class="page-link bg-success text-light" 
+            href=<%= test_response_path(@test.id, @responses.where(:question_id => @test.questions[index].id).first.id ) %>>
+            <%= index + 1 %></a></li>
+          </ul>
+        </div>  
+        
+      <% else %>
+        
+        <div class="col px-0">
+          <ul class="pagination pagination-sm my-auto nav">
+            <li class="page-item text-center" style="width: 35px"><a class="page-link" 
+            href=<%= test_question_path(@test.id, @test.questions[index].id) %>>
+            <%= index + 1 %></a></li>
+          </ul>
+        </div>
+        
+          <% end %>
+      <% end %>
+      </div>
+  
+        
+        <div class="col text-nowrap text-end">
+          <a role="button" class="btn btn-secondary btn-lg" 
+              href=<%= test_response_path(@test.id, @responses.where(:question_id => @next_question.id).first.id) %>>
+            Next <i class="fas fa-chevron-circle-right fa-1x"></i>
+          </a>
+      </div>
+    </div>
+  </div>
+</nav>
+

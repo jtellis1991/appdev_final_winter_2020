@@ -1,0 +1,36 @@
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light bg-gradient shadow-sm col-12">
+      <div class="container-fluid">
+        <a class="navbar-brand p-0" href="/">
+            <div class="link-info">
+              <i class="fas fa-graduation-cap fa-2x"></i>
+                  <span class="fs-4 fw-bold align-text-bottom" id="font-logo">SATsucceed</span>
+            </div>
+        </a>
+        <div class="justify-content-end">
+
+<% if !request.path.gsub(/\d/, "number").match("/tests/number/responses/").nil? %>     
+<!--only show clock once test has begun-->
+
+      <ul class="navbar-nav align-items-center d-flex flex-row"> 
+            
+            <li class="nav-item px-2 h5 m-0">
+              <p class="text-center m-0" id="stopwatch">
+                <%= @clock %>
+              </p>
+            </li>
+                      
+            <li class="nav-item px-2">
+                <i class="far fa-clock fa-2x text-primary"></i>
+            </li>
+            
+      </ul>
+          
+<% else %>
+<% end %>
+          
+          
+        </div>
+      </div>
+    </nav>
+  
