@@ -1,0 +1,71 @@
+  <div class="col-lg-6 px-5 justify-content-center fade-in">
+
+  <% @question.options.each_with_index do |option, letter| %>
+  
+  <% if @response.options.first == option && option.correct %>
+  
+        <div class="row py-2 border-top border-light border-5 rounded " >
+        <div class="btn border-0 text-start d-flex align-items-center bg-success" style="cursor: auto">
+            <div class="badge rounded-3 d-block bg-light fs-4" style="width: 50px">
+             <span class="align-text-top text-secondary m-0"><%= @letters[letter] %></span>
+            </div>
+         <div class="col pb-1">
+            <span class="fs-4 text-light d-inline-block border-0 ps-4">
+              <%=option.value %>
+            </span>
+          </div>
+        </div>
+      </div>
+      
+  <% elsif option.correct %>
+  
+      <div class="row py-2 border-top border-light border-5 rounded " >
+        <div class="btn border-0 text-start d-flex align-items-center bg-success" style="cursor: auto">
+            <div class="badge rounded-3 d-block bg-light fs-4" style="width: 50px">
+             <span class="align-text-top text-secondary m-0"><%= @letters[letter] %></span>
+            </div>
+         <div class="col pb-1">
+            <span class="fs-4 text-light d-inline-block border-0 ps-4">
+              <%=option.value %>
+            </span>
+          </div>
+        </div>
+      </div>
+      
+    <% elsif @response.options.first == option && !option.correct %>
+  
+        <div class="row py-2 border-top border-light border-5 rounded " >
+        <div class="btn border-0 text-start d-flex align-items-center bg-danger" style="cursor: auto">
+            <div class="badge rounded-3 d-block bg-light fs-4" style="width: 50px">
+             <span class="align-text-top text-secondary m-0"><%= @letters[letter] %></span>
+            </div>
+         <div class="col pb-1">
+            <span class="fs-4 text-light d-inline-block border-0 ps-4">
+              <%=option.value %>
+            </span>
+          </div>
+        </div>
+      </div>
+  
+  
+  <% else %>
+
+        <div class="row py-2 border-top border-light border-5 rounded " >
+        <div class="btn border-0 text-start d-flex align-items-center" style="cursor: auto">
+            <div class="badge rounded-3 d-block bg-secondary fs-4" style="width: 50px">
+             <span class="align-text-top text-light m-0"><%= @letters[letter] %></span>
+            </div>
+         <div class="col pb-1">
+            <span class="fs-4 text-dark d-inline-block border-0 ps-4">
+              <%=option.value %>
+            </span>
+          </div>
+        </div>
+      </div>
+        
+  <% end %>
+  <% end %>
+
+      <div class="row py-2 border-top border-light border-5 rounded" ></div>
+ 
+  </div>
