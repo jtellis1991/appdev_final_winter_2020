@@ -1,0 +1,566 @@
+<div class="col-md-10 col-lg-6 px-5 justify-content-center fade-in mx-auto">
+
+  
+  <% if !@response.correct %>  
+    <div class="row">
+    <div class="col-6"> 
+    <div class="text-center col-sm-9 col-md-11 col-xxl-8  mx-auto flex-row">
+  <% else %>
+    <div class="text-center col-8 col-sm-6 col-md-4 col-lg-7 col-xl-4 mx-auto flex-row">
+  <% end %>  
+ 
+   <% if @response.correct %>
+    <div class="row border-2 border-end border-start border-top">
+      
+        <div class="col border border-3 border-3 px-0">
+          <table class="disabled rounded-2 border border-5 btn-success mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="first input"><%= @response.first %></td>
+              </tr>
+            </tbody>
+          </table>          
+        </div>
+        <div class="col border border-3 border-3 px-0">
+          <table class="disabled rounded-2 border border-5 btn-success mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="second input"><%= @response.second %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col border border-3 border-3 px-0">
+         <table class="disabled rounded-2 border border-5 btn-success mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="third input"><%= @response.third %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col border border-3 border-3 px-0">
+          <table class="disabled rounded-2 border border-5 btn-success mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="fourth input"><%= @response.fourth %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        
+        <%else%>
+        
+      <div class="row border-2 border-end border-start border-top">
+        
+        <div class="col border border-3 border-3 px-0">
+          <table class="disabled rounded-2 border border-5 btn-danger mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="first input"><%= @response.first %></td>
+              </tr>
+            </tbody>
+          </table>          
+        </div>
+        <div class="col border border-3 border-3 px-0">
+          <table class="disabled rounded-2 border border-5 btn-danger mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="second input"><%= @response.second %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col border border-3 border-3 px-0">
+         <table class="disabled rounded-2 border border-5 btn-danger mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="third input"><%= @response.third %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col border border-3 border-3 px-0">
+          <table class="disabled rounded-2 border border-5 btn-danger mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="fourth input"><%= @response.fourth %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+       </div>
+       
+        <% end %>
+      
+      <div class="row border-2 border-start border-end" >
+        <div class="col border border-3 px-0">
+          
+          <table class="rounded-circle border-0 mx-auto mt-1" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4"></td>
+              </tr>
+            </tbody>
+          </table>
+          
+      <% if @response.first == "." %>          
+          <div for=". first col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for=". first col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+     <% end %>
+            <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>  
+                <td class="align-middle fs-4">.</td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+          
+        </div>
+        
+        <div class="col border border-3 px-0">
+          
+      <% if @response.second == "/" %> 
+          <div for="/ second col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for="/ second col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+      <% end %>
+          <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>
+                <td class="align-middle fs-4">/</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          
+      <% if @response.second == "." %>   
+          <div for=". second col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for=". second col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+      <% end %>
+          <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>     
+                <td class="align-middle fs-4">.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+          
+        </div>
+        
+        <div class="col border border-3 px-0">
+          
+      <% if @response.third == "/" %> 
+          <div for="/ third col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for="/ third col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+      <% end %>
+          <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>  
+                <td class="align-middle fs-4">/</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          
+      <% if @response.third == "." %>   
+          <div for=". third col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for=". third col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+      <% end %>
+          <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4">.</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          
+        </div>
+        
+        
+        <div class="col border border-3 px-0">
+          
+          <table class="rounded-circle border-0 mx-auto mt-1" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4"></td>
+              </tr>
+            </tbody>
+          </table>
+          
+      <% if @response.fourth == "." %>   
+          <div for=". fourth col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for=". fourth col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+      <% end %>
+          <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>
+                <td class="align-middle fs-4">.</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+      <div class="row border-2 border-start border-end border-bottom" >
+        
+        <div class="col border border-3 px-0">
+
+          <div for="eraser" class="disabled rounded-circle border-0 btn btn-warning pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+            <table class="rounded-circle border-0 justify-content-center" style="cursor: auto; height: 40px; width: 40px">
+              <tbody>
+                <tr>            
+                  <td class="align-middle fs-5">AC</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+            
+          <% (1..9).to_a.each do |num| %>
+        <% if @response.first == num.to_s %>  
+            <div for="<%= num %> first col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+        <% else %>
+            <div for="<%= num %> first col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+        <% end %>      
+              <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+                <tbody>
+                  <tr>            
+                    <td class="align-middle fs-4"><%= num %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          <% end %>
+          
+        </div>
+        
+        <div class="col border border-3 px-0">
+          <% (0..9).to_a.each do |num| %>
+        <% if @response.second == num.to_s %>  
+            <div for="<%= num %> second col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+        <% else %>
+            <div for="<%= num %> second col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+        <% end %>  
+              <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+              <tbody>
+                <tr>
+                  <td class="align-middle fs-4"><%= num %></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="col border border-3 px-0">
+          <% (0..9).to_a.each do |num| %>
+        <% if @response.third == num.to_s %>  
+            <div for="<%= num %> third col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+        <% else %>
+            <div for="<%= num %> third col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+        <% end %>  
+              <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+              <tbody>
+                <tr>   
+                  <td class="align-middle fs-4"><%= num %></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col border border-3 px-0">
+          <% (0..9).to_a.each do |num| %>
+        <% if @response.fourth == num.to_s %>  
+            <div for="<%= num %> fourth col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+        <% else %>
+            <div for="<%= num %> fourth col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+        <% end %> 
+              <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+              <tbody>
+                <tr>   
+                  <td class="align-middle fs-4"><%= num %></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!--#########################################################-->
+
+<% if !@response.correct %> 
+<div class="col-6">   
+     <div class="text-center col-sm-9 col-md-11 col-xxl-8  mx-auto flex-row">
+   
+    <div class="row border-2 border-end border-start border-top">
+      
+        <div class="col border border-3 border-3 px-0">
+          <table class="disabled rounded-2 border border-5 btn-success mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="first input"><%= @question.answers.first.correct_answer.split("")[0].to_s %></td>
+              </tr>
+            </tbody>
+          </table>          
+        </div>
+        <div class="col border border-3 border-3 px-0">
+          <table class="disabled rounded-2 border border-5 btn-success mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="second input"><%= @question.answers.first.correct_answer.split("")[1].to_s %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col border border-3 border-3 px-0">
+         <table class="disabled rounded-2 border border-5 btn-success mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="third input"><%= @question.answers.first.correct_answer.split("")[2].to_s %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col border border-3 border-3 px-0">
+          <table class="disabled rounded-2 border border-5 btn-success mx-auto my-1" style="opacity: .65; height: 50px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4" id="fourth input"><%= @question.answers.first.correct_answer.split("")[3].to_s %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        
+      
+      <div class="row border-2 border-start border-end" >
+        <div class="col border border-3 px-0">
+          
+          <table class="rounded-circle border-0 mx-auto mt-1" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4"></td>
+              </tr>
+            </tbody>
+          </table>
+          
+      <% if @question.answers.first.correct_answer.split("")[0].to_s == "." %>          
+          <div for=". first col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for=". first col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+     <% end %>
+            <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>  
+                <td class="align-middle fs-4">.</td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+          
+        </div>
+        
+        <div class="col border border-3 px-0">
+          
+      <% if @question.answers.first.correct_answer.split("")[1].to_s == "/" %> 
+          <div for="/ second col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for="/ second col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+      <% end %>
+          <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>
+                <td class="align-middle fs-4">/</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          
+      <% if @question.answers.first.correct_answer.split("")[1].to_s == "." %>   
+          <div for=". second col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for=". second col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+      <% end %>
+          <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>     
+                <td class="align-middle fs-4">.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+          
+        </div>
+        
+        <div class="col border border-3 px-0">
+          
+      <% if @question.answers.first.correct_answer.split("")[2].to_s == "/" %> 
+          <div for="/ third col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for="/ third col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+      <% end %>
+          <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>  
+                <td class="align-middle fs-4">/</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          
+      <% if @question.answers.first.correct_answer.split("")[2].to_s == "." %>   
+          <div for=". third col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for=". third col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+      <% end %>
+          <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4">.</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          
+        </div>
+        
+        
+        <div class="col border border-3 px-0">
+          
+          <table class="rounded-circle border-0 mx-auto mt-1" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>            
+                <td class="align-middle fs-4"></td>
+              </tr>
+            </tbody>
+          </table>
+          
+      <% if @question.answers.first.correct_answer.split("")[3].to_s == "." %>   
+          <div for=". fourth col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+      <% else %>
+          <div for=". fourth col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+      <% end %>
+          <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+            <tbody>
+              <tr>
+                <td class="align-middle fs-4">.</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+      <div class="row border-2 border-start border-end border-bottom" >
+        
+        <div class="col border border-3 px-0">
+
+          <div for="eraser" class="disabled rounded-circle border-0 btn btn-warning pt-0 mt-1 px-0" style="height: 40px; width: 40px">
+            <table class="rounded-circle border-0 justify-content-center" style="cursor: auto; height: 40px; width: 40px">
+              <tbody>
+                <tr>            
+                  <td class="align-middle fs-5">AC</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+            
+          <% (1..9).to_a.each do |num| %>
+        <% if @question.answers.first.correct_answer.split("")[0].to_s == num.to_s %>  
+            <div for="<%= num %> first col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+        <% else %>
+            <div for="<%= num %> first col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+        <% end %>      
+              <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+                <tbody>
+                  <tr>            
+                    <td class="align-middle fs-4"><%= num %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          <% end %>
+          
+        </div>
+        
+        <div class="col border border-3 px-0">
+          <% (0..9).to_a.each do |num| %>
+        <% if @question.answers.first.correct_answer.split("")[1].to_s == num.to_s %>  
+            <div for="<%= num %> second col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+        <% else %>
+            <div for="<%= num %> second col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+        <% end %>  
+              <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+              <tbody>
+                <tr>
+                  <td class="align-middle fs-4"><%= num %></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="col border border-3 px-0">
+          <% (0..9).to_a.each do |num| %>
+        <% if @question.answers.first.correct_answer.split("")[2].to_s == num.to_s %>  
+            <div for="<%= num %> third col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+        <% else %>
+            <div for="<%= num %> third col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+        <% end %>  
+              <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+              <tbody>
+                <tr>   
+                  <td class="align-middle fs-4"><%= num %></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col border border-3 px-0">
+          <% (0..9).to_a.each do |num| %>
+        <% if @question.answers.first.correct_answer.split("")[3].to_s == num.to_s %>  
+            <div for="<%= num %> fourth col" class="disabled rounded-circle border-0 btn btn-dark pt-0 mt-1 px-0 " style="cursor: auto; height: 40px; width: 40px">
+        <% else %>
+            <div for="<%= num %> fourth col" class="disabled rounded-circle border-0 btn btn-secondary pt-0 mt-1 px-0" style="cursor: auto; height: 40px; width: 40px">
+        <% end %> 
+              <table class="rounded-circle border-0 justify-content-center" style="height: 40px; width: 40px">
+              <tbody>
+                <tr>   
+                  <td class="align-middle fs-4"><%= num %></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+ 
+    </div> 
+      
+  </div>
+       
+  </div>
+<% end %>
