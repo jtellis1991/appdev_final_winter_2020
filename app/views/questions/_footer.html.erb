@@ -7,7 +7,6 @@
           <i class="fas fa-sign-out-alt fa-2x link-secondary"></i>
         </a>
         </div>
-        
       <div class="col d-flex justify-content-center">
         <% @test.questions.each_with_index do |question, index| %>
         
@@ -17,6 +16,20 @@
             <li class="page-item active text-center" style="width: 35px">
               <label for="<%="path " + @test.questions[index].id.to_s %>" class="visually-hidden"></label> 
               <input class="page-link active m-0" id="<%="path " + @test.questions[index].id.to_s %>"
+              value="<%= index + 1 %>" name="direction" type="submit" form="response_form" style="width: 35px">
+              </input>
+            </li>
+          </ul>
+        </div>
+        
+      <%elsif !@responses.where(:question_id => question.id).first.nil? && @responses.where(:question_id => question.id).first.choices.first.nil? && 
+      ( @responses.where(:question_id => question.id).first.first.blank? && @responses.where(:question_id => question.id).first.second.blank? && @responses.where(:question_id => question.id).first.third.blank? && @responses.where(:question_id => question.id).first.fourth.blank? )%>
+        
+        <div class="col px-0" >
+          <ul class="pagination pagination-sm my-auto nav" >
+            <li class="page-item text-center" style="width: 35px">
+              <label for="<%="path " + @test.questions[index].id.to_s %>" class="visually-hidden"></label> 
+              <input class="page-link bg-warning text-light m-0" id="<%="path " + @test.questions[index].id.to_s %>"
               value="<%= index + 1 %>" name="direction" type="submit" form="response_form" style="width: 35px">
               </input>
             </li>
@@ -38,11 +51,14 @@
         
       <%else%>
         
-        <div class="col px-0">
-          <ul class="pagination pagination-sm my-auto nav">
-            <li class="page-item text-center" style="width: 35px"><a class="page-link" 
-            href=<%= test_question_path(@test.id, @test.questions[index].id) %>>
-            <%= index + 1 %></a></li>
+        <div class="col px-0" >
+          <ul class="pagination pagination-sm my-auto nav" >
+            <li class="page-item text-center" style="width: 35px">
+              <label for="<%="path " + @test.questions[index].id.to_s %>" class="visually-hidden"></label> 
+              <input class="page-link text-primary m-0" id="<%="path " + @test.questions[index].id.to_s %>"
+              value="<%= index + 1 %>" name="direction" type="submit" form="response_form" style="width: 35px">
+              </input>
+            </li>
           </ul>
         </div>
         
@@ -50,11 +66,20 @@
       <% end %>
       </div>
   
-        
+      <% if @responses.count >= @test.questions.count %>
+          <div class="col text-nowrap text-end">
+          <button class="btn btn-primary btn-lg" type="submit" form="response_form">
+            Submit Test 
+            </button>
+          
+      <% else %>
+      
         <div class="col text-nowrap text-end">
           <button class="btn btn-primary btn-lg" type="submit" form="response_form">
             Next <i class="fas fa-chevron-circle-right fa-1x"></i>
           </button>
+      
+      <% end %>
           
       </div>
     </div>

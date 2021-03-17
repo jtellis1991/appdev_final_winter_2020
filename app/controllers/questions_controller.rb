@@ -37,6 +37,16 @@ class QuestionsController < ApplicationController
         unanswered.push(question.id)
       end 
     end 
+    
+    if unanswered.at(0).nil?
+      @test.questions.each_with_index do |question, index|
+        response = @responses.where(:question_id => question.id).first
+        if response.choices.first.nil? && response.first.nil? && response.second.nil? && response.third.nil? && response.fourth.nil?
+          unanswered.push(question.id)
+        end 
+      end 
+    end
+    
     @next_question = unanswered.at(0)
     
     render( { :template =>  "questions/index.html.erb" })
