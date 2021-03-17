@@ -1,6 +1,7 @@
 class ResponsesController < ApplicationController
   
   def create
+    raise
   @response = Response.new
   @test_attempt = TestAttempt.find(params[:test_attempt][:id])
   @user = User.find(params[:user][:id])
@@ -16,6 +17,9 @@ class ResponsesController < ApplicationController
         @response.correct = false
       end 
     end 
+    if @response.choices.first.nil?
+      @response.correct = false
+    end
     if @response.correct.nil?
       @response.correct = true
     end
@@ -54,18 +58,18 @@ class ResponsesController < ApplicationController
   
   @response.save!
   
-  @test.questions.each_with_index do |question, index|
-    if question.id == @question.id
-      @next_question = @test.questions[index + 1]
+  if params[:direction].nil?
+    @test.questions.each_with_index do |question, index|
+      if question.id == @question.id
+        @next_question = @test.questions[index + 1]
+      end 
     end 
-  end 
+  else
+    @next_question = Question.find(params[:direction])
+  end
   
   redirect_to(test_question_path(@test.id, @next_question.id))
   end
-  
-  
-  
-  
   
   def update
   @response = Response.find(params[:id])
@@ -82,6 +86,9 @@ class ResponsesController < ApplicationController
         @response.correct = false
       end 
     end 
+    if @response.choices.first.nil?
+      @response.correct = false
+    end
     if @response.correct.nil?
       @response.correct = true
     end
@@ -115,11 +122,15 @@ class ResponsesController < ApplicationController
   @response.milliseconds_elapsed = params[:milliseconds]
   @response.save!
   
-  @test.questions.each_with_index do |question, index|
-    if question.id == @question.id
-      @next_question = @test.questions[index + 1]
+  if params[:direction].nil?
+    @test.questions.each_with_index do |question, index|
+      if question.id == @question.id
+        @next_question = @test.questions[index + 1]
+      end 
     end 
-  end 
+  else
+    @next_question = Question.find(params[:direction])
+  end
     
   redirect_to(test_question_path(@test.id, @next_question.id))
   end

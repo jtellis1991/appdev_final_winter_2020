@@ -14,9 +14,12 @@
         <% if @test.questions[index].id == @question.id %>
         <div class="col px-0">
           <ul class="pagination pagination-sm my-auto nav">
-            <li class="page-item active text-center" style="width: 35px"><a class="page-link active" 
-            href=<%= test_question_path(@test.id, @test.questions[index].id) %>>
-            <%= index + 1 %></a></li>
+            <li class="page-item active text-center" style="width: 35px">
+              <label for="<%="path " + @test.questions[index].id.to_s %>" class="visually-hidden"></label> 
+              <input class="page-link active m-0" id="<%="path " + @test.questions[index].id.to_s %>"
+              value="<%= index + 1 %>" name="direction" type="submit" form="response_form" style="width: 35px">
+              </input>
+            </li>
           </ul>
         </div>
         
@@ -24,9 +27,12 @@
         
         <div class="col px-0" >
           <ul class="pagination pagination-sm my-auto nav" >
-            <li class="page-item text-center" style="width: 35px"><a class="page-link bg-secondary text-light" 
-            href=<%= test_question_path(@test.id, @test.questions[index].id) %>>
-            <%= index + 1 %></a></li>
+            <li class="page-item text-center" style="width: 35px">
+              <label for="<%="path " + @test.questions[index].id.to_s %>" class="visually-hidden"></label> 
+              <input class="page-link bg-secondary text-light m-0" id="<%="path " + @test.questions[index].id.to_s %>"
+              value="<%= index + 1 %>" name="direction" type="submit" form="response_form" style="width: 35px">
+              </input>
+            </li>
           </ul>
         </div>
         
