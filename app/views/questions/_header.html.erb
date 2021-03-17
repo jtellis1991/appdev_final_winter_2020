@@ -7,6 +7,7 @@
                   <span class="fs-4 fw-bold align-text-bottom" id="font-logo">SATsucceed</span>
             </div>
         </a>
+        
         <div class="justify-content-end">
           
                 <!--<li class="nav-item px-2">-->
@@ -22,7 +23,7 @@
             
             <li class="nav-item px-2 h5 m-0">
               <p class="text-center m-0" id="stopwatch">
-                00:00
+                <%= @clock %>
               </p>
             </li>
                       
@@ -64,8 +65,9 @@
 
   <script>
     // function stopwatch() {
-      var m=0;
-      var s=0;
+      var m=<%= @mins %>;
+      var s=<%= @secs %>;
+      
       
       disp();
       tm = window.setInterval('disp()',1000);

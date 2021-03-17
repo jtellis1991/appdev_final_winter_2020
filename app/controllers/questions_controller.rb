@@ -50,10 +50,37 @@ class QuestionsController < ApplicationController
     @strategies = @user.strategies
     @test_attempt = TestAttempt.where(:test_id => @test.id).where(:user_id => @user.id).last
     @response = @test_attempt.responses.where(:question_id => @question.id).last
+    if !@response.nil? 
+      @minutes = @response.milliseconds_elapsed / 60000
+      @seconds = @response.milliseconds_elapsed % 60000 / 1000
+      
+      if @seconds < 10 
+        @secs = "0" + @seconds.to_s
+      else
+        @secs = @seconds.to_s
+      end 
+      if @minutes < 10 
+        @mins = "0" + @minutes.to_s
+      else
+        @mins = @minutes.to_s
+      end 
+      @clock = @mins + ":" + @secs
+    else
+      @clock = "00:00"
+      @seconds = 0;
+      @minutes = 0;
+      @secs = 0;
+      @mins = 0;
+    end
+    
     if @response.nil?
     @response = Response.new
     end
     @responses = @test_attempt.responses
+    
+
+      
+    
     
     render( { :template =>  "questions/show.html.erb" })
   end

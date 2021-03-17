@@ -5,9 +5,9 @@
   <% if @response.options.first == option && option.correct %>
   
         <div class="row py-2 border-top border-light border-5 rounded " >
-        <div class="btn border-0 text-start d-flex align-items-center bg-success" style="cursor: auto">
+        <div class="btn disabled border-0 text-start d-flex align-items-center bg-success" style="cursor: auto">
             <div class="badge rounded-3 d-block bg-light fs-4" style="width: 50px">
-             <span class="align-text-top text-secondary m-0"><%= @letters[letter] %></span>
+             <span class="align-text-top text-dark m-0"><%= @letters[letter] %></span>
             </div>
          <div class="col pb-1">
             <span class="fs-4 text-light d-inline-block border-0 ps-4">
@@ -20,9 +20,9 @@
   <% elsif option.correct %>
   
       <div class="row py-2 border-top border-light border-5 rounded " >
-        <div class="btn border-0 text-start d-flex align-items-center bg-success" style="cursor: auto">
+        <div class="btn disabled border-0 text-start d-flex align-items-center bg-success" style="cursor: auto">
             <div class="badge rounded-3 d-block bg-light fs-4" style="width: 50px">
-             <span class="align-text-top text-secondary m-0"><%= @letters[letter] %></span>
+             <span class="align-text-top text-dark m-0"><%= @letters[letter] %></span>
             </div>
          <div class="col pb-1">
             <span class="fs-4 text-light d-inline-block border-0 ps-4">
@@ -35,9 +35,9 @@
     <% elsif @response.options.first == option && !option.correct %>
   
         <div class="row py-2 border-top border-light border-5 rounded " >
-        <div class="btn border-0 text-start d-flex align-items-center bg-danger" style="cursor: auto">
+        <div class="btn disabled border-0 text-start d-flex align-items-center bg-danger" style="cursor: auto">
             <div class="badge rounded-3 d-block bg-light fs-4" style="width: 50px">
-             <span class="align-text-top text-secondary m-0"><%= @letters[letter] %></span>
+             <span class="align-text-top text-dark m-0"><%= @letters[letter] %></span>
             </div>
          <div class="col pb-1">
             <span class="fs-4 text-light d-inline-block border-0 ps-4">
