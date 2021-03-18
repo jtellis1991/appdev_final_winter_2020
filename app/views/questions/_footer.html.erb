@@ -68,9 +68,11 @@
   
       <% if @responses.count >= @test.questions.count %>
           <div class="col text-nowrap text-end">
-          <button class="btn btn-primary btn-lg" type="submit" form="response_form">
+          <button class="btn btn-info btn-lg" 
+                  data-bs-toggle="modal" data-bs-target="#submitBackdrop"
+                  value="Stop" onclick="to_start()">
             Submit Test 
-            </button>
+          </button>
           
       <% else %>
       
@@ -80,6 +82,38 @@
           </button>
       
       <% end %>
+      
+          <!-- Modal -->
+    <div class="modal fade" id="submitBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="submitBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fs-2" id="submitBackdropLabel">Are You Sure You Want to Submit Your Test?</h5>
+            <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+          </div>
+          <div class="modal-body flex-fill fs-4 text-center fw-bold">
+            Once submitted, you cannot change your answers.
+          </div>
+          <div class="modal-footer d-flex justify-content-around">
+            <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+            
+           <div>  
+            <button class="btn btn-info btn-lg" name="direction" value="scorefa-9x" type="submit" form="response_form">
+            Submit Test 
+            </button>
+          </div>  
+            
+          <div>  
+            <button type="button" class="btn btn-lg btn-warning mx-auto" data-bs-dismiss="modal" onclick="to_start()" value="Start">
+            Return to Test
+            </button>
+          </div>  
+            
+          </div>
+        </div>
+      </div>
+    </div>
+      
           
       </div>
     </div>

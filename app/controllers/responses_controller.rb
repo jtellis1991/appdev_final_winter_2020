@@ -11,18 +11,12 @@ class ResponsesController < ApplicationController
   if @style.name == "math select one"
   
     @options = @question.options.where(:value => params[:option])
-    @options.each do |option|
-      if option.correct == false
-        @response.correct = false
-      end 
-    end 
+    @response.options = @options
     if @response.choices.first.nil?
       @response.correct = false
+    else
+      @response.correct = @response.choices.first.option.correct
     end
-    if @response.correct.nil?
-      @response.correct = true
-    end
-    @response.options = @options
       
   else
     @answers = @question.answers
@@ -76,22 +70,17 @@ class ResponsesController < ApplicationController
   @question = Question.find(params[:question][:id])
   @test = @question.test
   @style = @question.style
-  @response.correct = nil
   
   if @style.name == "math select one"
     @options = @question.options.where(:value => params[:option])
-    @options.each do |option|
-      if option.correct == false
-        @response.correct = false
-      end 
-    end 
+    @response.options = @options
     if @response.choices.first.nil?
       @response.correct = false
+    else
+      @response.correct = @response.choices.first.option.correct
     end
-    if @response.correct.nil?
-      @response.correct = true
-    end
-    @response.options = @options
+    
+    
     
   else
     @answers = @question.answers
@@ -129,17 +118,26 @@ class ResponsesController < ApplicationController
       if @next_question.nil?
         @next_question = @test.questions.first
       end
-    end 
+    end
+    redirect_to(test_question_path(@test.id, @next_question.id))
+  elsif params[:direction] == "score"
+    i = 0
+    @test_attempt.responses.each do |response|
+      if response.correct
+        i = i+1
+      end 
+    end
+    @test_attempt.update_attribute(:score, i)
+    redirect_to(test_responses_path(@test.id))
   else
     @next_question = Question.find(params[:direction])
+    redirect_to(test_question_path(@test.id, @next_question.id))
   end
-    
-  redirect_to(test_question_path(@test.id, @next_question.id))
+  
   end
   
   
   def index
-  # raise
   @user = current_user
   @test = Test.find(params[:test_id])
   @questions = @test.questions

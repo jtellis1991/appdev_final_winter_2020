@@ -7,14 +7,12 @@
   
     <!--<div class="btn-group-justified btn-group-toggle">-->
     
-    <% @tests.each do |test| %>
-    
-
+    <% @test_attempts.each do |test_attempt| %>
       
-            <div class="row py-2 border-bottom border-top border-light border-5 rounded" >
+            <div class="row py-2 border-top border-light border-5 rounded" >
         <!--  <input type="radio" id="?" name="option" value="I don't know"-->
         <!--class="btn-check d-none">-->
-        <a href="/tests/<%= test.id %>/responses/"
+        <a href="/tests/<%= test_attempt.test.id %>/responses/"
         class="btn btn-outline-info border-0 text-start d-flex align-items-center py-0">
           
         <div class="col-1">  
@@ -30,34 +28,34 @@
         <div class="col">  
             <div class="row flex-fill gx-0 py-0">
                <span class="fs-4 text-dark d-inline-block ps-4">
-                <%= test.name %>
+                <%= test_attempt.test.name %>
                 </span>
               </div>
             
             <div class="row flex-fill gx-0 py-0">
                 <span class="fs-5 text-dark d-inline-block ps-4">
-                Raw Score: ---
+                Raw Score: <%= test_attempt.score %>
                 </span>
             </div>
         </div>  
         
             <div class="col-2">  
                <span class="fs-5 text-dark d-inline-block ps-4">
-                Scaled Score: ---
+                Scaled Score: <%= (test_attempt.score.to_f / 20.0 * 58 *10.345 + 200).round() %>
                 </span>
             </div> 
             
             <div class="col-2">  
                 <span class="fs-5 text-dark d-inline-block ps-4">
-                Pie Image
+                <%= (test_attempt.score.to_f / 20 * 100).round() %>% correct
                 </span>
             </div>
          
-        
+        </a>
         </div>
-      </a>
+ 
       
  <% end %>
-     <!--</div>-->
+      <div class="row py-2 border-top border-light border-5 rounded" ></div?
    </div>
 </div>

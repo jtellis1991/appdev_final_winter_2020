@@ -1,3 +1,5 @@
+  <% if @user.test_attempts.first.score.nil? %>  
+    
     <div class="col-8 text-center mx-auto p-5 border border-light border-5 rounded ">
       <h1>Welcome to SATsucceed</h1>
       <p class="fs-4">Complete the evaluation test before your training can begin!</p>
@@ -5,9 +7,125 @@
       <% if @test_attempts.empty? %>
            <%= link_to "Begin Assessment", test_questions_path(1) , class: "btn btn-lg btn-warning 
             col-8" %>
-      <% else %>
+      <% elsif @test_attempts.first.responses.count == @test_attempts.first.test.questions.count %>
+           <%= link_to "Continue Assessment", test_question_path(1, 1) , class: "btn btn-lg btn-warning 
+            col-8" %>
+      <% else %>  
            <%= link_to "Continue Assessment", test_questions_path(1) , class: "btn btn-lg btn-warning 
             col-8" %>
       <% end %>
             
     </div>
+    
+  <% else %> 
+  
+  <div class="row flex-fill gx-0 py-0">
+  <div class="col-lg-12 px-5 border-light border-5 rounded">
+
+  
+   <h1>Select a Test</h1>
+    
+    <% @tests.each do |test| %>
+    
+    <% if !@test_attempts.where(:test_id => test.id).first.nil? %>
+      
+            <div class="row py-2 border-top border-light border-5 rounded" >
+        <!--  <input type="radio" id="?" name="option" value="I don't know"-->
+        <!--class="btn-check d-none">-->
+        <a href="/tests/<%= test.id %>/responses/"
+        class="btn btn-outline-info border-0 text-start d-flex align-items-center py-0">
+          
+        <div class="col-1">  
+          <table class="rounded-circle border-0 bg-secondary text-center" style="height: 40px; width: 40px">
+           <tbody>
+              <tr>
+                <td class="align-middle fs-4"><i class="fas fa-check"></i></td>
+              </tr>
+            </tbody>
+           </table>
+        </div>
+      
+        <div class="col">  
+            <div class="row flex-fill gx-0 py-0">
+               <span class="fs-4 text-dark d-inline-block ps-4">
+                <%= test.name %>
+                </span>
+              </div>
+            
+            <div class="row flex-fill gx-0 py-0">
+                <span class="fs-5 text-dark d-inline-block ps-4">
+                Raw Score: <%= @test_attempts.where(:test_id => test.id).first.score %>
+                </span>
+            </div>
+        </div>  
+        
+            <div class="col-2">  
+               <span class="fs-5 text-dark d-inline-block ps-4">
+                Scaled Score: <%= (@test_attempts.where(:test_id => test.id).first.score.to_f / 20.0 * 58 *10.345 + 200).round() %>
+                </span>
+            </div> 
+            
+            <div class="col-2">  
+                <span class="fs-5 text-dark d-inline-block ps-4">
+                <%= (@test_attempts.where(:test_id => test.id).first.score.to_f / 20 * 100).round() %>% correct
+                </span>
+            </div>
+         
+        </a>
+        </div>
+ 
+   <% else %>
+   
+         
+            <div class="row py-2 border-top border-light border-5 rounded" >
+        <!--  <input type="radio" id="?" name="option" value="I don't know"-->
+        <!--class="btn-check d-none">-->
+        <a href="/tests/<%= test.id %>/questions/"
+        class="btn btn-outline-info border-0 text-start d-flex align-items-center py-0">
+          
+        <div class="col-1">  
+          <table class="rounded-circle border-0 bg-secondary text-center" style="height: 40px; width: 40px">
+           <tbody>
+              <tr>
+                <td class="align-middle fs-4"><i class="far fa-circle"></i></td>
+              </tr>
+            </tbody>
+           </table>
+        </div>
+      
+        <div class="col">  
+            <div class="row flex-fill gx-0 py-0">
+               <span class="fs-4 text-dark d-inline-block ps-4">
+                <%= test.name %>
+                </span>
+              </div>
+            
+            <div class="row flex-fill gx-0 py-0">
+                <span class="fs-5 text-dark d-inline-block ps-4">
+                Raw Score: ---
+                </span>
+            </div>
+        </div>  
+        
+            <div class="col-2">  
+               <span class="fs-5 text-dark d-inline-block ps-4">
+                Scaled Score: ---
+                </span>
+            </div> 
+            
+            <div class="col-2">  
+                <span class="fs-5 text-dark d-inline-block ps-4">
+                --- % correct
+                </span>
+            </div>
+         
+        </a>
+        </div>
+ 
+   <% end %>
+      
+ <% end %>
+      <div class="row py-2 border-top border-light border-5 rounded" ></div?
+   </div>
+</div>
+  <% end %>

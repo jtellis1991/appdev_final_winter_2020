@@ -16,4 +16,18 @@ class TestAttemptsController < ApplicationController
     
   end
   
+  def update
+    raise
+  @user = current_user
+  @test = Test.find(params[:test][:id])
+  @test_attempt = TestAttempt.where(:user_id => @user.id).first.where(:test_id => @test.id).first
+  @questions = @test.questions
+  @responses = @test_attempt.responses
+
+  
+  @test_attempt.save!
+  redirect_to("/dashboard")
+  end
+  
+  
 end

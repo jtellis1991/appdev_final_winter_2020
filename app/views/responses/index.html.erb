@@ -4,9 +4,8 @@
   <h1>Math - No Calculator</h1>
   <h2>Performance Assessment Test</h2>
   
-  <h2 class="mt-5">Questions Correct: <%= "10 out of 10"  %> </h2>
-  <h2 class="my-3">Raw Score: <%=@test_attempt.score.blank?  %> </h2>
-  <h2 class="mb-5">Scaled Score: <%=@test_attempt.score.blank?  %> </h2>
+  <h2 class="mt-5">Questions Correct: <%= @test_attempt.score.to_s + " out of " + @test_attempt.responses.count.to_s  %> </h2>
+  <h2 class="mb-5">Scaled Score: <%= (@test_attempt.score.to_f / 20.0 * 58 *10.345 + 200).round() %> </h2>
   
     
   
