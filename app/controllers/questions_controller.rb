@@ -24,16 +24,17 @@ class QuestionsController < ApplicationController
     @questions = @test.questions
     @user = current_user
     @test_attempt = TestAttempt.where(:test_id => @test.id).where(:user_id => @user.id).last
-    if @test_attempt.responses.empty?
+    if @test_attempt.nil? || @test_attempt.responses.empty?
       @num_responses = 0
     else
       @num_responses = @test_attempt.responses.count
+      @responses = @test_attempt.responses
     end
     
-    @responses = @test_attempt.responses
+    
     unanswered = Array.new
     @questions.each do |question|
-      if @test_attempt.responses.where(:question_id => question.id).first.nil?
+      if @test_attempt.nil? || @test_attempt.responses.where(:question_id => question.id).first.nil?
         unanswered.push(question.id)
       end 
     end 
@@ -58,6 +59,10 @@ class QuestionsController < ApplicationController
     @letters = ('A'..'Z').to_a
     @user = current_user
     @strategies = @user.strategies
+    if @strategies.first.nil?
+      @user.strategies = Strategy.all
+      @user.save!
+    end
     @test_attempt = TestAttempt.where(:test_id => @test.id).where(:user_id => @user.id).last
     @response = @test_attempt.responses.where(:question_id => @question.id).last
     if !@response.nil? 

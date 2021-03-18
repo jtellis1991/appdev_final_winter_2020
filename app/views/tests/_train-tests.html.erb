@@ -1,4 +1,4 @@
-  <% if @user.test_attempts.first.score.nil? %>  
+  <% if @score.nil? %>  
     
     <div class="col-8 text-center mx-auto p-5 border border-light border-5 rounded ">
       <h1>Welcome to SATsucceed</h1>
@@ -74,7 +74,7 @@
         </a>
         </div>
  
-   <% else %>
+   <% else  %>
    
          
             <div class="row py-2 border-top border-light border-5 rounded" >
@@ -121,7 +121,8 @@
          
         </a>
         </div>
- 
+        
+  
    <% end %>
       
  <% end %>

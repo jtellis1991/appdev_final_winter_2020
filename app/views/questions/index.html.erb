@@ -1,13 +1,13 @@
 <!--<div class="row flex-fill gx-0 py-4">-->
     <div class="col-6 text-center mx-auto mt-5 p-5 border border-light border-5 rounded">
   
-  <h1>Math - No Calculator</h1>
-  <h2>SAT Test Section Performance Assessment</h2>
+  <h1><%= @test.name.split("|")[0].strip %></h1>
+  <h2><%= @test.name.split("|")[1].strip %></h2>
   
   <p class="text-start ms-5">
       <br> 
-    You are about to take the initial assessment. 
-    This test will determine your expected test score for the SAT Math - No Calculator Section.
+    You are about to take the <span class="fw-bold"><%= @test.name.gsub("|", " ") %></span>.
+    This test will determine your expected test score for the <span class="fw-bold"><%= @test.name.split("|")[0].strip %></span> section.
     This test has <span class="fw-bold"><%=@test.questions.count%></span> questions. You may exit the test at any time and resume from where you left off.
   </p>
   

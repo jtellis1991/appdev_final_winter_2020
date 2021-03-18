@@ -20,7 +20,7 @@
       <% end %>  
     
    
-  <% if !@test_attempts.first.score.to_s.empty? %>
+  <% if !@score.to_s.empty? %>
    
      <!--if user has completed the first test, open up the apps views-->
         
@@ -74,18 +74,18 @@
      
    <% end %>  
     
-  <% elsif @test_attempts.first.score.to_s.empty? && !request.path.match("/dashboard/account").nil?  %>
+  <% elsif @score.to_s.empty? && !request.path.match("/dashboard/account").nil?  %>
   
     <%= render 'devise/registrations/edit' %>  
     
-  <% elsif @test_attempts.first.score.to_s.empty? && !request.path.match("/dashboard/review/strategies").nil?  %>
+  <% elsif @score.to_s.empty? && !request.path.match("/dashboard/review/strategies").nil?  %>
   
     <%= render 'strategies/review-strategies' %>
     
     
-  <% elsif @test_attempts.first.score.to_s.empty? && !request.path.match("/dashboard/review/results").nil?  %>
+  <% elsif @score.to_s.empty? && !request.path.match("/dashboard/review/results").nil?  %>
   
-    <%= render 'test_attempts/review-results' %> 
+    <%= render 'tests/train-tests' %>
   
   <% else %>
    <!--if user has not completed the first test, all dashboard pages show same page-->

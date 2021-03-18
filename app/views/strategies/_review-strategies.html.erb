@@ -30,7 +30,7 @@
           
       <div class="nav flex-column align-items-start col-6">
         
-          <%= form_with model: @user, :id => "strategies form" do |form| %>
+          <%= form_with model: @user, :id => "strategies_form" do |form| %>
           
           
           <% @strategies.each_with_index do |strategy, index| %> 
@@ -39,9 +39,9 @@
                 <input class="form-check-input" type="checkbox" 
                        name=<%= strategy.name.gsub(" ", "_") %>  
                        id=<%= strategy.name.gsub(" ", "_") %> 
-                       <% if strategy.users.where( :id => @user.id).first.to_s.empty? %>
+                       <% if strategy.id > 1 %>
                        disabled
-                       <% elsif strategy.users.where( :id => 2).first.activations.first.active == true %>
+                       <% elsif strategy.users.where( :id => @user.id).first.activations.first.active == true %>
                        checked
                        <% else %>
                        <% end %>
@@ -62,7 +62,7 @@
           
           </div>
               <div class="col-6 mx-auto text-center mt-3">
-                  <button class="btn btn-primary btn-lg" type="submit" form="strategies form">
+                  <button class="btn btn-primary btn-lg" type="submit" form="strategies_form">
                     Save Changes
                   </button>
               </div>

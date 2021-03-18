@@ -18,7 +18,7 @@
     <input type="text" value="<%= @user.id %>" name="user[id]" id="user id" class="visually-hidden">
   
     <div class="col-8 d-grid mx-auto text-center pt-1">
-      <%= link_to "Review Test", test_response_path(@test.id, @responses.where(:question_id => @questions.first.id ).first), :class => "btn btn-lg btn-primary" %>
+      <%= link_to "Review Test", test_response_path(@test.id, @responses.where(:question_id => 1 ).first), :class => "btn btn-lg btn-primary" %>
     </div>
     
       <% end %>

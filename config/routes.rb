@@ -4,6 +4,27 @@ Rails.application.routes.draw do
       resources :responses, :name_prefix => "test_"
   end
   
+  # Routes for the User model
+  devise_for :users, controllers: { registrations:      "registrations", 
+                                       sessions:           "sessions",
+                                       confirmations:      "confirmations",
+                                       passwords:          "passwords",
+                                      # unlocks:            "unlocks",
+                                     }
+  
+  devise_scope :user do 
+    get       'signup',             to: 'devise/registrations#new',   as: :signup
+    get       'settings',           to: 'devise/registrations#edit',  as: :settings
+    get       'login',              to: 'devise/sessions#new',        as: :login
+    post      'login',              to: 'devise/sessions#create'     
+    delete    'logout',             to: 'devise/sessions#destroy',    as: :logout
+    get       'unlock_account',     to: 'unlocked#new',               as: :unlocked
+    post      'unlock_account',     to: 'unlocked#create'
+    get       'users/unlocked',     to: 'unlocked#show',              as: :unlocking
+    get       'password_reset',     to: 'devise/passwords#new',       as: :reset
+    get       'confirm',            to: 'devise/confirmations#new',   as: :confirm
+  end
+  
   # Routes for the questions model 
   resources :responses, :questions, :answers, :options, :phrases, :test_attempts, :strategies, :activations, :users, id: /[^\/]+/
   # GET	        /questions	          questions#index	    display a list of all questions
@@ -28,26 +49,7 @@ Rails.application.routes.draw do
   get 'about',     to: 'static_pages#about'
   get 'news',      to: 'static_pages#news'
   
-  # Routes for the User model
-  devise_for :users, controllers: { registrations:      "registrations", 
-                                       sessions:           "sessions",
-                                       confirmations:      "confirmations",
-                                       passwords:          "passwords",
-                                      # unlocks:            "unlocks",
-                                     }
-  
-  devise_scope :user do 
-    get       'signup',             to: 'devise/registrations#new',   as: :signup
-    get       'settings',           to: 'devise/registrations#edit',  as: :settings
-    get       'login',              to: 'devise/sessions#new',        as: :login
-    post      'login',              to: 'devise/sessions#create'     
-    delete    'logout',             to: 'devise/sessions#destroy',    as: :logout
-    get       'unlock_account',     to: 'unlocked#new',               as: :unlocked
-    post      'unlock_account',     to: 'unlocked#create'
-    get       'users/unlocked',     to: 'unlocked#show',              as: :unlocking
-    get       'password_reset',     to: 'devise/passwords#new',       as: :reset
-    get       'confirm',            to: 'devise/confirmations#new',   as: :confirm
-  end
+
     
   #THIS SECTION IS FOR USER CONTROLLER ROUTES 
     get("/dashboard", { :controller => "users", :action => "show"})

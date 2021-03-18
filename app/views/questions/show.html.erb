@@ -14,9 +14,8 @@
     <% else %>
   <% end %>  
   
-  
-  <% if @strategies.where( :name => "On Target").first.activations.first.active == true %>
-  
+  <% if @strategies.where( :name => "On Target").first.activations.where( :user_id => @user.id).first.active == true %>
+    
     <p class="fs-5 align-center">
       <span id="question_body" class="blurred d-inline"><%= @question.body.gsub(@question.prompt, "") %></span>
       <span id="question_prompt" onclick="onTarget()" class="btn link-info d-inline fw-bold fs-5 p-0 m-0 align-text-top"><%= @question.prompt %></span>

@@ -48,20 +48,32 @@ class ResponsesController < ApplicationController
   @response.test_attempt = @test_attempt
   @response.user = @user
 
-  
   @response.save!
-  
+    
   if params[:direction].nil?
     @test.questions.each_with_index do |question, index|
-      if question.id == @question.id
+      if question.id == @question.id && @question.id != @test.questions.last.id
         @next_question = @test.questions[index + 1]
       end 
-    end 
+      if @next_question.nil?
+        @next_question = @test.questions.first
+      end
+    end
+    redirect_to(test_question_path(@test.id, @next_question.id))
+  elsif params[:direction] == "score"
+    i = 0
+    @test_attempt.responses.each do |response|
+      if response.correct
+        i = i+1
+      end 
+    end
+    @test_attempt.update_attribute(:score, i)
+    redirect_to(test_responses_path(@test.id))
   else
     @next_question = Question.find(params[:direction])
+    redirect_to(test_question_path(@test.id, @next_question.id))
   end
   
-  redirect_to(test_question_path(@test.id, @next_question.id))
   end
   
   def update
